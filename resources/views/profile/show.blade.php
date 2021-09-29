@@ -9,9 +9,15 @@
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @livewire('profile.update-profile-information-form')
 
+            @if(auth()->user()->role==2)
+                <livewire:profile-teacher/>
+            @elseif(auth()->user()->role==3)
+                <livewire:profile-student/>
+            @endif
+
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                 <x-jet-section-border />
-            
+
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.update-password-form')
                 </div>

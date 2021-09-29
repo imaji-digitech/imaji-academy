@@ -24,6 +24,22 @@ if (!function_exists('eloquent_to_options')) {
         return $arr;
     }
 }
+if (!function_exists('int_to_day')) {
+    function int_to_day($day)
+    {
+        $days = [
+            0 => 'Minggu',
+            1 => 'Senin',
+            2 => 'Selasa',
+            3 => 'Rabu',
+            4 => 'Kamis',
+            5 => 'Jum at',
+            6 => 'Sabtu'
+        ];
+
+        return $days[$day];
+    }
+}
 if (!function_exists('empty_fallback')) {
 
     /**

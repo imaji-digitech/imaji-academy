@@ -16,6 +16,8 @@ class CreateImajiAcademies extends Migration
         Schema::create('imaji_academies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('code');
+            $table->string('village')->nullable();
             $table->timestamps();
         });
     }

@@ -15,12 +15,14 @@ class CreateImajiAcademyFeatureSchedules extends Migration
     {
         Schema::create('feature_schedules', function (Blueprint $table) {
             $table->id();
+            $table->integer('day');
+            $table->string('time');
             $table->unsignedBigInteger('iaf_id');
             $table->timestamps();
             $table->foreign('iaf_id')
                 ->references('id')
                 ->on('imaji_academy_features')
-                ->onDelete('restrict')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
         });
     }

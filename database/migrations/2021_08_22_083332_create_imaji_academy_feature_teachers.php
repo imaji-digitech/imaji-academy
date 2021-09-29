@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImajiAcademyFeatureStudents extends Migration
+class CreateImajiAcademyFeatureTeachers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateImajiAcademyFeatureStudents extends Migration
      */
     public function up()
     {
-        Schema::create('feature_students', function (Blueprint $table) {
+        Schema::create('feature_teachers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('iaf_id');
             $table->unsignedBigInteger('user_id');

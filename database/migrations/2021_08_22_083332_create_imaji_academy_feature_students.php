@@ -21,12 +21,12 @@ class CreateImajiAcademyFeatureStudents extends Migration
             $table->foreign('iaf_id')
                 ->references('id')
                 ->on('imaji_academy_features')
-                ->onDelete('restrict')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('restrict')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
         });
     }

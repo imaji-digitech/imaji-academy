@@ -15,12 +15,20 @@ class CreateImajiAcademyLearningActivities extends Migration
     {
         Schema::create('feature_activities', function (Blueprint $table) {
             $table->id();
+            $table->text('module');
+            $table->text('note')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('iaf_id');
             $table->timestamps();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
             $table->foreign('iaf_id')
                 ->references('id')
                 ->on('imaji_academy_features')
-                ->onDelete('restrict')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
         });
     }

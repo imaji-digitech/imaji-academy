@@ -8,7 +8,7 @@
                     </a>
                 </th>
                 <th><a wire:click.prevent="sortBy('user_id')" role="button" href="#">
-                        Name Siswa
+                        Nama Tutor
                         @include('components.sort-icon', ['field' => 'user_id'])
                     </a>
                 </th>

@@ -16,13 +16,19 @@ class CreateStudents extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('school_id')->nullable();
+            $table->string('school')->nullable();
             $table->integer('class')->nullable();
             $table->string('hobby')->nullable();
             $table->string('future_goal')->nullable();
             $table->string("parent_name")->nullable();
             $table->string("parent_job")->nullable();
             $table->timestamps();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
         });
     }
 

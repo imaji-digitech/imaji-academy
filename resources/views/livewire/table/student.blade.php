@@ -7,17 +7,15 @@
                     @include('components.sort-icon', ['field' => 'id'])
                 </a></th>
                 <th><a wire:click.prevent="sortBy('name')" role="button" href="#">
-                    Name
+                    Nama
                     @include('components.sort-icon', ['field' => 'name'])
                 </a></th>
-                <th><a wire:click.prevent="sortBy('email')" role="button" href="#">
-                    Email
-                    @include('components.sort-icon', ['field' => 'email'])
-                </a></th>
-                <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
-                    Tanggal Dibuat
-                    @include('components.sort-icon', ['field' => 'created_at'])
-                </a></th>
+                <th>
+                    Imaji Academy
+                </th>
+                <th>
+                    Fitur
+                </th>
                 <th>Action</th>
             </tr>
         </x-slot>

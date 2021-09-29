@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header_content">
-        <h1>{{ __('Data Fitur') }}</h1>
+        <h1>{{ __('Data Jadwal Kegiatan') }}</h1>
 
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
@@ -10,6 +10,24 @@
     </x-slot>
 
     <div>
-        <livewire:table.main name="feature" :model="$feature" />
+{{--        <a href="{{ route('admin.schedule.create') }}" class="btn btn-primary mb-3">Tambah</a>--}}
+
+        {{--        <livewire:table.main name="feature" :model="$feature" />--}}
+        <div class="row">
+            @foreach($schedules as $schedule)
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <article class="article article-style-b">
+                        <div class="article-details">
+                            <div class="article-title">
+                                <h2><a href="#">{{$schedule->imajiAcademyFeature->imajiAcademy->title}}</a></h2>
+                                <h6>{{$schedule->imajiAcademyFeature->imajiAcademy->village}}</h6>
+                            </div>
+                            <p>{{ int_to_day($schedule->day) }}</p>
+                            <p>{{ $schedule->time }}</p>
+                        </div>
+                    </article>
+                </div>
+            @endforeach
+        </div>
     </div>
 </x-app-layout>

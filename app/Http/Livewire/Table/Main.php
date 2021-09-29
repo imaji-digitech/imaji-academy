@@ -11,6 +11,7 @@ class Main extends Component
 
     public $model;
     public $name;
+    public $dataId;
 
     public $perPage = 10;
     public $sortField = "id";
@@ -51,97 +52,109 @@ class Main extends Component
                     ])
                 ];
                 break;
-            case 'content':
-                $contents = $this->model::search($this->search)
+            case 'feature':
+                $features = $this->model::search($this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
                 return [
-                    "view" => 'livewire.table.content',
-                    "contents" => $contents,
+                    "view" => 'livewire.table.feature',
+                    "features" => $features,
                     "data" => array_to_object([
                         'href' => [
-                            'create_new' => route('admin.content.create'),
-                            'create_new_text' => 'Create new content',
+                            'create_new' => route('admin.feature.create'),
+                            'create_new_text' => 'Buat Fitur Baru',
                             'export' => '#',
                             'export_text' => 'Export'
                         ]
                     ])
                 ];
                 break;
-            case 'aspect':
-                $aspects = $this->model::search($this->search)
+            case 'imajiAcademy':
+                $imajiAcademys = $this->model::search($this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
                 return [
-                    "view" => 'livewire.table.aspect',
-                    "aspects" => $aspects,
+                    "view" => 'livewire.table.imaji-academy',
+                    "imajiAcademys" => $imajiAcademys,
                     "data" => array_to_object([
                         'href' => [
-                            'create_new' => route('admin.aspect.create'),
-                            'create_new_text' => 'Create new aspect',
+                            'create_new' => route('admin.imaji-academy.create'),
+                            'create_new_text' => 'Buat Fitur Baru',
                             'export' => '#',
                             'export_text' => 'Export'
                         ]
                     ])
                 ];
                 break;
-            case 'pretest-aspect':
-                $aspects = $this->model::search($this->search)
+            case 'iaf':
+                $iafs = $this->model::search($this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
                 return [
-                    "view" => 'livewire.table.pretest-aspect',
-                    "aspects" => $aspects,
+                    "view" => 'livewire.table.iaf',
+                    "iafs" => $iafs,
                     "data" => array_to_object([
                         'href' => [
-                            'create_new' => route('admin.pretest-aspect.create'),
-                            'create_new_text' => 'Create new aspect',
-                            'export' => '#',
-                            'export_text' => 'Export'
+                            'create_new' => route('admin.iaf.create'),
+                            'create_new_text' => 'Tambahkan Fitur pada Imaji Academy',
+
                         ]
                     ])
                 ];
                 break;
-            case 'question':
-                $questions = $this->model::search($this->search)
+            case 'iaf-student':
+                $iafs = $this->model::search($this->dataId,$this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
                 return [
-                    "view" => 'livewire.table.question',
-                    "questions" => $questions,
+                    "view" => 'livewire.table.iaf-student',
+                    "iafs" => $iafs,
                     "data" => array_to_object([
                         'href' => [
-                            'create_new' => route('admin.question.create'),
-                            'create_new_text' => 'Create new question',
-                            'export' => '#',
-                            'export_text' => 'Export'
+                            'create_new' => route('admin.iaf.add-student',$this->dataId),
+                            'create_new_text' => 'Tambahkan siswa',
                         ]
                     ])
                 ];
                 break;
-            case 'pretest-question':
-                $questions = $this->model::search($this->search)
+            case 'iaf-teacher':
+//                dd($this->model::get());
+                $iafs = $this->model::search($this->dataId,$this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+//                dd($iafs);
+
+                return [
+                    "view" => 'livewire.table.iaf-teacher',
+                    "iafs" => $iafs,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('admin.iaf.add-teacher',$this->dataId),
+                            'create_new_text' => 'Tambahkan tutor',
+                        ]
+                    ])
+                ];
+                break;
+            case 'presence':
+                $presences = $this->model::search($this->dataId,$this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
                 return [
-                    "view" => 'livewire.table.pretest-question',
-                    "questions" => $questions,
+                    "view" => 'livewire.table.presence',
+                    "presences" => $presences,
                     "data" => array_to_object([
                         'href' => [
-                            'create_new' => route('admin.pretest-question.create'),
-                            'create_new_text' => 'Create new question',
-                            'export' => '#',
-                            'export_text' => 'Export'
+                            'create_new' => route('admin.presence.create',$this->dataId),
+                            'create_new_text' => 'Lakukan presensi',
                         ]
                     ])
                 ];
                 break;
-
             default:
                 # code...
                 break;
@@ -170,7 +183,6 @@ class Main extends Component
     public function render()
     {
         $data = $this->get_pagination_data();
-
         return view($data['view'], $data);
     }
 }

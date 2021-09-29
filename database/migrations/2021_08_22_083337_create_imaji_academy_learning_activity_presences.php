@@ -13,20 +13,27 @@ class CreateImajiAcademyLearningActivityPresences extends Migration
      */
     public function up()
     {
-        Schema::create('features_activity_presences', function (Blueprint $table) {
+        Schema::create('feature_activity_presences', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('iaf_id');
+            $table->unsignedBigInteger('presence_status_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('feature_activity_id');
+            $table->text('note');
             $table->timestamps();
-            $table->foreign('iaf_id')
+            $table->foreign('feature_activity_id')
                 ->references('id')
-                ->on('imaji_academy_features')
-                ->onDelete('restrict')
+                ->on('feature_activities')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->foreign('presence_status_id')
+                ->references('id')
+                ->on('presence_statuses')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('restrict')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
         });
     }

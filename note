@@ -11,3 +11,17 @@ php artisan make:migration create_imaji_academy_feature_test_student_scores
 php artisan make:migration create_imaji_academy_feature_schedules
 php artisan make:migration create_imaji_academy_learning_activities
 php artisan make:migration create_imaji_academy_learning_activity_presences
+
+php artisan krlove:generate:model Student
+php artisan krlove:generate:model Teacher
+php artisan krlove:generate:model Feature
+php artisan krlove:generate:model ImajiAcademy
+php artisan krlove:generate:model Administrator
+php artisan krlove:generate:model ImajiAcademyStudent
+php artisan krlove:generate:model ImajiAcademyFeature
+php artisan krlove:generate:model FeatureStudent
+php artisan krlove:generate:model FeatureTest
+php artisan krlove:generate:model FeatureTestScore
+php artisan krlove:generate:model FeatureSchedule
+php artisan krlove:generate:model FeatureActivity
+php artisan krlove:generate:model FeatureActivityPresence

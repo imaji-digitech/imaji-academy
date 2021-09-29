@@ -1,29 +1,3 @@
-{{--@php--}}
-{{--$links = [--}}
-{{--    [--}}
-{{--        "href" => "admin.dashboard",--}}
-{{--        "text" => "Dashboard",--}}
-{{--        "is_multi" => false,--}}
-{{--    ],--}}
-
-{{--    [--}}
-{{--        "href" => [--}}
-{{--            [--}}
-{{--                "section_text" => "User",--}}
-{{--                "section_list" => [--}}
-{{--                    ["href" => "admin.user", "text" => "Data User"],--}}
-{{--                    ["href" => "admin.user.new", "text" => "Buat User"]--}}
-{{--                ]--}}
-{{--            ]--}}
-{{--        ],--}}
-{{--        "text" => "User",--}}
-{{--        "icon"=>"fa-users",--}}
-{{--        "is_multi" => true,--}}
-{{--    ],--}}
-{{--];--}}
-{{--$navigation_links = array_to_object($links);--}}
-{{--@endphp--}}
-
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -34,7 +8,7 @@
                 <img class="d-inline-block" width="32px" height="30.61px" src="" alt="">
             </a>
         </div>
-        {{--        @foreach ($navigation_links as $link)--}}
+
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="">
@@ -42,44 +16,69 @@
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             @if(auth()->user()->role==1)
-                <li class="menu-header">Calistung</li>
+                <li class="menu-header">Manajemen Imaji Academy</li>
                 <li class="">
-                    <a class="nav-link" href="{{ route('admin.calistung') }}">
-                        <i class="fas fa-fire"></i><span>Hasil Calistung</span>
+                    <a class="nav-link" href="{{ route('admin.feature.index') }}">
+                        <i class="fas fa-fire"></i><span>Feature</span>
                     </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="{{ route('admin.aspect.index') }}">
-                        <i class="fas fa-fire"></i><span>Aspek - Calistung</span>
-                    </a>
-                </li>
-
-                <li class="">
-                    <a class="nav-link" href="{{ route('admin.question.index') }}">
-                        <i class="fas fa-question"></i><span>Pertanyaan - Calistung</span>
-                    </a>
-                </li>
-                <li class="menu-header">Pretest</li>
-
-                <li class="">
-                    <a class="nav-link" href="{{ route('admin.calistung') }}">
-                        <i class="fas fa-fire"></i><span>Hasil Pretest</span>
+                    <a class="nav-link" href="{{ route('admin.imaji-academy.index') }}">
+                        <i class="fas fa-fire"></i><span>Imaji Academy</span>
                     </a>
                 </li>
 
                 <li class="">
-                    <a class="nav-link" href="{{ route('admin.pretest-aspect.index') }}">
-                        <i class="fas fa-fire"></i><span>Aspek - Pretest</span>
+                    <a class="nav-link" href="{{ route('admin.iaf.index') }}">
+                        <i class="fas fa-fire"></i><span>Imaji Academy Feature</span>
                     </a>
                 </li>
-
+                <li class="menu-header">Manajemen Imaji Academy</li>
                 <li class="">
-                    <a class="nav-link" href="{{ route('admin.pretest-question.index') }}">
-                        <i class="fas fa-question"></i><span>Pertanyaan - Pretest</span>
+                    <a class="nav-link" href="{{ route('admin.teacher.index') }}">
+                        <i class="fas fa-fire"></i><span>Tutor dan Kawan Belajar</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href="{{ route('admin.student.index') }}">
+                        <i class="fas fa-fire"></i><span>Murid</span>
                     </a>
                 </li>
             @endif
-
+            @if(auth()->user()->role==2)
+                <li class="menu-header">Manajemen Jadwal</li>
+                @php($fts=auth()->user()->featureTeachers)
+{{--                @foreach($fts as $ft)--}}
+                    <li class="">
+                        <a class="nav-link" href="{{ route('admin.schedule.index') }}">
+                            <i class="fas fa-fire"></i><span>Jadwal Mengajar</span>
+                        </a>
+                        <a class="nav-link" href="{{ route('admin.schedule.create') }}">
+                            <i class="fas fa-fire"></i><span>Buat Jadwal</span>
+                        </a>
+                    </li>
+                <li class="menu-header">Manajemen Presensi</li>
+                @foreach($fts as $ft)
+                    <li class="">
+                        <a class="nav-link" href="{{ route('admin.presence.index',$ft->iaf_id) }}"><i
+                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
+                    </li>
+                @endforeach
+                <li class="menu-header">Manajemen Tugas</li>
+                @foreach($fts as $ft)
+                    <li class="">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><i
+                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
+                    </li>
+                @endforeach
+                <li class="menu-header">Manajemen nilai</li>
+                @foreach($fts as $ft)
+                    <li class="">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><i
+                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
+                    </li>
+                @endforeach
+            @endif
         </ul>
     </aside>
 </div>

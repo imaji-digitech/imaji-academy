@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Aspect;
+use App\Models\Feature;
+use App\Models\FeatureStudent;
+use App\Models\FeatureTeacher;
+use App\Models\ImajiAcademy;
+use App\Models\ImajiAcademyFeature;
+use App\Models\PresenceStatus;
 use App\Models\PretestAspect;
 use App\Models\Question;
 use App\Models\User;
@@ -18,65 +24,76 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        PresenceStatus::create(['title' => 'Hadir']);
+        PresenceStatus::create(['title' => 'Sakit']);
+        PresenceStatus::create(['title' => 'Izin']);
+        PresenceStatus::create(['title' => 'Absen']);
+        PresenceStatus::create(['title' => 'Tanpa status']);
+
         User::create([
             'name' => 'admin',
-            'email' => "admin@admin",
-            'password' => Hash::make("admin"),
+            'email' => 'admin@admin',
+            'password' => Hash::make('admin'),
             'role' => 1
         ]);
 
-        Aspect::create([
-            'title' => 'basic'
-        ]);
-        Aspect::create([
-            'title' => 'non basic'
-        ]);
-
-        Question::create(['title' => '<p>B<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>C<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>D<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>E<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>…</p><p>Urutan huruf selanjutnya adalah…<br></p>',
-            'aspect_id' => 1]);
-        Question::create(['title' => '<p>S<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>T<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>U<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>V<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>…<br></p><p>Urutan huruf selanjutnya adalah…<br></p>',
-            'aspect_id' => 1]);
-        Question::create(['title' => '<p>A<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>I<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>…<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>E<span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>O<br></p><p>Huruf vocal yang hilang adalah…<br></p>',
-            'aspect_id' => 2]);
-        Question::create(['title' => '<img src=\"http://127.0.0.1:8000/storage/images/summernote-image/1630399220.png\" alt=\"Italian Trulli\" class=\"note-float-left\" style=\"height: 83px; float: left; width: 83px;\"><p><br></p><p>DA…U<br></p><p><br></p><p>Huruf vocal yang hilang adalah…<br></p><br>',
-            'aspect_id' => 1]);
-        Question::create(['title' => '<img width=\"134\" height=\"27\" src=\"blob:http://127.0.0.1:8000/92ca7ee7-90df-4fd0-8dfe-8480247d4a38\" alt=\"Text Box: Bapak berangkat bekerja\" v:shapes=\"Text_x0020_Box_x0020_2\"></span></p><p>>Berapa kata yang ada di dalam kalimat di atas?<br></span><span style=\"font-family: -webkit-standard; font-size: medium;\"></span></p>',
-            'aspect_id' => 2]);
-        Question::create(['title' => '<p>>Kata “Celana” terdiri dari berapa suku kata?<br></span><span style=\"font-family: -webkit-standard; font-size: medium;\"></span></p>',
-            'aspect_id' => 2]);
-        Question::create(['title' => '<p>>Angka apakah yang ada di antara 5 dan 7?<br></span><span style=\"font-family: -webkit-standard; font-size: medium;\"></span></p>',
-            'aspect_id' => 1]);
-        Question::create(['title' => '<img src=\"http://127.0.0.1:8000/storage/images/summernote-image/1630399609.png\" alt=\"Italian Trulli\" style=\"height: 109px; width: 109px;\"><p>>Terdapat berapa buah yang ada di atas pohon?</span></p>',
-            'aspect_id' => 1]);
-        Question::create(['title' => '<p>4 … 1 = 3</p><p>Operasi hitung apa yang tepat untuk melengkapi titik-titik di atas?<br></p>',
-            'aspect_id' => 2]);
-        Question::create(['title' => '<p>3 x 4 = …</p><p>Berapa hasil dari persoalan di atas?<br></p>',
-            'aspect_id' => 2]);
-        PretestAspect::create([
-            'title'=>'WA',
-            'time'=>5
-        ]);
-        PretestAspect::create([
-            'title'=>'GE',
-            'time'=>7
-        ]);
-        PretestAspect::create([
-            'title'=>'RA',
-            'time'=>10
-        ]);
-        PretestAspect::create([
-            'title'=>'AN',
-            'time'=>5
-        ]);
-        PretestAspect::create([
-            'title'=>'WU',
-            'time'=>5
-        ]);
-        PretestAspect::create([
-            'title'=>'ME',
-            'time'=>3
+        User::create([
+            'name' => 'guru',
+            'email' => 'guru@guru',
+            'password' => Hash::make('guru'),
+            'role' => 2
         ]);
 
+        User::create([
+            'name' => 'siswa',
+            'email' => "siswa@siswa",
+            'password' => Hash::make("siswa"),
+            'role' => 3
+        ]);
+        User::create([
+            'name' => 'siswa2',
+            'email' => "siswa2@siswa",
+            'password' => Hash::make("siswa"),
+            'role' => 3
+        ]);
+
+        Feature::create(['title' => 'Agriculture', 'code' => 'AGRI']);
+        Feature::create(['title' => 'Sociopreneur', 'code' => 'SCPR']);
+        Feature::create(['title' => 'Literasi', 'code' => 'LITERASI']);
+        Feature::create(['title' => 'Seni Budaya - Tari Reog', 'code' => 'REOG']);
+        Feature::create(['title' => 'Seni Budaya - Tembang Macapat', 'code' => 'MACAPAT']);
+
+        ImajiAcademy::create(['title' => 'Imaji Academy Maju Berkarya', 'code' => 'MAJU BKR', 'village' => 'Andongsari']);
+        ImajiAcademy::create(['title' => 'Imaji Academy Al Ihsan', 'code' => 'AL IHSAN', 'village' => 'Sabrang']);
+        ImajiAcademy::create(['title' => 'Imaji Academy Terate', 'code' => 'TERATE', 'village' => 'Kesilir']);
+        ImajiAcademy::create(['title' => 'Imaji Academy Berkah', 'code' => 'BERKAH', 'village' => 'Balung Lor']);
+        ImajiAcademy::create(['title' => 'Imaji Academy Darussalam 02', 'code' => 'DARUSSALAM', 'village' => 'Bagon']);
+
+        ImajiAcademyFeature::create(['imaji_academy_id' => 1, 'feature_id' => 1]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 1, 'feature_id' => 2]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 1, 'feature_id' => 3]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 1, 'feature_id' => 5]);
+
+        ImajiAcademyFeature::create(['imaji_academy_id' => 2, 'feature_id' => 1]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 2, 'feature_id' => 2]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 2, 'feature_id' => 3]);
+
+        ImajiAcademyFeature::create(['imaji_academy_id' => 3, 'feature_id' => 1]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 3, 'feature_id' => 2]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 3, 'feature_id' => 3]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 3, 'feature_id' => 4]);
+
+        ImajiAcademyFeature::create(['imaji_academy_id' => 4, 'feature_id' => 1]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 4, 'feature_id' => 2]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 4, 'feature_id' => 3]);
+
+        ImajiAcademyFeature::create(['imaji_academy_id' => 5, 'feature_id' => 1]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 5, 'feature_id' => 2]);
+        ImajiAcademyFeature::create(['imaji_academy_id' => 5, 'feature_id' => 3]);
+
+        FeatureTeacher::create(['iaf_id' => 1, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 5, 'user_id' => 2]);
+        FeatureStudent::create(['iaf_id' => 5, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 5, 'user_id' => 4]);
     }
 }

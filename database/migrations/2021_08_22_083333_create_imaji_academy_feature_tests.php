@@ -20,7 +20,7 @@ class CreateImajiAcademyFeatureTests extends Migration
             $table->foreign('iaf_id')
                 ->references('id')
                 ->on('imaji_academy_features')
-                ->onDelete('restrict')
+                ->cascadeOnDelete()
                 ->cascadeOnUpdate();
         });
     }
