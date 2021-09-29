@@ -79,3 +79,4 @@ example on resource -> view -> pages -> content -> create
 ```shell
 example on app -> Http -> Livewire -> FormContent.php
 ```
+# imaji-academy
