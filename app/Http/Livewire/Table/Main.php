@@ -155,6 +155,22 @@ class Main extends Component
                     ])
                 ];
                 break;
+            case 'score':
+                $scores = $this->model::search($this->dataId,$this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.score',
+                    "scores" => $scores,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('admin.score.create',$this->dataId),
+                            'create_new_text' => 'Lakukan presensi',
+                        ]
+                    ])
+                ];
+                break;
             default:
                 # code...
                 break;

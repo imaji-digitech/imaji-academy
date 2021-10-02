@@ -64,17 +64,17 @@
                                 class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
                     </li>
                 @endforeach
-                <li class="menu-header">Manajemen Tugas</li>
-                @foreach($fts as $ft)
-                    <li class="">
-                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><i
-                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
-                    </li>
-                @endforeach
+{{--                <li class="menu-header">Manajemen Tugas</li>--}}
+{{--                @foreach($fts as $ft)--}}
+{{--                    <li class="">--}}
+{{--                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><i--}}
+{{--                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
                 <li class="menu-header">Manajemen nilai</li>
                 @foreach($fts as $ft)
                     <li class="">
-                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><i
+                        <a class="nav-link" href="{{ route('admin.score.index',$ft->iaf_id) }}"><i
                                 class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
                     </li>
                 @endforeach

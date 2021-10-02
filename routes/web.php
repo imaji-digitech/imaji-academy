@@ -79,6 +79,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
         Route::get('score/{iaf}',[ScoreController::class,'index'])->name('score.index');
         Route::get('score/{iaf}/create',[ScoreController::class,'create'])->name('score.create');
         Route::get('score/{iaf}/edit/{id}',[ScoreController::class,'edit'])->name('score.edit');
+        Route::get('score/{iaf}/show/{id}',[ScoreController::class,'show'])->name('score.show');
     });
 
     Route::post('/summernote-upload', [SupportController::class, 'upload'])->name('summernote_upload');

@@ -2,125 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/feature.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf-teacher.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/presence.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/feature/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/feature/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/feature/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/add-student.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/add-teacher.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/show-student.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/show-teacher.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/imaji-academy/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/imaji-academy/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/imaji-academy/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/student/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/student/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/student/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/student/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/teacher/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/teacher/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/teacher/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/teacher/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/schedule/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/schedule/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/schedule/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/schedule/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/score.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/MainHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/MainHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AspectController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SupportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SupportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/DataExam.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ExamPsikotest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormAspect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormContent.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormQuestion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PretestExam.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PretestFormAspect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PretestFormQuestion.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Aspect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Content.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ContentTag.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PretestAspect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PretestQuestion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PretestQuestionChoice.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PretestUserAnswer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Question.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/QuestionChoice.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Status.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserAnswer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_061108_create_aspects_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_061108_create_pretest_aspects_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_070906_create_questions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_070907_create_pretest_questions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_071016_create_question_choises_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_071017_create_pretest_question_choises_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_071028_create_pretest_user_answer_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_23_071029_create_user_answer_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083332_create_imaji_academy_feature_teachers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083325_create_students.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083325_create_students.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083326_create_teachers.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083326_create_teachers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083327_create_features.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083327_create_features.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083328_create_imaji_academies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083328_create_imaji_academies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083329_create_imaji_academy_administrators.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083329_create_imaji_academy_administrators.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083330_create_imaji_academy_students.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083330_create_imaji_academy_students.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083331_create_imaji_academy_features.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083331_create_imaji_academy_features.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083332_create_imaji_academy_feature_students.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083332_create_imaji_academy_feature_students.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083333_create_imaji_academy_feature_tests.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083333_create_imaji_academy_feature_tests.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083335_create_imaji_academy_feature_schedules.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083335_create_imaji_academy_feature_schedules.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083336_create_imaji_academy_learning_activities.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083336_create_imaji_academy_learning_activities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_22_083337_create_imaji_academy_learning_activity_presences.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_22_083337_create_imaji_academy_learning_activity_presences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note" beforeDir="false" afterPath="$PROJECT_DIR$/note" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/create-user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/data-exam.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/exam-psikotest.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-aspect.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-content.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-question.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pretest-exam.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pretest-form-aspect.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/pretest-form-question.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/aspect.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/imaji-academy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/pretest-aspect.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/pretest-question.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/question.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/aspect/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/aspect/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/aspect/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/calistung.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/content/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/imaji-academy/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/content/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/content/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest-aspect/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest-aspect/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest-aspect/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest-question/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest-question/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest-question/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/pretest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/feature/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/question/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/question/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/question/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/presence.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/presence.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -302,10 +193,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/livewire/table" />
+      <recent name="$PROJECT_DIR$/resources/views/pages/teacher/score" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/presence" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/schedule" />
       <recent name="$PROJECT_DIR$/resources/views/pages/admin/iaf" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
     </key>
   </component>
   <component name="RunManager">
@@ -359,7 +250,8 @@
       <workItem from="1632368143103" duration="282000" />
       <workItem from="1632368516105" duration="7807000" />
       <workItem from="1632622155507" duration="28873000" />
-      <workItem from="1632882209999" duration="1538000" />
+      <workItem from="1632882209999" duration="3821000" />
+      <workItem from="1633144236708" duration="14256000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -375,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630640335785</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update">
+      <created>1632887365977</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632887365977</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
