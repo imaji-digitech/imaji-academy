@@ -52,6 +52,24 @@ class Main extends Component
                     ])
                 ];
                 break;
+            case 'student':
+                $students = $this->model::search($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.student',
+                    "students" => $students,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('admin.student.create'),
+                            'create_new_text' => 'Buat User Baru',
+                            'export' => '#',
+                            'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+                break;
             case 'feature':
                 $features = $this->model::search($this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')

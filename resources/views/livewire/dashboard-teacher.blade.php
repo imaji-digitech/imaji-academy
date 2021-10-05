@@ -7,10 +7,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Mengajar</h4>
+                        <h4>Total Kelas Diajar</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{$user->featureTeachers->count()}}
                     </div>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total nilai masuk</h4>
+                        <h4>Total aktivitas kelas</h4>
                     </div>
                     <div class="card-body">
-                        42
+                        {{ $activity }}
                     </div>
                 </div>
             </div>

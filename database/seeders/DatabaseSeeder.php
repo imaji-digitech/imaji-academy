@@ -11,6 +11,7 @@ use App\Models\ImajiAcademyFeature;
 use App\Models\PresenceStatus;
 use App\Models\PretestAspect;
 use App\Models\Question;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -50,12 +51,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make("siswa"),
             'role' => 3
         ]);
+        Student::create(['user_id'=>3]);
         User::create([
             'name' => 'siswa2',
             'email' => "siswa2@siswa",
             'password' => Hash::make("siswa"),
             'role' => 3
         ]);
+        Student::create(['user_id'=>4]);
 
         Feature::create(['title' => 'Agriculture', 'code' => 'AGRI']);
         Feature::create(['title' => 'Sociopreneur', 'code' => 'SCPR']);
@@ -92,8 +95,42 @@ class DatabaseSeeder extends Seeder
         ImajiAcademyFeature::create(['imaji_academy_id' => 5, 'feature_id' => 3]);
 
         FeatureTeacher::create(['iaf_id' => 1, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 2, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 3, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 4, 'user_id' => 2]);
         FeatureTeacher::create(['iaf_id' => 5, 'user_id' => 2]);
-        FeatureStudent::create(['iaf_id' => 5, 'user_id' => 3]);
+        FeatureTeacher::create(['iaf_id' => 6, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 7, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 8, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 9, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 10, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 11, 'user_id' => 2]);
+        FeatureTeacher::create(['iaf_id' => 12, 'user_id' => 2]);
+
+        FeatureStudent::create(['iaf_id' => 1, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 2, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 3, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 4, 'user_id' => 4]);
         FeatureStudent::create(['iaf_id' => 5, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 6, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 7, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 8, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 9, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 10, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 11, 'user_id' => 4]);
+        FeatureStudent::create(['iaf_id' => 12, 'user_id' => 4]);
+
+        FeatureStudent::create(['iaf_id' => 1, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 2, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 3, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 4, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 5, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 6, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 7, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 8, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 9, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 10, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 11, 'user_id' => 3]);
+        FeatureStudent::create(['iaf_id' => 12, 'user_id' => 3]);
     }
 }

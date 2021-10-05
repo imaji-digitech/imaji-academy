@@ -10,6 +10,6 @@
     </x-slot>
 
     <div>
-
+        <livewire:table.main name="student" :model="$student" />
     </div>
 </x-app-layout>

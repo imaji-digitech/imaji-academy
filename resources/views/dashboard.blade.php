@@ -10,35 +10,13 @@
 
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <div class="p-4">
-            <livewire:dashboard/>
+            @if(auth()->user()->role==1)
+                <livewire:dashboard-admin/>
+            @elseif(auth()->user()->role==2)
+                <livewire:dashboard-teacher/>
+            @elseif(auth()->user()->role==3)
+            @endif
 
-{{--            <a href="{{ route('admin.exam.pretest',1) }}" class="btn btn-primary">--}}
-{{--                Lakukan pretest - WA--}}
-{{--            </a>--}}
-{{--            <br>--}}
-{{--            <a href="{{ route('admin.exam.pretest',2) }}" class="btn btn-primary">--}}
-{{--                Lakukan pretest - GE--}}
-{{--            </a>--}}
-{{--            <br>--}}
-{{--            <a href="{{ route('admin.exam.pretest',3) }}" class="btn btn-primary">--}}
-{{--                Lakukan pretest - RA--}}
-{{--            </a>--}}
-{{--            <br>--}}
-{{--            <a href="{{ route('admin.exam.pretest',4) }}" class="btn btn-primary">--}}
-{{--                Lakukan pretest - AN--}}
-{{--            </a>--}}
-{{--            <br>--}}
-{{--            <a href="{{ route('admin.exam.pretest',5) }}" class="btn btn-primary">--}}
-{{--                Lakukan pretest - WU--}}
-{{--            </a>--}}
-{{--            <br>--}}
-{{--            <a href="{{ route('admin.exam.pretest',6) }}" class="btn btn-primary">--}}
-{{--                Lakukan pretest - ME--}}
-{{--            </a>--}}
-{{--            <br>--}}
-{{--            <a href="{{ route('admin.exam.calistung') }}" class="btn btn-primary">--}}
-{{--                Lakukan calistung--}}
-{{--            </a>--}}
         </div>
     </div>
 </x-app-layout>

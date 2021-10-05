@@ -21,7 +21,7 @@ class Student extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -37,5 +37,14 @@ class Student extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User');
+    }
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static
+                ::whereHas('user', function ($q) use ($query) {
+                    $q->where('name', 'like', '%' . $query . '%');
+                })
+                ;
     }
 }
