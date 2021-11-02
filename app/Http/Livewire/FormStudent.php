@@ -20,8 +20,6 @@ class FormStudent extends Component
             'name' => '',
             'email' => '',
             'password' => '',
-        ];
-        $this->student = [
             'school' => '',
             'class' => '',
             'hobby' => '',
@@ -35,15 +33,16 @@ class FormStudent extends Component
                 'name' => $auth->name,
                 'email' => $auth->email,
                 'password' => '',
+                'user_id' => $auth->user_id,
+                'school' => $auth->school,
+                'class' => $auth->class,
+                'hobby' => $auth->hobby,
+                'future_goal' => $auth->future_goal,
+                'parent_name' => $auth->parent_name,
+                'parent_job' => $auth->parent_job,
             ];
             $this->student = [
-                'user_id' => $auth->student->user_id,
-                'school' => $auth->student->school,
-                'class' => $auth->student->class,
-                'hobby' => $auth->student->hobby,
-                'future_goal' => $auth->student->future_goal,
-                'parent_name' => $auth->student->parent_name,
-                'parent_job' => $auth->student->parent_job,
+
             ];
         }
     }
@@ -77,23 +76,18 @@ class FormStudent extends Component
             'name' => $this->user['name'],
             'email' => $this->user['email'],
             'password' => Hash::make($this->user['password']),
-            'role' => 3
-        ]);
-        $student = Student::create([
-            'user_id' => $user->id,
-            'school' => $this->student['school'],
-            'class' => $this->student['class'],
-            'hobby' => $this->student['hobby'],
-            'future_goal' => $this->student['future_goal'],
-            'parent_name' => $this->student['parent_name'],
-            'parent_job' => $this->student['parent_job'],
+            'role' => 3,
+            'school' => $this->user['school'],
+            'class' => $this->user['class'],
+            'hobby' => $this->user['hobby'],
+            'future_goal' => $this->user['future_goal'],
+            'parent_name' => $this->user['parent_name'],
+            'parent_job' => $this->user['parent_job'],
         ]);
         $this->user = [
             'name' => '',
             'email' => '',
             'password' => '',
-        ];
-        $this->student = [
             'school' => '',
             'class' => '',
             'hobby' => '',
@@ -117,14 +111,12 @@ class FormStudent extends Component
         $user->update([
             'name' => $this->user['name'],
             'email' => $this->user['email'],
-        ]);
-        $student = Student::whereUserId($this->dataId)->update([
-            'school' => $this->student['school'],
-            'class' => $this->student['class'],
-            'hobby' => $this->student['hobby'],
-            'future_goal' => $this->student['future_goal'],
-            'parent_name' => $this->student['parent_name'],
-            'parent_job' => $this->student['parent_job'],
+            'school' => $this->user['school'],
+            'class' => $this->user['class'],
+            'hobby' => $this->user['hobby'],
+            'future_goal' => $this->user['future_goal'],
+            'parent_name' => $this->user['parent_name'],
+            'parent_job' => $this->user['parent_job'],
         ]);
 
         if ($this->user['password'] != '') {

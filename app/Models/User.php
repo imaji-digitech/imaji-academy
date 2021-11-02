@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -25,10 +25,19 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $remember_token
  * @property integer $current_team_id
  * @property string $profile_photo_path
+ * @property string $school
+ * @property int $class
+ * @property string $hobby
+ * @property string $future_goal
+ * @property string $parent_name
+ * @property string $parent_job
  * @property string $created_at
  * @property string $updated_at
  * @property Administrator[] $administrators
+ * @property FeatureActivity[] $featureActivities
  * @property FeatureActivityPresence[] $featureActivityPresences
+ * @property FeatureScoreStudent[] $featureScoreStudents
+ * @property FeatureScore[] $featureScores
  * @property FeatureStudent[] $featureStudents
  * @property FeatureTeacher[] $featureTeachers
  * @property ImajiAcademyStudent[] $imajiAcademyStudents
@@ -42,19 +51,6 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-        'quotes'
-    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -85,6 +81,17 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    /**
+     * /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'integer';
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'email', 'role', 'quotes', 'address', 'birthday', 'email_verified_at', 'password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token', 'current_team_id', 'profile_photo_path', 'school', 'class', 'hobby', 'future_goal', 'parent_name', 'parent_job', 'created_at', 'updated_at'];
 
     /**
      * Search query in multiple whereOr
@@ -95,8 +102,25 @@ class User extends Authenticatable
             : static::where('name', 'like', '%' . $query . '%')
                 ->orWhere('email', 'like', '%' . $query . '%');
     }
+    public static function searchStudent($query)
+    {
+        return empty($query) ? static::whereRole(3)
+            : static::whereRole(3)->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('email', 'like', '%' . $query . '%');
+            });
+    }
+    public static function searchTeacher($query)
+    {
+        return empty($query) ? static::whereRole(2)
+            : static::whereRole(2)->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('email', 'like', '%' . $query . '%');
+            });
+    }
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function administrators()
     {
@@ -104,7 +128,15 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
+     */
+    public function featureActivities()
+    {
+        return $this->hasMany('App\Models\FeatureActivity');
+    }
+
+    /**
+     * @return HasMany
      */
     public function featureActivityPresences()
     {
@@ -112,7 +144,23 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
+     */
+    public function featureScoreStudents()
+    {
+        return $this->hasMany('App\Models\FeatureScoreStudent');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function featureScores()
+    {
+        return $this->hasMany('App\Models\FeatureScore');
+    }
+
+    /**
+     * @return HasMany
      */
     public function featureStudents()
     {
@@ -120,7 +168,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureTeachers()
     {
@@ -128,7 +176,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function imajiAcademyStudents()
     {
@@ -136,7 +184,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function students()
     {
@@ -144,7 +192,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function teachers()
     {

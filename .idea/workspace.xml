@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/DashboardTeacher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/Components/ChartTimeSeries.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/chart/chart-time-series.blade.php" afterDir="false" />
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/teacher.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/MainHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/MainHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Dashboard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormTeacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormTeacher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard-teacher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-student.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-teacher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/admin/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/student/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/admin/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/teacher/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +187,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/livewire/table" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -195,9 +197,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/livewire/table" />
       <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/app/View/Components" />
-      <recent name="$PROJECT_DIR$/resources/views/livewire/table" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/score" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/presence" />
     </key>
@@ -255,6 +257,8 @@
       <workItem from="1632622155507" duration="28873000" />
       <workItem from="1632882209999" duration="3821000" />
       <workItem from="1633144236708" duration="36619000" />
+      <workItem from="1633397278930" duration="5196000" />
+      <workItem from="1635673106541" duration="3208000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -277,7 +281,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632887365977</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="initial commit">
+      <created>1633397534827</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633397534827</updated>
+    </task>
+    <task id="LOCAL-00005" summary="initial commit">
+      <created>1633397548690</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633397548690</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,8 +314,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

@@ -53,7 +53,7 @@ class Main extends Component
                 ];
                 break;
             case 'student':
-                $students = $this->model::search($this->search)
+                $students = $this->model::searchStudent($this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
@@ -63,7 +63,25 @@ class Main extends Component
                     "data" => array_to_object([
                         'href' => [
                             'create_new' => route('admin.student.create'),
-                            'create_new_text' => 'Buat User Baru',
+                            'create_new_text' => 'Buat siswa baru',
+                            'export' => '#',
+                            'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+                break;
+            case 'teacher':
+                $teachers = $this->model::searchTeacher($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.teacher',
+                    "teachers" => $teachers,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('admin.teacher.create'),
+                            'create_new_text' => 'Buat tutor baru',
                             'export' => '#',
                             'export_text' => 'Export'
                         ]

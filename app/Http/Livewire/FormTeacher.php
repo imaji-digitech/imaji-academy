@@ -11,7 +11,6 @@ class FormTeacher extends Component
 {
     public $action;
     public $user;
-    public $teacher;
     public $dataId;
 
     public function mount()
@@ -30,10 +29,7 @@ class FormTeacher extends Component
                 'name' => $auth->name,
                 'email' => $auth->email,
                 'password' => '',
-            ];
-            $this->teacher = [
-                'user_id' => $auth->student->user_id,
-                'school' => $auth->student->school,
+                'school' => $auth->school,
             ];
         }
     }
@@ -67,11 +63,8 @@ class FormTeacher extends Component
             'name' => $this->user['name'],
             'email' => $this->user['email'],
             'password' => Hash::make($this->user['password']),
+            'school' => $this->user['school'],
             'role' => 3
-        ]);
-        $teacher = Teacher::create([
-            'user_id' => $user->id,
-            'school' => $this->teacher['school'],
         ]);
     }
 
@@ -83,9 +76,7 @@ class FormTeacher extends Component
         $user->update([
             'name' => $this->user['name'],
             'email' => $this->user['email'],
-        ]);
-        $teacher = Teacher::whereUserId($this->dataId)->update([
-            'school' => $this->teacher['school'],
+            'school' => $this->user['school'],
         ]);
 
         if ($this->user['password'] != '') {

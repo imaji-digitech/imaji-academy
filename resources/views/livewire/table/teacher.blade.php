@@ -1,5 +1,5 @@
 <div>
-    <x-data-table :data="$data" :model="$students">
+    <x-data-table :data="$data" :model="$teachers">
         <x-slot name="head">
             <tr>
                 <th><a wire:click.prevent="sortBy('id')" role="button" href="#">
@@ -13,26 +13,23 @@
                 <th>
                     Imaji Academy
                 </th>
-                <th>
-                    Fitur
-                </th>
                 <th>Action</th>
             </tr>
         </x-slot>
         <x-slot name="body">
-            @foreach ($students as $student)
-                <tr x-data="window.__controller.dataTableController({{ $student->id }})">
-                    <td>{{ $student->id }}</td>
-                    <td>{{ $student->name }}</td>
+            @foreach ($teachers as $teacher)
+                <tr x-data="window.__controller.dataTableController({{ $teacher->id }})">
+                    <td>{{ $teacher->id }}</td>
+                    <td>{{ $teacher->name }}</td>
                     <td>
-                        @foreach($student->featureStudents as $ias)
+                        @foreach($teacher->featureTeachers as $ias)
                             {{ $ias->imajiAcademyFeature->imajiAcademy->title }} - {{ $ias->imajiAcademyFeature->feature->title }}
                             <br>
                         @endforeach
                     </td>
-{{--                    <td>{{ $student->created_at->format('d M Y H:i') }}</td>--}}
+{{--                    <td>{{ $teacher->created_at->format('d M Y H:i') }}</td>--}}
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="student/edit/{{ $student->id }}" class="mr-3"><i
+                        <a role="button" href="teacher/edit/{{ $teacher->id }}" class="mr-3"><i
                                 class="fa fa-16px fa-pen"></i></a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#"><i
                                 class="fa fa-16px fa-trash text-red-500"></i></a>

@@ -11,12 +11,6 @@ use App\Http\Controllers\Teacher\PresenceController;
 use App\Http\Controllers\Teacher\ScheduleController;
 use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
-use App\Models\Aspect;
-use App\Models\PretestAspect;
-use App\Models\PretestQuestion;
-use App\Models\PretestUserAnswer;
-use App\Models\Question;
-use App\Models\UserAnswer;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Http\Controllers\CurrentTeamController;
 use Laravel\Jetstream\Http\Controllers\Livewire\ApiTokenController;
@@ -40,9 +34,11 @@ use Laravel\Jetstream\Jetstream;
 Route::get('/dashboard', function () {
     return redirect(route('admin.dashboard'));
 });
-
+Route::get('/register', function () {
+    return redirect(route('login'));
+});
 Route::get('/', function () {
-    return redirect(route('register'));
+    return redirect(route('login'));
 });
 Route::view('/student', 'livewire.profile-student');
 

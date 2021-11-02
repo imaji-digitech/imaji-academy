@@ -2,28 +2,28 @@
     <x-data-table :data="$data" :model="$iafs">
         <x-slot name="head">
             <tr>
-                <th style="width: 10px"><a wire:click.prevent="sortBy('id')" role="button" href="#">
+                <th style="width: 10px">
+                    <a wire:click.prevent="sortBy('id')" role="button" href="#">
                         ID
                         @include('components.sort-icon', ['field' => 'id'])
-                    </a></th>
-                <th style="width: 300px"><a wire:click.prevent="sortBy('imaji_academy_id')" role="button" href="#">
+                    </a>
+                </th>
+                <th style="width: 300px">
+                    <a wire:click.prevent="sortBy('imaji_academy_id')" role="button" href="#">
                         Name Imaji Academy
                         @include('components.sort-icon', ['field' => 'imaji_academy_id'])
-                    </a></th>
-                <th style="width: 350px"><a wire:click.prevent="sortBy('feature_id')" role="button" href="#">
+                    </a>
+                </th>
+                <th style="width: 350px">
+                    <a wire:click.prevent="sortBy('feature_id')" role="button" href="#">
                         Nama Fitur
                         @include('components.sort-icon', ['field' => 'feature_id'])
-                    </a></th>
-                <th>
-                    Jumlah siswa
+                    </a>
                 </th>
-                <th>
-                    Jumlah tutor
-                </th>
-                <th style="width: 200px">
-                    Jadwal fitur
-                </th>
-                <th >Action</th>
+                <th>Jumlah siswa</th>
+                <th>Jumlah tutor</th>
+                <th style="width: 200px">Jadwal fitur</th>
+                <th>Action</th>
             </tr>
         </x-slot>
         <x-slot name="body">
@@ -39,7 +39,6 @@
                             <div>{{$fs->day .' - '.$fs->time}}</div>
                         @endforeach
                     </td>
-{{--                    <td>{{ $iaf->created_at->format('d M Y H:i') }}</td>--}}
                     <td class="whitespace-no-wrap row-action--icon">
                         <a role="button" href="feature/edit/{{ $iaf->id }}" class="mr-1">
                             <i class="fa fa-16px fa-pen"></i></a>
