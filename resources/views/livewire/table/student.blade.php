@@ -26,7 +26,13 @@
                     <td>{{ $student->name }}</td>
                     <td>
                         @foreach($student->featureStudents as $ias)
-                            {{ $ias->imajiAcademyFeature->imajiAcademy->title }} - {{ $ias->imajiAcademyFeature->feature->title }}
+                            {{ $ias->imajiAcademyFeature->imajiAcademy->title }}
+                            <br>
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach($student->featureStudents as $ias)
+                            {{ $ias->imajiAcademyFeature->feature->title }}
                             <br>
                         @endforeach
                     </td>

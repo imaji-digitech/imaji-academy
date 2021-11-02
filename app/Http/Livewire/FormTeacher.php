@@ -64,7 +64,7 @@ class FormTeacher extends Component
             'email' => $this->user['email'],
             'password' => Hash::make($this->user['password']),
             'school' => $this->user['school'],
-            'role' => 3
+            'role' => 2
         ]);
     }
 
