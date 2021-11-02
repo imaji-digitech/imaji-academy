@@ -202,7 +202,7 @@ class Main extends Component
                     "data" => array_to_object([
                         'href' => [
                             'create_new' => route('admin.score.create',$this->dataId),
-                            'create_new_text' => 'Lakukan presensi',
+                            'create_new_text' => 'Lakukan penilaian',
                         ]
                     ])
                 ];
