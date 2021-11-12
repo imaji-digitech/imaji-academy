@@ -26,6 +26,8 @@ class FormStudent extends Component
             'future_goal' => '',
             'parent_name' => '',
             'parent_job' => '',
+            'ips'=>0,
+            'age'=>0
         ];
         if ($this->dataId != null) {
             $auth = User::find($this->dataId);

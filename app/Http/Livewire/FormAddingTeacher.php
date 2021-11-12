@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\FeatureTeacher;
+use App\Models\ImajiAcademyFeature;
+use App\Models\Log;
 use App\Models\User;
 use Livewire\Component;
 
@@ -32,6 +34,8 @@ class FormAddingTeacher extends Component
                 'user_id' => $user,
                 'iaf_id' => $this->dataId
             ]);
+            $iaf=ImajiAcademyFeature::find($this->dataId);
+            Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan guru '.User::find($user)->name. ' ke kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         }
         $this->user = [];
         $this->optionUsers = eloquent_to_options(

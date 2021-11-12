@@ -6,6 +6,7 @@ use App\Models\FeatureStudent;
 use App\Models\ImajiAcademy;
 use App\Models\ImajiAcademyFeature;
 use App\Models\ImajiAcademyStudent;
+use App\Models\Log;
 use App\Models\User;
 use Livewire\Component;
 
@@ -20,8 +21,8 @@ class FormAddingStudent extends Component
         $this->user = [];
         $this->optionUsers = eloquent_to_options(
             User::whereRole(3)
-                ->with('featureStudents')
-                ->doesntHave('featureStudents')
+//                ->with('featureStudents')
+//                ->doesntHave('featureStudents')
                 ->get(),
             'id',
             'name'
@@ -35,12 +36,14 @@ class FormAddingStudent extends Component
                 'user_id' => $user,
                 'iaf_id' => $this->dataId
             ]);
+            $iaf=ImajiAcademyFeature::find($this->dataId);
+            Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan murid '.User::find($user)->name. ' ke kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         }
         $this->user = [];
         $this->optionUsers = eloquent_to_options(
             User::whereRole(3)
-                ->with('featureStudents')
-                ->doesntHave('featureStudents')
+//                ->with('featureStudents')
+//                ->doesntHave('featureStudents')
                 ->get(),
             'id',
             'name'

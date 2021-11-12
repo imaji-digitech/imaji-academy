@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -40,6 +41,7 @@ class CreateUser extends Component
         }
 
         User::create($this->user);
+        Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan '.$this->user->name]);
 
         $this->emit('saved');
         $this->reset('user');

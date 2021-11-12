@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Feature;
 use App\Models\ImajiAcademy;
 use App\Models\ImajiAcademyFeature;
+use App\Models\Log;
 use Livewire\Component;
 
 class FormImajiAcademyFeature extends Component
@@ -48,6 +49,18 @@ class FormImajiAcademyFeature extends Component
             'imaji_academy_id' => $this->data['imaji_academy_id'],
             'feature_id' => $this->data['feature_id']
         ]);
+        Log::create(['user_id'=>auth()->id(),
+            'note'=>'telah menambahkan fitur '
+                .Feature::find($this->data['feature_id'])->title. ' ke '
+                .ImajiAcademy::find($this->data['imaji_academy_id'])])->title;
+        $this->emit('swal:alert', [
+            'type' => 'success',
+            'title' => 'Data berhasil ditambahkan',
+            'timeout' => 3000,
+            'icon' => 'success'
+        ]);
+
+        $this->emit('redirect', route('admin.imaji-academy.index'));
     }
 
     public function update()

@@ -3,6 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Feature;
+use App\Models\ImajiAcademyFeature;
+use App\Models\Log;
+use App\Models\User;
 use Livewire\Component;
 
 class FormFeature extends Component
@@ -10,11 +13,13 @@ class FormFeature extends Component
     public $action;
     public $data;
     public $dataId;
+    public $realName;
 
     public function mount(){
         $this->data['title']='';
         if ($this->dataId!=null){
             $this->data['title']=Feature::find($this->dataId)->title;
+            $this->realName=Feature::find($this->dataId)->title;
         }
     }
     public function getRules()
@@ -27,6 +32,7 @@ class FormFeature extends Component
         $this->validate();
         $this->resetErrorBag();
         Feature::create(['title'=>$this->data['title']]);
+        Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan fitur '.$this->data['title']]);
         $this->emit('swal:alert', [
             'type' => 'success',
             'title' => 'Data berhasil ditambahkan',
@@ -40,7 +46,9 @@ class FormFeature extends Component
     public function update(){
         $this->validate();
         $this->resetErrorBag();
+
         Feature::find($this->dataId)->update(['title'=>$this->data['title']]);
+        Log::create(['user_id'=>auth()->id(),'note'=>'telah mengubah nama fitur '.$this->realName.' menjadi '.$this->data['title']]);
         $this->emit('swal:alert', [
             'type' => 'success',
             'title' => 'Data berhasil diubah',

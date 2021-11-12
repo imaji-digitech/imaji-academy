@@ -40,14 +40,29 @@
                         @endforeach
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="feature/edit/{{ $iaf->id }}" class="mr-1">
-                            <i class="fa fa-16px fa-pen"></i></a>
-                        <a role="button" href="{{ route('admin.iaf.show-student',$iaf->id) }}" class="mr-1">
-                            <i class="fa fa-16px fa-user"></i>Siswa</a>
-                        <a role="button" href="{{ route('admin.iaf.show-teacher',$iaf->id) }}" class="mr-1">
-                            <i class="fa fa-16px fa-user"></i>Tutor</a>
+                        <a role="button" href="feature/edit/{{ $iaf->id }}" class="mr-2">
+                            <i class="fa fa-16px fa-pen">Ubah</i></a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#">
-                            <i class="fa fa-16px fa-trash text-red-500"></i></a>
+                            <i class="fa fa-16px fa-trash text-red-500">Hapus</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.iaf.show-student',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-user">Siswa</i></a>
+                        <a role="button" href="{{ route('admin.iaf.show-teacher',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-user">Tutor</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.presence.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-user">Presensi</i></a>
+                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-user">score</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.presence.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-download">Download Presensi</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-download">Download Penilaian</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-download">Download Sertifikat</i></a>
                     </td>
                 </tr>
             @endforeach

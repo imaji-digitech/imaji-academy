@@ -58,7 +58,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
         Route::get('iaf/student/{id}/add', [ImajiAcademyFeatureController::class, 'addStudent'])->name('iaf.add-student');
     });
 
-    Route::middleware(['checkRole:2'])->group(function () {
+    Route::middleware(['checkRole:1,2'])->group(function () {
         Route::get('schedule/',[ScheduleController::class,'index'])->name('schedule.index');
         Route::get('schedule/create',[ScheduleController::class,'create'])->name('schedule.create');
         Route::get('schedule/edit/{id}',[ScheduleController::class,'edit'])->name('schedule.edit');
@@ -71,6 +71,9 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
         Route::get('mission/{iaf}',[MissionController::class,'index'])->name('mission.index');
         Route::get('mission/{iaf}/create',[MissionController::class,'create'])->name('mission.create');
         Route::get('mission/{iaf}/edit/{id}',[MissionController::class,'edit'])->name('mission.edit');
+
+        Route::get('iaf/student/{id}', [ImajiAcademyFeatureController::class, 'showStudent'])->name('iaf.show-student');
+        Route::get('iaf/student/{id}/add', [ImajiAcademyFeatureController::class, 'addStudent'])->name('iaf.add-student');
 
         Route::get('score/{iaf}',[ScoreController::class,'index'])->name('score.index');
         Route::get('score/{iaf}/create',[ScoreController::class,'create'])->name('score.create');

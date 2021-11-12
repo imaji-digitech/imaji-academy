@@ -57,6 +57,13 @@
                             <i class="fas fa-fire"></i><span>Buat Jadwal</span>
                         </a>
                     </li>
+                <li class="menu-header">Manajemen Murid</li>
+                @foreach($fts as $ft)
+                    <li class="">
+                        <a class="nav-link" href="{{ route('admin.iaf.show-student',$ft->iaf_id) }}"><i
+                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
+                    </li>
+                @endforeach
                 <li class="menu-header">Manajemen Presensi</li>
                 @foreach($fts as $ft)
                     <li class="">
@@ -64,13 +71,8 @@
                                 class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
                     </li>
                 @endforeach
-{{--                <li class="menu-header">Manajemen Tugas</li>--}}
-{{--                @foreach($fts as $ft)--}}
-{{--                    <li class="">--}}
-{{--                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><i--}}
-{{--                                class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
+
+
                 <li class="menu-header">Manajemen nilai</li>
                 @foreach($fts as $ft)
                     <li class="">

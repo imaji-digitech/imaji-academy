@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\FeatureActivity;
 use App\Models\FeatureActivityPresence;
 use App\Models\FeatureStudent;
+use App\Models\ImajiAcademyFeature;
+use App\Models\Log;
+use App\Models\User;
 use Livewire\Component;
 
 class FormPresence extends Component
@@ -21,6 +24,8 @@ class FormPresence extends Component
             'iaf_id' => $this->iaf,
             'module' => '',
             'note' => '',
+            'solution' => '',
+            'problem' => '',
         ];
         if ($this->dataId != null) {
             $data = FeatureActivity::find($this->dataId);
@@ -29,6 +34,8 @@ class FormPresence extends Component
                 'iaf_id' => $data->iaf_id,
                 'module' => $data->module,
                 'note' => $data->note,
+                'solution' => $data->solution,
+                'problem' => $data->problem,
                 'created_at' => $data->created_at,
             ];
         }
@@ -47,6 +54,8 @@ class FormPresence extends Component
                 'note'=>''
             ]);
         }
+        $iaf=ImajiAcademyFeature::find($this->dataId);
+        Log::create(['user_id'=>auth()->id(),'note'=>'telah melakukan presensi pada kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         $this->emit('swal:alert', [
             'type' => 'success',
             'title' => 'Data berhasil ditambahkan',
@@ -62,6 +71,8 @@ class FormPresence extends Component
         $this->validate();
         $this->resetErrorBag();
         FeatureActivity::find($this->dataId)->update($this->data);
+        $iaf=ImajiAcademyFeature::find($this->dataId);
+        Log::create(['user_id'=>auth()->id(),'note'=>'telah melakukan perubahan deskripsi presensi pada kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         $this->emit('swal:alert', [
             'type' => 'success',
             'title' => 'Data berhasil diubah',

@@ -16,6 +16,8 @@ class CreateImajiAcademyLearningActivities extends Migration
         Schema::create('feature_activities', function (Blueprint $table) {
             $table->id();
             $table->text('module');
+            $table->text('problem')->nullable();
+            $table->text('solution')->nullable();
             $table->text('note')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('iaf_id');

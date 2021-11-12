@@ -12,7 +12,7 @@
         @php($ps=\App\Models\PresenceStatus::get())
         @foreach($students as $index=>$student)
             <tr>
-                <th scope="row">{{ $index }}</th>
+                <th scope="row">{{ $index+1 }}</th>
                 <td>{{ $student->user->name }}</td>
                 <td>
                     @for($i=0;$i<5;$i++)
