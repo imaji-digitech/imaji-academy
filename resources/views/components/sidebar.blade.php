@@ -54,14 +54,14 @@
                 <li class="menu-header">Manajemen Jadwal</li>
                 @php($fts=auth()->user()->featureTeachers)
 {{--                @foreach($fts as $ft)--}}
-                    <li class="">
-                        <a class="nav-link" href="{{ route('admin.schedule.index') }}">
-                            <i class="fas fa-fire"></i><span>Jadwal Mengajar</span>
-                        </a>
-                        <a class="nav-link" href="{{ route('admin.schedule.create') }}">
-                            <i class="fas fa-fire"></i><span>Buat Jadwal</span>
-                        </a>
-                    </li>
+{{--                    <li class="">--}}
+{{--                        <a class="nav-link" href="{{ route('admin.schedule.index') }}">--}}
+{{--                            <i class="fas fa-fire"></i><span>Jadwal Mengajar</span>--}}
+{{--                        </a>--}}
+{{--                        <a class="nav-link" href="{{ route('admin.schedule.create') }}">--}}
+{{--                            <i class="fas fa-fire"></i><span>Buat Jadwal</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                 <li class="menu-header">Manajemen Murid</li>
                 @foreach($fts as $ft)
                     <li class="">

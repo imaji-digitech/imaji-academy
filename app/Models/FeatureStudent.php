@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property integer $id
@@ -28,6 +27,22 @@ class FeatureStudent extends Model
      */
     protected $fillable = ['iaf_id', 'user_id', 'created_at', 'updated_at'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function imajiAcademyFeature()
+    {
+        return $this->belongsTo('App\Models\ImajiAcademyFeature', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
     public static function search($dataId, $query)
     {
         return empty($query) ? static::whereIafId($dataId)
@@ -36,21 +51,5 @@ class FeatureStudent extends Model
                     $q->where('name', 'like', '%' . $query . '%');
                 });
             });
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function imajiAcademyFeature()
-    {
-        return $this->belongsTo('App\Models\ImajiAcademyFeature', 'iaf_id');
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
     }
 }
