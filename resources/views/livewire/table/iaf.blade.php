@@ -20,10 +20,11 @@
                         @include('components.sort-icon', ['field' => 'feature_id'])
                     </a>
                 </th>
-                <th>Jumlah siswa</th>
-                <th>Jumlah tutor</th>
-                <th style="width: 200px">Jadwal fitur</th>
-                <th>Action</th>
+                <th>Pertemuan</th>
+                <th>Siswa</th>
+                <th>Tutor</th>
+                <th>Download</th>
+                <th>Aksi</th>
             </tr>
         </x-slot>
         <x-slot name="body">
@@ -32,15 +33,21 @@
                     <td>{{ $iaf->id }}</td>
                     <td>{{ $iaf->imajiAcademy->title }}</td>
                     <td>{{ $iaf->feature->title }}</td>
+                    <td>{{ $iaf->featureActivities->count() }}</td>
                     <td>{{ $iaf->featureStudents->count() }}</td>
                     <td>{{ $iaf->featureTeachers->count() }}</td>
                     <td>
-                        @foreach($iaf->featureSchedules as $fs)
-                            <div>{{$fs->day .' - '.$fs->time}}</div>
-                        @endforeach
+                        <a role="button" href="{{ route('admin.presence.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-download">Presensi</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-download">Penilaian</i></a>
+                        <br>
+                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
+                            <i class="fa fa-16px fa-download">Sertifikat</i></a>
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="feature/edit/{{ $iaf->id }}" class="mr-2">
+                        <a role="button" href="{{ route('admin.iaf.edit',$iaf->id) }}" class="mr-2">
                             <i class="fa fa-16px fa-pen">Ubah</i></a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#">
                             <i class="fa fa-16px fa-trash text-red-500">Hapus</i></a>
@@ -54,15 +61,6 @@
                             <i class="fa fa-16px fa-user">Presensi</i></a>
                         <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
                             <i class="fa fa-16px fa-user">score</i></a>
-                        <br>
-                        <a role="button" href="{{ route('admin.presence.index',$iaf->id) }}" class="mr-2">
-                            <i class="fa fa-16px fa-download">Download Presensi</i></a>
-                        <br>
-                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
-                            <i class="fa fa-16px fa-download">Download Penilaian</i></a>
-                        <br>
-                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
-                            <i class="fa fa-16px fa-download">Download Sertifikat</i></a>
                     </td>
                 </tr>
             @endforeach

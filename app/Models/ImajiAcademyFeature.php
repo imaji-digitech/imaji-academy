@@ -40,7 +40,9 @@ class ImajiAcademyFeature extends Model
         return empty($query) ? static::query()
             : static
                 ::whereHas('imajiAcademy', function ($q) use ($query) {
-                    $q->where('title', 'like', '%' . $query . '%');
+                    $q->where('title', 'like', '%' . $query . '%')
+                        ->orWhere('code', 'like', '%' . $query . '%')
+                        ->orWhere('village', 'like', '%' . $query . '%');
                 })
                 ->orWhereHas('feature', function ($q) use ($query) {
                     $q->where('title', 'like', '%' . $query . '%');

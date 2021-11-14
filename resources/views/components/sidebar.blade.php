@@ -18,6 +18,11 @@
             @if(auth()->user()->role==1)
                 <li class="menu-header">Manajemen Imaji Academy</li>
                 <li class="">
+                    <a class="nav-link" href="{{ route('admin.log.index') }}">
+                        <i class="fas fa-fire"></i><span>Aktivitas</span>
+                    </a>
+                </li>
+                <li class="">
                     <a class="nav-link" href="{{ route('admin.feature.index') }}">
                         <i class="fas fa-fire"></i><span>Feature</span>
                     </a>

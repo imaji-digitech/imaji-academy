@@ -19,7 +19,7 @@
                 <th>
                     Presensi
                 </th>
-                <th>Action</th>
+                <th>Aksi</th>
             </tr>
         </x-slot>
         <x-slot name="body">
@@ -29,33 +29,26 @@
                     <td>{{ $student->name }}</td>
                     <td>
                         @isset($student->featureStudents[0]->imajiAcademyFeature->imajiAcademy->title)
-                            {{$student->featureStudents[0]->imajiAcademyFeature->imajiAcademy->title}}
+                            <div>{{$student->featureStudents[0]->imajiAcademyFeature->imajiAcademy->title}}</div>
                         @endisset
-                        {{--                        @forelse($student->featureStudents as $ias)--}}
-                        {{--                            {{ $ias->imajiAcademyFeature->imajiAcademy->title }}--}}
-                        {{--                            --}}
-                        {{--                        @empty--}}
-                        {{--                            --}}
-                        {{--                        @endforelse--}}
                     </td>
                     <td>
                         @foreach($student->featureStudents as $ias)
-                            {{ $ias->imajiAcademyFeature->feature->title }}
-                            <br>
+                            <div>{{ $ias->imajiAcademyFeature->feature->title }}</div>
                         @endforeach
                     </td>
                     <td>
                         @foreach($student->featureStudents as $ias)
-                            {{ $ias->imajiAcademyFeature->feature->title }}
-                            <br>
+                            <div>{{ $ias->imajiAcademyFeature->feature->title }}</div>
                         @endforeach
                     </td>
-                    {{--                    <td>{{ $student->created_at->format('d M Y H:i') }}</td>--}}
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="student/edit/{{ $student->id }}" class="mr-3"><i
-                                class="fa fa-16px fa-pen"></i></a>
-                        <a role="button" x-on:click.prevent="deleteItem" href="#"><i
-                                class="fa fa-16px fa-trash text-red-500"></i></a>
+                        <a role="button" href="{{ route('student.edit',$student->id) }}" class="mr-3">
+                            <i class="fa fa-16px fa-pen"></i>
+                        </a>
+                        <a role="button" x-on:click.prevent="deleteItem" href="#">
+                            <i class="fa fa-16px fa-trash text-red-500"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

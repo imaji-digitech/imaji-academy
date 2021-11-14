@@ -13,24 +13,32 @@ class FormImajiAcademy extends Component
     public $dataId;
     public $realName;
 
-    public function mount(){
-        $this->data['title']='';
-        if ($this->dataId!=null){
-            $this->data['title']=ImajiAcademy::find($this->dataId)->title;
-            $this->realName=ImajiAcademy::find($this->dataId)->title;
+    public function mount()
+    {
+        $this->data['title'] = '';
+        $this->data['code'] = '';
+        $this->data['village'] = '';
+        if ($this->dataId != null) {
+            $this->data['title'] = ImajiAcademy::find($this->dataId)->title;
+            $this->data['village'] = ImajiAcademy::find($this->dataId)->village;
+            $this->data['code'] = ImajiAcademy::find($this->dataId)->code;
+            $this->realName = ImajiAcademy::find($this->dataId)->title;
         }
     }
+
     public function getRules()
     {
         return [
-            'data.title'=>'required'
+            'data.title' => 'required'
         ];
     }
-    public function create(){
+
+    public function create()
+    {
         $this->validate();
         $this->resetErrorBag();
-        ImajiAcademy::create(['title'=>$this->data['title']]);
-        Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan imaji academy '.$this->data['title']]);
+        ImajiAcademy::create(['title' => $this->data['title']]);
+        Log::create(['user_id' => auth()->id(), 'note' => 'telah menambahkan imaji academy ' . $this->data['title']]);
 
         $this->emit('swal:alert', [
             'type' => 'success',
@@ -42,11 +50,12 @@ class FormImajiAcademy extends Component
         $this->emit('redirect', route('admin.imaji-academy.index'));
     }
 
-    public function update(){
+    public function update()
+    {
         $this->validate();
         $this->resetErrorBag();
-        ImajiAcademy::find($this->dataId)->update(['title'=>$this->data['title']]);
-        Log::create(['user_id'=>auth()->id(),'note'=>'telah mengubah nama imaji academy '.$this->realName.' menjadi '.$this->data['title']]);
+        ImajiAcademy::find($this->dataId)->update(['title' => $this->data['title']]);
+        Log::create(['user_id' => auth()->id(), 'note' => 'telah mengubah nama imaji academy ' . $this->realName . ' menjadi ' . $this->data['title']]);
         $this->emit('swal:alert', [
             'type' => 'success',
             'title' => 'Data berhasil diubah',

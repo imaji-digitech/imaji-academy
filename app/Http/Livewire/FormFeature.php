@@ -17,8 +17,10 @@ class FormFeature extends Component
 
     public function mount(){
         $this->data['title']='';
+        $this->data['code']='';
         if ($this->dataId!=null){
             $this->data['title']=Feature::find($this->dataId)->title;
+            $this->data['code']=Feature::find($this->dataId)->code;
             $this->realName=Feature::find($this->dataId)->title;
         }
     }

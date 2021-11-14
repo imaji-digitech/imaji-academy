@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property integer $id
@@ -31,20 +32,20 @@ class Student extends Model
      */
     protected $fillable = ['user_id', 'school', 'class', 'hobby', 'future_goal', 'parent_name', 'parent_job', 'created_at', 'updated_at'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
     public static function search($query)
     {
         return empty($query) ? static::query()
             : static
                 ::whereHas('user', function ($q) use ($query) {
                     $q->where('name', 'like', '%' . $query . '%');
-                })
-                ;
+                });
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 }

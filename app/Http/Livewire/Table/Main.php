@@ -207,6 +207,22 @@ class Main extends Component
                     ])
                 ];
                 break;
+            case 'log':
+                $logs = $this->model::search($this->dataId,$this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.log',
+                    "logs" => $logs,
+                    "data" => array_to_object([
+                        'href' => [
+//                            'create_new_text' => 'Lakukan penilaian',
+//                            'create_new' => route('admin.log.create',$this->dataId),
+                        ]
+                    ])
+                ];
+                break;
             default:
                 # code...
                 break;

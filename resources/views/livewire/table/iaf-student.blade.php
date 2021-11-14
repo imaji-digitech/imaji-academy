@@ -25,7 +25,7 @@
         <x-slot name="body">
             @foreach ($iafs as $iaf)
                 <tr x-data="window.__controller.dataTableController({{ $iaf->id }})">
-                    <td>{{ $iaf->id }}</td>
+                    <td>{{ $iaf->nis }}</td>
                     <td>{{ $iaf->user->name }}</td>
                     <td></td>
                     <td>{{ $iaf->created_at->format('d M Y H:i') }}</td>

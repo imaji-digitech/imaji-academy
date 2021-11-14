@@ -30,7 +30,7 @@ class FeatureActivity extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'iaf_id', 'module','problem','solution' ,'note', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'iaf_id', 'module', 'problem', 'solution', 'note', 'created_at', 'updated_at'];
 
     public static function search($dataId, $query)
     {

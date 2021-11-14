@@ -11,6 +11,7 @@ use App\Http\Controllers\Teacher\PresenceController;
 use App\Http\Controllers\Teacher\ScheduleController;
 use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
+use App\Models\Log;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Http\Controllers\CurrentTeamController;
 use Laravel\Jetstream\Http\Controllers\Livewire\ApiTokenController;
@@ -56,6 +57,9 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
         Route::get('iaf/teacher/{id}/add', [ImajiAcademyFeatureController::class, 'addTeacher'])->name('iaf.add-teacher');
         Route::get('iaf/student/{id}', [ImajiAcademyFeatureController::class, 'showStudent'])->name('iaf.show-student');
         Route::get('iaf/student/{id}/add', [ImajiAcademyFeatureController::class, 'addStudent'])->name('iaf.add-student');
+        Route::get('log',function (){
+           return view('pages.admin.log.index',['log'=> Log::class]);
+        })->name('log.index');
     });
 
     Route::middleware(['checkRole:1,2'])->group(function () {

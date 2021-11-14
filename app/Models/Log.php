@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property integer $id
@@ -16,7 +17,7 @@ class Log extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -26,8 +27,17 @@ class Log extends Model
      */
     protected $fillable = ['user_id', 'note', 'created_at', 'updated_at'];
 
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::whereHas('user', function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%');
+            })->orWhere('title', 'like', '%' . $query . '%');
+
+    }
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {

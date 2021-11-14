@@ -10,15 +10,12 @@
                     Name
                     @include('components.sort-icon', ['field' => 'title'])
                 </a></th>
-                <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
-                    Jumlah Imaji Academy
-                    @include('components.sort-icon', ['field' => 'created_at'])
-                </a></th>
-                <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
-                        Tanggal Dibuat
-                        @include('components.sort-icon', ['field' => 'created_at'])
+                <th><a wire:click.prevent="sortBy('code')" role="button" href="#">
+                        Code
+                        @include('components.sort-icon', ['field' => 'code'])
                     </a></th>
-                <th>Action</th>
+                <th>Imaji Academy</th>
+                <th>Aksi</th>
             </tr>
         </x-slot>
         <x-slot name="body">
@@ -26,10 +23,14 @@
                 <tr x-data="window.__controller.dataTableController({{ $feature->id }})">
                     <td>{{ $feature->id }}</td>
                     <td>{{ $feature->title }}</td>
-                    <td>{{ $feature->imajiAcademyFeatures->count() }}</td>
-                    <td>{{ $feature->created_at->format('d M Y H:i') }}</td>
+                    <td>{{ $feature->code }}</td>
+                    <td>
+                        @foreach($feature->imajiAcademyFeatures as $iaf)
+                            <div>{{$iaf->imajiAcademy->title}}</div>
+                        @endforeach
+                    </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="feature/edit/{{ $feature->id }}" class="mr-3"><i class="fa fa-16px fa-pen"></i></a>
+                        <a role="button" href="{{ route('admin.feature.edit',$feature->id) }}" class="mr-3"><i class="fa fa-16px fa-pen"></i></a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#"><i class="fa fa-16px fa-trash text-red-500"></i></a>
                     </td>
                 </tr>

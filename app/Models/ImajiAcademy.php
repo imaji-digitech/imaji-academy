@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property integer $id
  * @property string $title
+ * @property string $code
+ * @property string $village
  * @property string $created_at
  * @property string $updated_at
  * @property Administrator[] $administrators
@@ -26,12 +28,14 @@ class ImajiAcademy extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'code', 'village', 'created_at', 'updated_at'];
 
     public static function search($query)
     {
         return empty($query) ? static::query()
-            : static::where('title', 'like', '%' . $query . '%');
+            : static::where('title', 'like', '%' . $query . '%')
+                ->orWhere('code', 'like', '%' . $query . '%')
+                ->orWhere('village', 'like', '%' . $query . '%');
     }
 
     /**
