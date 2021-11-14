@@ -17,7 +17,6 @@ class FormAddingTeacher extends Component
     public function mount()
     {
         $this->user = [];
-//        $this->optionImajiAcademy = eloquent_to_options(ImajiAcademyFeature::get(), 'id', 'title');
         $this->optionUsers = eloquent_to_options(
             User::whereRole(2)
 //                ->doesntHave('featureTeachers')

@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Feature;
 use App\Models\ImajiAcademy;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -16,11 +15,11 @@ class DashboardAdmin extends Component
 
     public function mount()
     {
-        $this->max=[];
+        $this->max = [];
         $this->data['imajiAcademy'] = ImajiAcademy::get(['id'])->count();
         $this->data['student'] = User::whereRole(3)->get(['id'])->count();
         foreach (ImajiAcademy::get() as $im) {
-            $this->max[$im->id]=0;
+            $this->max[$im->id] = 0;
             $data = DB::select("
 SELECT
   features.title,
@@ -31,7 +30,7 @@ FROM feature_activity_presences JOIN feature_activities on feature_activities.id
 WHERE imaji_academy_features.imaji_academy_id=$im->id
 AND feature_activity_presences.presence_status_id=1
 GROUP BY features.id,features.title,feature_activities.id;");
-            if ($data!=null) {
+            if ($data != null) {
                 foreach ($data as $ac) {
                     $this->activity[$im->id][$ac->title] = [];
                 }

@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="added log">
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/table/log.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/admin/log/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormFeature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormImajiAcademy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormImajiAcademy.php" afterDir="false" />
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="updated">
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Feature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Feature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ImajiAcademy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImajiAcademy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/data-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/data-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-feature.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-feature.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-imaji-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-imaji-academy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/feature.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/feature.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/imaji-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/imaji-academy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +259,7 @@
       <workItem from="1636641530406" duration="9886000" />
       <workItem from="1636770105347" duration="1254000" />
       <workItem from="1636847664968" duration="4680000" />
-      <workItem from="1636865249148" duration="2328000" />
+      <workItem from="1636865249148" duration="2631000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -350,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636695822538</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="updated">
+      <created>1636867787084</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636867787084</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +363,7 @@
     <MESSAGE value="fixing button add penilaian" />
     <MESSAGE value="update galuh request" />
     <MESSAGE value="added log" />
-    <option name="LAST_COMMIT_MESSAGE" value="added log" />
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
   </component>
 </project>

@@ -117,7 +117,7 @@ class Main extends Component
                     "data" => array_to_object([
                         'href' => [
                             'create_new' => route('admin.imaji-academy.create'),
-                            'create_new_text' => 'Buat Fitur Baru',
+                            'create_new_text' => 'Buat Imaji Academy Baru',
                             'export' => '#',
                             'export_text' => 'Export'
                         ]
@@ -158,11 +158,9 @@ class Main extends Component
                 ];
                 break;
             case 'iaf-teacher':
-//                dd($this->model::get());
                 $iafs = $this->model::search($this->dataId,$this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
-//                dd($iafs);
 
                 return [
                     "view" => 'livewire.table.iaf-teacher',
@@ -216,10 +214,7 @@ class Main extends Component
                     "view" => 'livewire.table.log',
                     "logs" => $logs,
                     "data" => array_to_object([
-                        'href' => [
-//                            'create_new_text' => 'Lakukan penilaian',
-//                            'create_new' => route('admin.log.create',$this->dataId),
-                        ]
+                        'href' => []
                     ])
                 ];
                 break;
