@@ -33,13 +33,25 @@
                         @endisset
                     </td>
                     <td>
+                        @php($iaff=[])
+                        @php($iafp=[])
                         @foreach($student->featureStudents as $ias)
                             <div>{{ $ias->imajiAcademyFeature->feature->title }}</div>
+                            @php($iaff[$ias->iaf_id]=0)
+                            @php($iafp[$ias->iaf_id]=0)
                         @endforeach
                     </td>
                     <td>
-                        @foreach($student->featureStudents as $ias)
-                            <div>{{ $ias->imajiAcademyFeature->feature->title }}</div>
+                        @foreach($student->featureActivityPresences as $fap)
+                            @php($iaff[$fap->featureActivity->iaf_id]+=1)
+                            @if($fap->presence_status_id==1)
+                                @php($iafp[$fap->featureActivity->iaf_id]+=1)
+                            @endif
+                        @endforeach
+                        @foreach($iaff as $index=>$a)
+                            <div>
+                                {{$iafp[$index]}}/{{$a}}
+                            </div>
                         @endforeach
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">

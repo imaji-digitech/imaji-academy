@@ -54,7 +54,7 @@ class FormPresence extends Component
                 'note'=>''
             ]);
         }
-        $iaf=ImajiAcademyFeature::find($this->dataId);
+        $iaf=ImajiAcademyFeature::find($this->iaf);
         Log::create(['user_id'=>auth()->id(),'note'=>'telah melakukan presensi pada kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         $this->emit('swal:alert', [
             'type' => 'success',
@@ -71,7 +71,7 @@ class FormPresence extends Component
         $this->validate();
         $this->resetErrorBag();
         FeatureActivity::find($this->dataId)->update($this->data);
-        $iaf=ImajiAcademyFeature::find($this->dataId);
+        $iaf=ImajiAcademyFeature::find($this->iaf);
         Log::create(['user_id'=>auth()->id(),'note'=>'telah melakukan perubahan deskripsi presensi pada kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         $this->emit('swal:alert', [
             'type' => 'success',
