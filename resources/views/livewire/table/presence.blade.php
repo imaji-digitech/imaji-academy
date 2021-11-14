@@ -31,15 +31,20 @@
                     </th>
                     <td>{{ $presence->created_at->format('d M Y H:i') }}</td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" x-on:click.prevent="deleteItem" href="#">
-                            <i class="fa fa-16px fa-trash text-red-500"></i>
+                        <a role="button" href="{{ route('admin.presence.show',[$presence->iaf_id,$presence->id]) }}" class="mr-2">
+                            <i class="fa fa-16px fa-eye text-primary">Presensi</i>
                         </a>
-                        <a role="button" href="{{ route('admin.presence.show',[$presence->iaf_id,$presence->id]) }}">
-                            <i class="fa fa-16px fa-eye text-primary"></i>
+                        <br>
+                        <br>
+                        <a role="button" href="{{ route('admin.presence.edit',[$presence->iaf_id,$presence->id]) }}" class="mr-2">
+                            <i class="fa fa-16px fa-pencil text-primary">Ubah</i>
                         </a>
-                        <a role="button" href="{{ route('admin.presence.edit',[$presence->iaf_id,$presence->id]) }}">
-                            <i class="fa fa-16px fa-pencil text-primary"></i>
+                        <br>
+                        <br>
+                        <a role="button" x-on:click.prevent="deleteItem" href="#" class="mr-2">
+                            <i class="fa fa-16px fa-trash text-red-500">Hapus</i>
                         </a>
+
                     </td>
                 </tr>
             @endforeach
