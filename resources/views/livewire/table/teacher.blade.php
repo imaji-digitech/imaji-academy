@@ -10,6 +10,10 @@
                         Nama
                         @include('components.sort-icon', ['field' => 'name'])
                     </a></th>
+                <th><a wire:click.prevent="sortBy('email')" role="button" href="#">
+                        email
+                        @include('components.sort-icon', ['field' => 'email'])
+                    </a></th>
                 <th>
                     Imaji Academy
                 </th>
@@ -21,6 +25,7 @@
                 <tr x-data="window.__controller.dataTableController({{ $teacher->id }})">
                     <td>{{ $teacher->id }}</td>
                     <td>{{ $teacher->name }}</td>
+                    <td>{{ $teacher->email }}</td>
                     <td>
                         @foreach($teacher->featureTeachers as $ias)
                             {{ $ias->imajiAcademyFeature->imajiAcademy->title }} - {{ $ias->imajiAcademyFeature->feature->title }}
