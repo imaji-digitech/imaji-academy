@@ -43,7 +43,7 @@
                         @endforeach
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="{{ route('student.edit',$student->id) }}" class="mr-3">
+                        <a role="button" href="{{ route('admin.student.edit',$student->id) }}" class="mr-3">
                             <i class="fa fa-16px fa-pen"></i>
                         </a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#">
