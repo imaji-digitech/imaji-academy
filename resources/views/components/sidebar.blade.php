@@ -51,7 +51,7 @@
                 </li>
             @endif
             @if(auth()->user()->role==2)
-                <li class="menu-header">Manajemen Jadwal</li>
+{{--                <li class="menu-header">Manajemen Jadwal</li>--}}
                 @php($fts=auth()->user()->featureTeachers)
 {{--                @foreach($fts as $ft)--}}
 {{--                    <li class="">--}}
