@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="updated">
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FeatureStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FeatureStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormScore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormScore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/presence.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/presence.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/admin/iaf/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/iaf/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +265,8 @@
       <workItem from="1636641530406" duration="9886000" />
       <workItem from="1636770105347" duration="1254000" />
       <workItem from="1636847664968" duration="4680000" />
-      <workItem from="1636865249148" duration="8929000" />
+      <workItem from="1636865249148" duration="15068000" />
+      <workItem from="1637026724953" duration="15545000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -369,7 +373,28 @@
       <option name="project" value="LOCAL" />
       <updated>1636875781544</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="updated">
+      <created>1636878108930</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1636878108930</updated>
+    </task>
+    <task id="LOCAL-00017" summary="updated">
+      <created>1636878145276</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1636878145276</updated>
+    </task>
+    <task id="LOCAL-00018" summary="updated">
+      <created>1636878335308</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1636878335308</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

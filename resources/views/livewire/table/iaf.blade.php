@@ -37,10 +37,10 @@
                     <td>{{ $iaf->featureStudents->count() }}</td>
                     <td>{{ $iaf->featureTeachers->count() }}</td>
                     <td>
-                        <a role="button" href="{{ route('admin.presence.index',$iaf->id) }}" class="mr-2">
+                        <a role="button" wire:click="exportPresence({{$iaf->id}})" class="mr-2">
                             <i class="fa fa-16px fa-download">Presensi</i></a>
                         <br>
-                        <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">
+                        <a role="button" wire:click="exportScore({{$iaf->id}})" class="mr-2">
                             <i class="fa fa-16px fa-download">Penilaian</i></a>
                         <br>
                         <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="mr-2">

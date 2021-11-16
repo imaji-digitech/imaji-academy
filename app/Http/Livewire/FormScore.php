@@ -51,7 +51,7 @@ class FormScore extends Component
                 'note'=>''
             ]);
         }
-        $iaf=ImajiAcademyFeature::find($this->dataId);
+        $iaf=ImajiAcademyFeature::find($this->iaf);
         Log::create(['user_id'=>auth()->id(),'note'=>'telah melakukan penilaian pada kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         $this->emit('swal:alert', [
             'type' => 'success',
@@ -68,7 +68,7 @@ class FormScore extends Component
         $this->validate();
         $this->resetErrorBag();
         FeatureScore::find($this->dataId)->update($this->data);
-        $iaf=ImajiAcademyFeature::find($this->dataId);
+        $iaf=ImajiAcademyFeature::find($this->iaf);
         Log::create(['user_id'=>auth()->id(),'note'=>'telah melakukan perubahan deskripsi penilaian pada kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         $this->emit('swal:alert', [
             'type' => 'success',

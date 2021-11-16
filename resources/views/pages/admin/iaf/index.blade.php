@@ -10,6 +10,6 @@
     </x-slot>
 
     <div>
-        <livewire:table.main name="iaf" :model="$iaf" />
+        <livewire:table.presence name="iaf" :model="$iaf" />
     </div>
 </x-app-layout>

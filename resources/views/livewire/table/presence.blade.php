@@ -26,7 +26,6 @@
                     <td>{{ $presence->id }}</td>
                     <td>{{ $presence->module }}</td>
                     <th>
-{{--                        @php($p=\App\Models\FeatureActivityPresence::wherePresenceStatusId(1)->whereFeatureActivityId($presence->id)->get()->count(0))--}}
                         {{ \App\Models\FeatureActivityPresence::wherePresenceStatusId(1)->whereFeatureActivityId($presence->id)->get()->count().'/'.$presence->featureActivityPresences->count() }}
                     </th>
                     <td>{{ $presence->created_at->format('d M Y H:i') }}</td>
@@ -44,7 +43,6 @@
                         <a role="button" x-on:click.prevent="deleteItem" href="#" class="mr-2">
                             <i class="fa fa-16px fa-trash text-red-500">Hapus</i>
                         </a>
-
                     </td>
                 </tr>
             @endforeach

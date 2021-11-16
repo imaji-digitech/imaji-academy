@@ -51,14 +51,14 @@ class DatabaseSeeder extends Seeder
 //            'password' => Hash::make("siswa"),
 //            'role' => 3
 //        ]);
-//        Student::create(['user_id'=>3]);
+//        Presence::create(['user_id'=>3]);
 //        User::create([
 //            'name' => 'siswa2',
 //            'email' => "siswa2@siswa",
 //            'password' => Hash::make("siswa"),
 //            'role' => 3
 //        ]);
-//        Student::create(['user_id'=>4]);
+//        Presence::create(['user_id'=>4]);
 
 //        Feature::create(['title' => 'Agriculture', 'code' => 'AGRI']);
 //        Feature::create(['title' => 'Sociopreneur', 'code' => 'SCPR']);
