@@ -12,7 +12,7 @@
         <x-input title="Nama Orang Tua" model="user.parent_name" type="text"/>
         <x-input title="Pekerjaan Orang Tua" model="user.parent_job" type="text"/>
         <x-input title="Petani mitra kasih 1 untuk iya 0 untuk tidak" model="user.ips" type="number"/>
-        <x-input title="NIS" model="user.nisn" type="text"/>
+        <x-input title="NIS" model="user.nis" type="text"/>
         <div class="form-group col-span-6 sm:col-span-5"></div>
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
