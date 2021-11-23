@@ -3,6 +3,7 @@
         <x-input title="Nama siswa" model="user.name" type="text"/>
         <x-input title="Email siswa" model="user.email" type="text"/>
         <x-input title="Password" model="user.password" type="password"/>
+        <x-input title="TTL" model="user.birthday" type="text"/>
         <x-input title="Asal Sekolah" model="user.school" type="text"/>
         <x-input title="Kelas" model="user.class" type="number"/>
         <x-input title="Hobi" model="user.hobby" type="text"/>
@@ -11,7 +12,7 @@
         <x-input title="Nama Orang Tua" model="user.parent_name" type="text"/>
         <x-input title="Pekerjaan Orang Tua" model="user.parent_job" type="text"/>
         <x-input title="Petani mitra kasih 1 untuk iya 0 untuk tidak" model="user.ips" type="number"/>
-        <x-input title="Umur" model="user.age" type="number"/>
+        <x-input title="NIS" model="user.nisn" type="text"/>
         <div class="form-group col-span-6 sm:col-span-5"></div>
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>

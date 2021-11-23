@@ -26,6 +26,8 @@ class FormStudent extends Component
             'future_goal' => '',
             'parent_name' => '',
             'parent_job' => '',
+            'nis' => '',
+            'birthday' => '',
             'ips'=>0,
             'age'=>0
         ];
@@ -34,6 +36,8 @@ class FormStudent extends Component
             $this->user = [
                 'name' => $auth->name,
                 'email' => $auth->email,
+                'nis' => $auth->nis,
+                'birthday' => $auth->birthday,
                 'password' => '',
                 'user_id' => $auth->user_id,
                 'school' => $auth->school,
