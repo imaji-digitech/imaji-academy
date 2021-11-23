@@ -92,6 +92,8 @@ class FormStudent extends Component
             'future_goal' => $this->user['future_goal'],
             'parent_name' => $this->user['parent_name'],
             'parent_job' => $this->user['parent_job'],
+            'nis' => $this->user['nis'],
+            'birthday' => $this->user['birthday'],
         ]);
         $this->user = [
             'name' => '',
@@ -126,6 +128,8 @@ class FormStudent extends Component
             'future_goal' => $this->user['future_goal'],
             'parent_name' => $this->user['parent_name'],
             'parent_job' => $this->user['parent_job'],
+            'nis' => $this->user['nis'],
+            'birthday' => $this->user['birthday'],
         ]);
 
         if ($this->user['password'] != '') {
@@ -139,6 +143,6 @@ class FormStudent extends Component
             'timeout' => 3000,
             'icon' => 'success'
         ]);
-        $this->emit('redirect', route('admin.feature.index'));
+        $this->emit('redirect', route('admin.student.index'));
     }
 }
