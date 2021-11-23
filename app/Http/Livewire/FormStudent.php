@@ -29,7 +29,8 @@ class FormStudent extends Component
             'nis' => '',
             'birthday' => '',
             'ips'=>0,
-            'age'=>0
+            'age'=>0,
+            'role'=>3
         ];
         if ($this->dataId != null) {
             $auth = User::find($this->dataId);
@@ -81,20 +82,8 @@ class FormStudent extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        $user = User::create([
-            'name' => $this->user['name'],
-            'email' => $this->user['email'],
-            'password' => Hash::make($this->user['password']),
-            'role' => 3,
-            'school' => $this->user['school'],
-            'class' => $this->user['class'],
-            'hobby' => $this->user['hobby'],
-            'future_goal' => $this->user['future_goal'],
-            'parent_name' => $this->user['parent_name'],
-            'parent_job' => $this->user['parent_job'],
-            'nis' => $this->user['nis'],
-            'birthday' => $this->user['birthday'],
-        ]);
+        $this->user['password']=Hash::make($this->user['password']);
+        $user = User::create($this->user);
         $this->user = [
             'name' => '',
             'email' => '',

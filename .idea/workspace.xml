@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update form student" />
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update form student">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -262,7 +264,7 @@
       <workItem from="1637112632210" duration="3675000" />
       <workItem from="1637133755203" duration="908000" />
       <workItem from="1637218158453" duration="598000" />
-      <workItem from="1637640574127" duration="1216000" />
+      <workItem from="1637640574127" duration="2724000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -411,7 +413,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637641908088</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update form student">
+      <created>1637642085272</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1637642085272</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update form student">
+      <created>1637642200222</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1637642200222</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
