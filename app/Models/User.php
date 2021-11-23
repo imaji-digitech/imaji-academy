@@ -91,7 +91,7 @@ class User extends Authenticatable
     /**
      * @var array
      */
-    protected $fillable = ['name', 'email', 'role', 'quotes', 'address', 'birthday', 'email_verified_at', 'password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token', 'current_team_id', 'profile_photo_path', 'school', 'class', 'hobby', 'future_goal', 'parent_name', 'parent_job', 'created_at', 'updated_at', 'ips', 'age'];
+    protected $fillable = ['name', 'email', 'nis', 'role', 'quotes', 'address', 'birthday', 'email_verified_at', 'password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token', 'current_team_id', 'profile_photo_path', 'school', 'class', 'hobby', 'future_goal', 'parent_name', 'parent_job', 'created_at', 'updated_at', 'ips', 'age'];
 
     /**
      * Search query in multiple whereOr
@@ -108,7 +108,8 @@ class User extends Authenticatable
         return empty($query) ? static::whereRole(3)
             : static::whereRole(3)->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
-                    ->orWhere('email', 'like', '%' . $query . '%');
+                    ->orWhere('email', 'like', '%' . $query . '%')
+                    ->orWhere('nis', 'like', '%' . $query . '%');
             });
     }
 

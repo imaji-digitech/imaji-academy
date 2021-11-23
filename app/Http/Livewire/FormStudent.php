@@ -46,6 +46,9 @@ class FormStudent extends Component
                 'future_goal' => $auth->future_goal,
                 'parent_name' => $auth->parent_name,
                 'parent_job' => $auth->parent_job,
+
+                'ips'=>0,
+                'age'=>0
             ];
             $this->student = [
 
