@@ -33,7 +33,7 @@ class FormFeature extends Component
     public function create(){
         $this->validate();
         $this->resetErrorBag();
-        Feature::create(['title'=>$this->data['title']]);
+        Feature::create($this->data);
         Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan fitur '.$this->data['title']]);
         $this->emit('swal:alert', [
             'type' => 'success',
@@ -49,7 +49,7 @@ class FormFeature extends Component
         $this->validate();
         $this->resetErrorBag();
 
-        Feature::find($this->dataId)->update(['title'=>$this->data['title']]);
+        Feature::find($this->dataId)->update($this->data);
         Log::create(['user_id'=>auth()->id(),'note'=>'telah mengubah nama fitur '.$this->realName.' menjadi '.$this->data['title']]);
         $this->emit('swal:alert', [
             'type' => 'success',
