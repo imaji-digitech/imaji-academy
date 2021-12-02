@@ -68,7 +68,7 @@
 
                             var statistics_chart = document.getElementById("activity{{$im->id}}").getContext('2d');
                             @foreach($activity[$im->id] as $key=>$val)
-                            var data{{\Illuminate\Support\Str::slug($key)}} = [
+                            var data{{$key}} = [
                                 @foreach($val as $a)
                                     {{$a}},
                                 @endforeach
@@ -89,8 +89,8 @@
                                             @foreach($activity[$im->id] as $key=>$val)
                                         {
                                             @php($l+=1)
-                                            label: '{{\Illuminate\Support\Str::slug($key)}}',
-                                            data: data{{\Illuminate\Support\Str::slug($key)}},
+                                            label: '{{$key}}',
+                                            data: data{{$key}},
                                             borderWidth: 5,
                                             borderColor: borderColor[{{$l}}],
                                             backgroundColor: borderColor[{{$l}}] + '44',
