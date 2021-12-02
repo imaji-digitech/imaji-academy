@@ -15,7 +15,7 @@ class Presence extends Main
 {
     public function exportPresence($id)
     {
-        $iaf=ImajiAcademyFeature::find($id);
+        $iaf = ImajiAcademyFeature::find($id);
         $q1 = FeatureActivity::whereIafId($id)->get();
         $q2 = DB::select(DB::raw("
 SELECT feature_activities.id as activities_id, users.id as user_id,presence_statuses.title as presence_status
@@ -27,7 +27,7 @@ JOIN presence_statuses on presence_statuses.id=feature_activity_presences.presen
 WHERE imaji_academy_features.id=$id"));
         $q3 = FeatureStudent::whereIafId($id)->get();
 
-        $fileName = Str::slug($iaf->imajiAcademy->title.'-'.$iaf->feature->title.'-'.Carbon::now()->format('d/m/y')).".csv";
+        $fileName = Str::slug($iaf->imajiAcademy->title . '-' . $iaf->feature->title . '-' . Carbon::now()->format('d/m/y')) . ".csv";
         $headers = array(
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=$fileName",
@@ -39,7 +39,7 @@ WHERE imaji_academy_features.id=$id"));
         $callback = function () use ($iaf, $q3, $q2, $q1) {
             $delimiter = ';';
             $file = fopen('php://output', 'w');
-            fputcsv($file, [$iaf->imajiAcademy->title.'-'.$iaf->feature->title], $delimiter);
+            fputcsv($file, [$iaf->imajiAcademy->title . '-' . $iaf->feature->title], $delimiter);
             $head = ['NIS', 'Nama'];
             foreach ($q1 as $q) {
                 array_push($head, $q->created_at->format('d/m/Y H:i'));
@@ -64,9 +64,10 @@ WHERE imaji_academy_features.id=$id"));
         };
         return response()->stream($callback, 200, $headers);
     }
+
     public function exportScore($id)
     {
-        $iaf=ImajiAcademyFeature::find($id);
+        $iaf = ImajiAcademyFeature::find($id);
         $q1 = FeatureScore::whereIafId($id)->get();
         $q2 = DB::select(DB::raw("
 SELECT feature_scores.id as score_id, users.id as user_id,score_practice, score_theory,feature_scores.module as module
@@ -77,7 +78,7 @@ JOIN users on feature_score_students.user_id=users.id
 WHERE imaji_academy_features.id=$id"));
         $q3 = FeatureStudent::whereIafId($id)->get();
 
-        $fileName = Str::slug($iaf->imajiAcademy->title.'-'.$iaf->feature->title.'-'.Carbon::now()->format('d/m/y')).".csv";
+        $fileName = Str::slug($iaf->imajiAcademy->title . '-' . $iaf->feature->title . '-' . Carbon::now()->format('d/m/y')) . ".csv";
         $headers = array(
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=$fileName",
@@ -89,11 +90,11 @@ WHERE imaji_academy_features.id=$id"));
         $callback = function () use ($iaf, $q3, $q2, $q1) {
             $delimiter = ';';
             $file = fopen('php://output', 'w');
-            fputcsv($file, [$iaf->imajiAcademy->title.'-'.$iaf->feature->title], $delimiter);
+            fputcsv($file, [$iaf->imajiAcademy->title . '-' . $iaf->feature->title], $delimiter);
             $head = ['NIS', 'Nama'];
             foreach ($q1 as $q) {
-                array_push($head, $q->module."_teori");
-                array_push($head, $q->module."_praktik");
+                array_push($head, $q->module . "_teori");
+                array_push($head, $q->module . "_praktik");
             }
             fputcsv($file, $head, $delimiter);
             $col = [];
@@ -102,15 +103,15 @@ WHERE imaji_academy_features.id=$id"));
             }
             foreach ($q1 as $q) {
                 foreach ($q3 as $name) {
-                    $col[$name->user_id][$q->module."_teori"] = ' - ';
-                    $col[$name->user_id][$q->module."_praktik"] = ' - ';
+                    $col[$name->user_id][$q->module . "_teori"] = ' - ';
+                    $col[$name->user_id][$q->module . "_praktik"] = ' - ';
                 }
             }
-            $t=['-','A','B','C'];
-            $p=['-','Membanggakan','Cemerlang','Memuaskan'];
+            $t = ['-', 'A', 'B', 'C'];
+            $p = ['-', 'Membanggakan', 'Cemerlang', 'Memuaskan'];
             foreach ($q2 as $activity) {
-                $col[$activity->user_id][$activity->module."_teori"] = $t[$activity->score_theory];
-                $col[$activity->user_id][$activity->module."_praktik"] = $p[$activity->score_practice];
+                $col[$activity->user_id][$activity->module . "_teori"] = $t[$activity->score_theory];
+                $col[$activity->user_id][$activity->module . "_praktik"] = $p[$activity->score_practice];
             }
             foreach ($col as $c) {
                 fputcsv($file, $c, $delimiter);

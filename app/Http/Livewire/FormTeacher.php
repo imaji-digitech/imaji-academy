@@ -66,6 +66,13 @@ class FormTeacher extends Component
             'school' => $this->user['school'],
             'role' => 2
         ]);
+        $this->emit('swal:alert', [
+            'type' => 'success',
+            'title' => 'Data berhasil ditambahkan',
+            'timeout' => 3000,
+            'icon' => 'success'
+        ]);
+        $this->emit('redirect', route('admin.teacher.index'));
     }
 
     public function update()
@@ -84,5 +91,12 @@ class FormTeacher extends Component
                 'password' => Hash::make($this->user['password']),
             ]);
         }
+        $this->emit('swal:alert', [
+            'type' => 'success',
+            'title' => 'Data berhasil diubah',
+            'timeout' => 3000,
+            'icon' => 'success'
+        ]);
+        $this->emit('redirect', route('admin.teacher.index'));
     }
 }

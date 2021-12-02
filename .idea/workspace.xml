@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update form student">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,6 +267,7 @@
       <workItem from="1637218158453" duration="598000" />
       <workItem from="1637640574127" duration="3565000" />
       <workItem from="1637730629490" duration="47000" />
+      <workItem from="1638408758748" duration="3293000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -435,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637647018656</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update form student">
+      <created>1638408938550</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1638408938550</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
