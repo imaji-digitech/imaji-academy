@@ -28,9 +28,9 @@ class FormStudent extends Component
             'parent_job' => '',
             'nis' => '',
             'birthday' => '',
-            'ips'=>0,
-            'age'=>0,
-            'role'=>3
+            'ips' => 0,
+            'age' => 0,
+            'role' => 3
         ];
         if ($this->dataId != null) {
             $auth = User::find($this->dataId);
@@ -48,8 +48,8 @@ class FormStudent extends Component
                 'parent_name' => $auth->parent_name,
                 'parent_job' => $auth->parent_job,
 
-                'ips'=>0,
-                'age'=>0
+                'ips' => 0,
+                'age' => 0
             ];
             $this->student = [
 
@@ -63,12 +63,34 @@ class FormStudent extends Component
             return [
                 'user.name' => 'required|max:255',
                 'user.email' => 'email|required|max:255',
-                'user.password' => 'required|max:255'
+                'user.password' => 'required|max:255',
+                'user.school' => 'require|max:255',
+                'user.class' => 'require|max:255',
+                'user.hobby' => 'require|max:255',
+                'user.future_goal' => 'require|max:255',
+                'user.parent_name' => 'require|max:255',
+                'user.parent_job' => 'require|max:255',
+                'user.nis' => 'require|max:255',
+                'user.birthday' => 'require|max:255',
+                'user.ips' => 'require|max:255',
+                'user.age' => 'require|max:255',
+                'user.role' =>'require|max:255'
             ];
         } else {
             return [
                 'user.name' => 'required|max:255',
                 'user.email' => 'email|required|max:255',
+                'user.school' => 'require|max:255',
+                'user.class' => 'require|max:255',
+                'user.hobby' => 'require|max:255',
+                'user.future_goal' => 'require|max:255',
+                'user.parent_name' => 'require|max:255',
+                'user.parent_job' => 'require|max:255',
+                'user.nis' => 'require|max:255',
+                'user.birthday' => 'require|max:255',
+                'user.ips' => 'require|max:255',
+                'user.age' => 'require|max:255',
+                'user.role' =>'require|max:255'
             ];
         }
     }
@@ -81,8 +103,7 @@ class FormStudent extends Component
     public function create()
     {
         $this->validate();
-        $this->resetErrorBag();
-        $this->user['password']=Hash::make($this->user['password']);
+        $this->user['password'] = Hash::make($this->user['password']);
         $user = User::create($this->user);
         $this->user = [
             'name' => '',
@@ -106,7 +127,6 @@ class FormStudent extends Component
     public function update()
     {
         $this->validate();
-        $this->resetErrorBag();
         $user = User::find($this->dataId);
         $user->update([
             'name' => $this->user['name'],
