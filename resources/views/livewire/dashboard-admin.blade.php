@@ -89,7 +89,7 @@
                                             @foreach($activity[$im->id] as $key=>$val)
                                         {
                                             @php($l+=1)
-                                            label: '{{$key}}',
+                                            label: '{{\Illuminate\Support\Str::slug($key)}}',
                                             data: data{{\Illuminate\Support\Str::slug($key)}},
                                             borderWidth: 5,
                                             borderColor: borderColor[{{$l}}],
