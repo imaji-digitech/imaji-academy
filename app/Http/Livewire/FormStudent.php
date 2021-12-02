@@ -72,9 +72,8 @@ class FormStudent extends Component
                 'user.parent_job' => 'require|max:255',
                 'user.nis' => 'require|max:255',
                 'user.birthday' => 'require|max:255',
-                'user.ips' => 'require|max:255',
-                'user.age' => 'require|max:255',
-                'user.role' =>'require|max:255'
+                'user.ips' => 'require',
+                'user.age' => 'require',
             ];
         } else {
             return [
@@ -88,9 +87,8 @@ class FormStudent extends Component
                 'user.parent_job' => 'require|max:255',
                 'user.nis' => 'require|max:255',
                 'user.birthday' => 'require|max:255',
-                'user.ips' => 'require|max:255',
-                'user.age' => 'require|max:255',
-                'user.role' =>'require|max:255'
+                'user.ips' => 'require',
+                'user.age' => 'require'
             ];
         }
     }
