@@ -44,6 +44,7 @@ GROUP BY features.id,features.title,feature_activities.id;");
                 }
             }
         }
+
     }
 
     public function render()
