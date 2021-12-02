@@ -103,6 +103,7 @@ class FormStudent extends Component
     public function create()
     {
         $this->validate();
+        $this->resetErrorBag();
         $this->user['password'] = Hash::make($this->user['password']);
         $user = User::create($this->user);
         $this->user = [
@@ -127,6 +128,7 @@ class FormStudent extends Component
     public function update()
     {
         $this->validate();
+        $this->resetErrorBag();
         $user = User::find($this->dataId);
         $user->update([
             'name' => $this->user['name'],
