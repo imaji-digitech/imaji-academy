@@ -7,9 +7,18 @@
                         @include('components.sort-icon', ['field' => 'id'])
                     </a></th>
                 <th><a wire:click.prevent="sortBy('name')" role="button" href="#">
-                        Nama Kegiatan
+                        Kegiatan
                         @include('components.sort-icon', ['field' => 'title'])
                     </a></th>
+                <th>
+                    Kendala
+                </th>
+                <th>
+                    Solusi
+                </th>
+                <th>
+                    catatan
+                </th>
                 <th>
                     Yang hadir
                 </th>
@@ -25,6 +34,9 @@
                 <tr x-data="window.__controller.dataTableController({{ $presence->id }})">
                     <td>{{ $presence->id }}</td>
                     <td>{{ $presence->module }}</td>
+                    <td> {{ $presence->problem }}</td>
+                    <td> {{ $presence->solution }}</td>
+                    <td> {{ $presence->note }}</td>
                     <th>
                         {{ \App\Models\FeatureActivityPresence::wherePresenceStatusId(1)->whereFeatureActivityId($presence->id)->get()->count().'/'.$presence->featureActivityPresences->count() }}
                     </th>
