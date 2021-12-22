@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update form student">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update table presence.blade.php" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -268,6 +266,7 @@
       <workItem from="1637730629490" duration="47000" />
       <workItem from="1638408758748" duration="7099000" />
       <workItem from="1638463555638" duration="2589000" />
+      <workItem from="1638493691000" duration="322000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -514,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638464925233</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="update table presence.blade.php">
+      <created>1638493836257</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1638493836257</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,6 +547,7 @@
     <MESSAGE value="added log" />
     <MESSAGE value="updated" />
     <MESSAGE value="update form student" />
-    <option name="LAST_COMMIT_MESSAGE" value="update form student" />
+    <MESSAGE value="update table presence.blade.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="update table presence.blade.php" />
   </component>
 </project>
