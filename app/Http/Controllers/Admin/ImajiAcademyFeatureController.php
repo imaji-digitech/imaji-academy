@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\FeatureReport;
+use App\Models\FeatureScore;
 use App\Models\FeatureStudent;
 use App\Models\FeatureTeacher;
 use App\Models\ImajiAcademyFeature;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ImajiAcademyFeatureController extends Controller
 {
@@ -27,8 +33,8 @@ class ImajiAcademyFeatureController extends Controller
 
     public function showTeacher($id)
     {
-        $iaf= FeatureTeacher::class;
-        return view('pages.admin.iaf.show-teacher', compact('id','iaf'));
+        $iaf = FeatureTeacher::class;
+        return view('pages.admin.iaf.show-teacher', compact('id', 'iaf'));
     }
 
     public function addTeacher($id)
@@ -38,8 +44,8 @@ class ImajiAcademyFeatureController extends Controller
 
     public function showStudent($id)
     {
-        $iaf= FeatureStudent::class;
-        return view('pages.admin.iaf.show-student', compact('id','iaf'));
+        $iaf = FeatureStudent::class;
+        return view('pages.admin.iaf.show-student', compact('id', 'iaf'));
     }
 
     public function addStudent($id)
@@ -51,4 +57,19 @@ class ImajiAcademyFeatureController extends Controller
     {
         return view('pages.admin.iaf.edit', compact('id'));
     }
+    public function report($id)
+    {
+        $iaf=ImajiAcademyFeature::find($id);
+        if ($iaf->featureReports->count()==0){
+            foreach ($iaf->featureStudents as $fs){
+                FeatureReport::create([
+                    'user_id' => $fs->user_id,
+                    'iaf_id'=>$id,
+                    'attitude'=>3,
+                ]);
+            }
+        }
+        return view('pages.teacher.report',compact('id','iaf'));
+    }
+
 }

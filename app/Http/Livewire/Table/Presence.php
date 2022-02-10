@@ -8,6 +8,7 @@ use App\Models\FeatureScore;
 use App\Models\FeatureStudent;
 use App\Models\ImajiAcademyFeature;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -119,5 +120,29 @@ WHERE imaji_academy_features.id=$id"));
             fclose($file);
         };
         return response()->stream($callback, 200, $headers);
+    }
+    public function exportReport($id){
+        $iaf = ImajiAcademyFeature::find($id);
+        $q1 = FeatureScore::whereIafId($id)->get();
+        $q2 = FeatureStudent::whereIafId($id)->get();
+        $q3 = DB::select(DB::raw("
+SELECT feature_scores.id as score_id, users.id as user_id,score_practice, score_theory,feature_scores.module as module
+FROM imaji_academy_features
+JOIN feature_scores ON feature_scores.iaf_id=imaji_academy_features.id
+JOIN feature_score_students on feature_score_students.feature_score_id=feature_scores.id
+JOIN users on feature_score_students.user_id=users.id
+WHERE imaji_academy_features.id=$id"));
+        $q4 = DB::select(DB::raw("
+SELECT feature_activities.id as activities_id, users.id as user_id,presence_statuses.title as presence_status
+FROM imaji_academy_features
+JOIN feature_activities ON feature_activities.iaf_id=imaji_academy_features.id
+JOIN feature_activity_presences on feature_activity_presences.feature_activity_id=feature_activities.id
+JOIN users on feature_activity_presences.user_id=users.id
+JOIN presence_statuses on presence_statuses.id=feature_activity_presences.presence_status_id
+WHERE imaji_academy_features.id=$id"));
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdf.invoice', compact(''))->setPaper('a4', 'portrait');
+        return $pdf->stream('INVOICE - pdf');
     }
 }

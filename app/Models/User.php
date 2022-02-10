@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -14,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property integer $id
  * @property string $name
  * @property string $email
+ * @property string $nis
  * @property int $role
  * @property string $quotes
  * @property string $address
@@ -31,6 +31,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $future_goal
  * @property string $parent_name
  * @property string $parent_job
+ * @property int $ips
+ * @property int $age
  * @property string $created_at
  * @property string $updated_at
  * @property Administrator[] $administrators
@@ -40,6 +42,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property FeatureScore[] $featureScores
  * @property FeatureStudent[] $featureStudents
  * @property FeatureTeacher[] $featureTeachers
+ * @property FeatureReport[] $featureReports
  * @property ImajiAcademyStudent[] $imajiAcademyStudents
  * @property Student[] $students
  * @property Teacher[] $teachers
@@ -121,9 +124,8 @@ class User extends Authenticatable
                     ->orWhere('email', 'like', '%' . $query . '%');
             });
     }
-
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function administrators()
     {
@@ -131,7 +133,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function featureActivities()
     {
@@ -139,7 +141,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function featureActivityPresences()
     {
@@ -147,7 +149,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function featureScoreStudents()
     {
@@ -155,7 +157,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function featureScores()
     {
@@ -163,7 +165,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function featureStudents()
     {
@@ -171,7 +173,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function featureTeachers()
     {
@@ -179,7 +181,15 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureReports()
+    {
+        return $this->hasMany('App\Models\FeatureReport');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function imajiAcademyStudents()
     {
@@ -187,7 +197,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function students()
     {
@@ -195,7 +205,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function teachers()
     {

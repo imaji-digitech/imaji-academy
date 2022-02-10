@@ -28,4 +28,7 @@ class ScoreController extends Controller
     {
         return view('pages.teacher.score.show', compact('iaf', 'id'));
     }
+    public function manualScore($iaf){
+        return view('pages.teacher.score.manual-score', compact('iaf'));
+    }
 }

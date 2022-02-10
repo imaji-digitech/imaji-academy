@@ -9,6 +9,7 @@
     </x-slot>
 
     <div>
+        <a href="{{ route('admin.score.manual',$iaf) }}" class="btn btn-primary">Tambah nilai peserta didik secara manual</a>
         <livewire:table.main name="score" :model="$score" :dataId="$iaf"/>
     </div>
 </x-app-layout>

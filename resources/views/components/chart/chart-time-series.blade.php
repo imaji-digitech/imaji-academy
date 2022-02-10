@@ -3,16 +3,7 @@
     <canvas id="{{$title}}" height="{{$height}}"></canvas>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
-            function shuffle(array) {
-                var currentIndex = array.length, randomIndex;
-                while (currentIndex != 0) {
-                    randomIndex = Math.floor(Math.random() * currentIndex);
-                    currentIndex--;
-                    [array[currentIndex], array[randomIndex]] = [
-                        array[randomIndex], array[currentIndex]];
-                }
-                return array;
-            }
+
 
             var statistics_chart = document.getElementById("{{$title}}").getContext('2d');
             // var month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
@@ -33,6 +24,16 @@
             ];
             @endif
             @endforeach
+            function shuffle(array) {
+                var currentIndex = array.length, randomIndex;
+                while (currentIndex != 0) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex], array[currentIndex]];
+                }
+                return array;
+            }
             var borderColor = ['#FAA255', '#F0C348', '#E27CF1', '#F562AC', '#EB5959', '#9EE67A', '#50D989', '#66CFF2', '#7F7CE6'];
             borderColor = shuffle(borderColor);
             new Chart(statistics_chart, {

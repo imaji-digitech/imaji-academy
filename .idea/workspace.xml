@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update table presence.blade.php" />
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report etc">
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/FormManualPresence.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/FormManualScore.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/StudentReport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/FeatureReport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2022_02_09_070113_create_imaji_academy_feature_report.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/raport.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ymi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/form-manual-presence.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/form-manual-score.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/student-report.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/manual-presence.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/report.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/manual-score.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pdf/report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-8-stisla-jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-8-stisla-jetstream.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImajiAcademyFeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImajiAcademyFeatureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Teacher/PresenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teacher/PresenceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ScoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ScoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/chart/chart-time-series.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/chart/chart-time-series.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/teacher/presence/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/teacher/score/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,11 +65,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/resources/views/components/sidebar.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/views/components/navbar.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/views/components/notify-message.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/routes/web.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/resources/views/components/notify-message.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/resources/views/components/navbar.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file:///Library/WebServer/Documents/index.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/resources/views/components/sidebar.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -163,6 +198,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nFFHTJ27FPJh7ONP5b8yS1sEHO" />
@@ -178,7 +218,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/livewire/table" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages/teacher/score" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -188,11 +228,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/livewire/table" />
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/app/View/Components" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/score" />
+      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/presence" />
+      <recent name="$PROJECT_DIR$/resources/views/pdf" />
+      <recent name="$PROJECT_DIR$/resources/views/livewire/table" />
     </key>
   </component>
   <component name="RunManager">
@@ -267,6 +307,20 @@
       <workItem from="1638408758748" duration="7099000" />
       <workItem from="1638463555638" duration="2589000" />
       <workItem from="1638493691000" duration="322000" />
+      <workItem from="1640162363278" duration="3835000" />
+      <workItem from="1642320620747" duration="634000" />
+      <workItem from="1642418375828" duration="1197000" />
+      <workItem from="1642470216371" duration="389000" />
+      <workItem from="1643776812362" duration="1443000" />
+      <workItem from="1643779337981" duration="4852000" />
+      <workItem from="1643810221866" duration="3238000" />
+      <workItem from="1643852976859" duration="8583000" />
+      <workItem from="1643907258513" duration="482000" />
+      <workItem from="1644371450352" duration="8327000" />
+      <workItem from="1644389645372" duration="5881000" />
+      <workItem from="1644466402205" duration="3112000" />
+      <workItem from="1644471717714" duration="55000" />
+      <workItem from="1644471789374" duration="11043000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -520,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638493836257</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="update table presence.blade.php">
+      <created>1640162407749</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1640162407749</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,6 +609,7 @@
     <MESSAGE value="updated" />
     <MESSAGE value="update form student" />
     <MESSAGE value="update table presence.blade.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="update table presence.blade.php" />
+    <MESSAGE value="update report etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="update report etc" />
   </component>
 </project>

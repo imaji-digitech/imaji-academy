@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property integer $id
@@ -15,8 +13,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Feature $feature
  * @property ImajiAcademy $imajiAcademy
  * @property FeatureActivity[] $featureActivities
- * @property FeatureActivityPresence[] $featureActivityPresences
+ * @property FeatureReport[] $featureReports
  * @property FeatureSchedule[] $featureSchedules
+ * @property FeatureScore[] $featureScores
  * @property FeatureStudent[] $featureStudents
  * @property FeatureTeacher[] $featureTeachers
  * @property FeatureTest[] $featureTests
@@ -35,6 +34,77 @@ class ImajiAcademyFeature extends Model
      */
     protected $fillable = ['imaji_academy_id', 'feature_id', 'created_at', 'updated_at'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function feature()
+    {
+        return $this->belongsTo('App\Models\Feature');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function imajiAcademy()
+    {
+        return $this->belongsTo('App\Models\ImajiAcademy');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureActivities()
+    {
+        return $this->hasMany('App\Models\FeatureActivity', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureReports()
+    {
+        return $this->hasMany('App\Models\FeatureReport', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureSchedules()
+    {
+        return $this->hasMany('App\Models\FeatureSchedule', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureScores()
+    {
+        return $this->hasMany('App\Models\FeatureScore', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureStudents()
+    {
+        return $this->hasMany('App\Models\FeatureStudent', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureTeachers()
+    {
+        return $this->hasMany('App\Models\FeatureTeacher', 'iaf_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featureTests()
+    {
+        return $this->hasMany('App\Models\FeatureTest', 'iaf_id');
+    }
     public static function search($query)
     {
         return empty($query) ? static::query()
@@ -47,69 +117,5 @@ class ImajiAcademyFeature extends Model
                 ->orWhereHas('feature', function ($q) use ($query) {
                     $q->where('title', 'like', '%' . $query . '%');
                 });
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function feature()
-    {
-        return $this->belongsTo('App\Models\Feature');
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function imajiAcademy()
-    {
-        return $this->belongsTo('App\Models\ImajiAcademy');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function featureActivities()
-    {
-        return $this->hasMany('App\Models\FeatureActivity', 'iaf_id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function featureActivityPresences()
-    {
-        return $this->hasMany('App\Models\FeatureActivityPresence', 'iaf_id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function featureSchedules()
-    {
-        return $this->hasMany('App\Models\FeatureSchedule', 'iaf_id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function featureStudents()
-    {
-        return $this->hasMany('App\Models\FeatureStudent', 'iaf_id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function featureTeachers()
-    {
-        return $this->hasMany('App\Models\FeatureTeacher', 'iaf_id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function featureTests()
-    {
-        return $this->hasMany('App\Models\FeatureTest', 'iaf_id');
     }
 }

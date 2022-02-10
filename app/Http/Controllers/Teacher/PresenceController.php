@@ -27,4 +27,7 @@ class PresenceController extends Controller
     {
         return view('pages.teacher.presence.show', compact('iaf', 'id'));
     }
+    public function manualPresence($iaf){
+        return view('pages.teacher.presence.manual-presence', compact('iaf'));
+    }
 }
