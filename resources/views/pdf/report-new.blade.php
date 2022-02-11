@@ -179,10 +179,12 @@
                 </tr>
                 <tr>
                     <td>
+                        @isset(auth()->user()->featureReports)
                         @foreach( auth()->user()->featureReports as $fr )
                             {{ $fr->imajiAcademyFeature->feature->title }}: <br>
                             {{ $fr->note }}
                         @endforeach
+                            @endisset
                     </td>
                 </tr>
             </table>
