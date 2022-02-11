@@ -166,8 +166,9 @@
                             @php($count+=$a)
                         @endforeach
                         @php($attitude_title=['-','Sangat Baik','Baik','Cukup'])
-
+                        @isset(auth()->user()->featureReports)
                         Sikap : <br> {{ $attitude_title[round(auth()->user()->featureReports->sum('attitude')/auth()->user()->featureReports->count())] }}
+                        @endisset
                         Kedisiplinan : <br> {{($total/$count*100>=80?'Sangat disiplin':($total/$count*100)>=60)?'Disiplin':'Cukup'}}
                         <br>
 
