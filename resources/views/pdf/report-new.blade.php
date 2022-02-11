@@ -167,7 +167,7 @@
                         @endforeach
                         @php($attitude_title=['-','Sangat Baik','Baik','Cukup'])
 
-                        Sikap : <br> {{ $attitude_title[round(auth()->user()->featureReports->sum('attitude')/auth()->user()->featureReports->sum('count'))] }}
+                        Sikap : <br> {{ $attitude_title[round(auth()->user()->featureReports->sum('attitude')/auth()->user()->featureReports->count())] }}
                         Kedisiplinan : <br> {{($total/$count*100>=80?'Sangat disiplin':($total/$count*100)>=60)?'Disiplin':'Cukup'}}
                         <br>
 
