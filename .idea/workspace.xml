@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report etc">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/FormManualPresence.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/FormManualScore.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/StudentReport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FeatureReport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2022_02_09_070113_create_imaji_academy_feature_report.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/raport.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ymi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/form-manual-presence.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/form-manual-score.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/student-report.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/manual-presence.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/report.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/manual-score.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pdf/report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-8-stisla-jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-8-stisla-jetstream.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImajiAcademyFeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImajiAcademyFeatureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Teacher/PresenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teacher/PresenceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ScoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ScoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Presence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/chart/chart-time-series.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/chart/chart-time-series.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/teacher/presence/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/teacher/presence/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/teacher/score/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/teacher/score/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +287,8 @@
       <workItem from="1644389645372" duration="5881000" />
       <workItem from="1644466402205" duration="3112000" />
       <workItem from="1644471717714" duration="55000" />
-      <workItem from="1644471789374" duration="11043000" />
+      <workItem from="1644471789374" duration="13043000" />
+      <workItem from="1644559428435" duration="618000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -581,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640162407749</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update report etc">
+      <created>1644487629998</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1644487629998</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

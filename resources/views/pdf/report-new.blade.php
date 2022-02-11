@@ -58,9 +58,9 @@
 <body>
 @foreach($users as $index=>$user)
     @if($index!=0)
-        @php
-            break
-        @endphp
+{{--        @php--}}
+{{--            break--}}
+{{--        @endphp--}}
         <div style="page-break-before: always;"></div>
     @endif
     <div style="padding: 50px">

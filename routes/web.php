@@ -46,8 +46,8 @@ Route::get('/', function () {
     return redirect(route('login'));
 });
 Route::view('/student', 'livewire.profile-student');
-Route::get('/report', function () {
-    $id = 5;
+Route::get('/report/{id}', function ($id) {
+//    $id = 5;
     $alphabet = range('A', 'Z');
     $score_practice = ['-', 'A', 'B', 'C'];
     $score_theory = ['-', 'Membanggakan', 'Cemerlang', 'Memuaskan'];
