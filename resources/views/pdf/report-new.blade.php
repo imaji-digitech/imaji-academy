@@ -123,20 +123,23 @@
                             <td>{{ $q2->module }}</td>
                             @php
                                 $score=\App\Models\FeatureScoreStudent::whereUserId($user->id)->whereFeatureScoreId($q2->id)->first();
+if (isset($score->score_practice)){
                                 $total_practice+=$score->score_practice;
                                 $total_theory+=$score->score_theory;
-                                $c+=1
+                                $c+=1;
+}
+
                             @endphp
-                            <td style="text-align: center">{{ $score_practice[$score->score_practice] }}</td>
-                            <td style="text-align: center">{{ $score_theory[$score->score_theory] }}</td>
+                            <td style="text-align: center">@isset($score->score_practice){{ $score_practice[$score->score_practice] }}@endisset</td>
+                            <td style="text-align: center">@isset($score->score_practice){{ $score_theory[$score->score_theory] }}@endisset</td>
                         </tr>
                     @endforeach
                 @endforeach
                 <tr style="font-weight: bold">
                     <td style="text-align: center"></td>
                     <td>RATA-RATA</td>
-                    <td style="text-align: center">{{ $score_practice[round($total_practice/$c)] }}</td>
-                    <td style="text-align: center">{{ $score_theory[round($total_practice/$c)] }}</td>
+                    <td style="text-align: center">@if($total_practice!=0){{ $score_practice[round($total_practice/$c)] }}@endif</td>
+                    <td style="text-align: center">@if($total_theory!=0){{ $score_theory[round($total_theory/$c)] }}@endif</td>
                 </tr>
                 </tbody>
             </table>
@@ -166,8 +169,9 @@
                             @php($count+=$a)
                         @endforeach
                         @php($attitude_title=['-','Sangat Baik','Baik','Cukup'])
-                        @isset(auth()->user()->featureReports)
-                        Sikap : <br> {{ $attitude_title[round(auth()->user()->featureReports->sum('attitude')/auth()->user()->featureReports->count())] }}
+                        @isset($user->featureReports)
+                        Sikap : <br> {{ $attitude_title[round($user->featureReports->sum('attitude')/$user->featureReports->count())] }}
+                            <br>
                         @endisset
                         Kedisiplinan : <br> {{($total/$count*100>=80?'Sangat disiplin':($total/$count*100)>=60)?'Disiplin':'Cukup'}}
                         <br>
@@ -179,10 +183,10 @@
                 </tr>
                 <tr>
                     <td>
-                        @isset(auth()->user()->featureReports)
-                        @foreach( auth()->user()->featureReports as $fr )
+                        @isset($user->featureReports)
+                        @foreach( $user->featureReports as $fr )
                             {{ $fr->imajiAcademyFeature->feature->title }}: <br>
-                            {{ $fr->note }}
+                            {{ $fr->note }} <br>
                         @endforeach
                             @endisset
                     </td>
