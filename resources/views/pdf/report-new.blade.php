@@ -58,9 +58,9 @@
 <body>
 @foreach($users as $index=>$user)
     @if($index!=0)
-        {{--        @php--}}
-        {{--            break--}}
-        {{--        @endphp--}}
+                @php
+                    break
+                @endphp
         <div style="page-break-before: always;"></div>
     @endif
     <div style="padding: 50px">
@@ -206,13 +206,11 @@ if (isset($score->score_practice)){
                 </tr>
                 <tr>
                     <td>
-                        <br><br><br><br><br>
                     </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>_____________</td>
+                    <td>
+                        <img src="{{ public_path('images/ttd.png') }}" alt="" style="height: 150px"><br>
+                        _____________
+                    </td>
                 </tr>
                 <tr>
                     <td></td>

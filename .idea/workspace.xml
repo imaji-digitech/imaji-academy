@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report">
+      <change afterPath="$PROJECT_DIR$/public/images/ttd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ttd.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/raport.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/raport.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -290,7 +291,7 @@
       <workItem from="1644466402205" duration="3112000" />
       <workItem from="1644471717714" duration="55000" />
       <workItem from="1644471789374" duration="13043000" />
-      <workItem from="1644559428435" duration="4653000" />
+      <workItem from="1644559428435" duration="6329000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1630376067429</created>
@@ -614,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644583092931</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="update report">
+      <created>1644584510486</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1644584510486</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
