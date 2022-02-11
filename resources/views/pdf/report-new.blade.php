@@ -58,9 +58,9 @@
 <body>
 @foreach($users as $index=>$user)
     @if($index!=0)
-{{--        @php--}}
-{{--            break--}}
-{{--        @endphp--}}
+        {{--        @php--}}
+        {{--            break--}}
+        {{--        @endphp--}}
         <div style="page-break-before: always;"></div>
     @endif
     <div style="padding: 50px">
@@ -108,7 +108,7 @@
                 @php
                     $total_practice=0;
                     $total_theory=0;
-                    $c=0;
+                    $c=0
                 @endphp
                 @foreach($user->featureStudents as $index=>$q1)
                     <tr style="font-weight: bold">
@@ -122,10 +122,10 @@
                             <td style="text-align: center">{{ $index2+1 }}</td>
                             <td>{{ $q2->module }}</td>
                             @php
-                                $score=\App\Models\FeatureScoreStudent::whereUserId($user->id)->whereFeatureScoreId($q2->id)->first();
+                                use App\Models\FeatureScoreStudent;$score=FeatureScoreStudent::whereUserId($user->id)->whereFeatureScoreId($q2->id)->first();
                                 $total_practice+=$score->score_practice;
                                 $total_theory+=$score->score_theory;
-                                $c+=1;
+                                $c+=1
                             @endphp
                             <td style="text-align: center">{{ $score_practice[$score->score_practice] }}</td>
                             <td style="text-align: center">{{ $score_theory[$score->score_theory] }}</td>
@@ -146,7 +146,7 @@
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr style="border: 1px solid black;">
                     <td rowspan="2">
-{{--                    <td>--}}
+                        {{--                    <td>--}}
                         @php($iaff=[])
                         @php($iafp=[])
                         @foreach($user->featureStudents as $ias)
@@ -162,11 +162,15 @@
                         @php( $total=0 )
                         @php( $count=0 )
                         @foreach($iaff as $index=>$a)
-                        @php($total+=$iafp[$index])
+                            @php($total+=$iafp[$index])
                             @php($count+=$a)
                         @endforeach
-                        Sikap : {{($total/$count*100>=80?'Sangat disiplin':($total/$count*100)>=60)?'Disiplin':'Cukup'}}<br>
                         @php($attitude_title=['-','Sangat Baik','Baik','Cukup'])
+
+                        Sikap : <br> {{ $attitude_title[round(auth()->user()->featureReports->sum('atitude')/auth()->user()->featureReports->sum('count'))] }}
+                        Kedisiplinan : <br> {{($total/$count*100>=80?'Sangat disiplin':($total/$count*100)>=60)?'Disiplin':'Cukup'}}
+                        <br>
+
                     </td>
                     <td>
                         Catatan tutor untuk diperhatikan oleh peserta didik dan orang tua/wali
@@ -174,10 +178,10 @@
                 </tr>
                 <tr>
                     <td>
-                        Agriculture: <br>
-                        jadi gini dek kmau kok nakal <br>
-                        Sociopreneur : <br>
-                        Jadi gini kamu kok gk pernah masuk masuk cma pas makan, ak gak suka klo kmu gtu in temen temenmu kasian yang masak kamu yang makan
+                        @foreach( auth()->user()->featureReports as $fr )
+                            {{ $fr->imajiAcademyFeature->feature->title }}: <br>
+                            {{ $fr->note }}
+                        @endforeach
                     </td>
                 </tr>
             </table>
