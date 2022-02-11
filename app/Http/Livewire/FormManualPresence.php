@@ -30,7 +30,7 @@ class FormManualPresence extends Component
         foreach (FeatureActivity::whereIafId($this->iaf)->get() as $user) {
             array_push($this->optionPresence, ['value' => $user->id, 'title' => $user->module]);
         }
-        $this->optionStatusPresence = PresenceStatus::get();
+        $this->optionStatusPresence = eloquent_to_options(PresenceStatus::get(),'id','title');
         $this->status=1;
         if ($this->optionPresence!=null){
             $this->presence=$this->optionPresence[0]['value'];

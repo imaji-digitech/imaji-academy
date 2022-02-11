@@ -47,7 +47,6 @@ Route::get('/', function () {
 });
 Route::view('/student', 'livewire.profile-student');
 Route::get('/report/{id}', function ($id) {
-//    $id = 5;
     $alphabet = range('A', 'Z');
     $score_practice = ['-', 'A', 'B', 'C'];
     $score_theory = ['-', 'Membanggakan', 'Cemerlang', 'Memuaskan'];
