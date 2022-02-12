@@ -64,13 +64,13 @@
         <div style="page-break-before: always;"></div>
     @endif
     <div style="padding: 50px">
-        <br><br>
+        <br>
         <div style="text-align: center">
             <img src="{{ public_path('images/half_image.png') }}" alt="" style="width: 90px;margin-right: 10px">
             <img src="{{ public_path('images/ia.png') }}" alt="" style="width: 90px;margin-right: 10px">
             <img src="{{ public_path('images/ymi.png') }}" alt="" style="width: 90px">
         </div>
-        <div style="text-align: center">
+        <div style="    text-align: center">
             <h2 style="padding: 0;margin: 0">RAPOR HASIL PEMBELAJARAN SISWA</h2>
             <h3 style="padding: 0;margin: 0">{{ $imajiAcademy->title }}</h3>
             <h3 style="padding: 0;margin: 0">{{ $imajiAcademy->village }}</h3>
@@ -193,7 +193,7 @@ if (isset($score->score_practice)){
                 </tr>
             </table>
         </div>
-        <br><br><br>
+        <br><br>
         <div>
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
