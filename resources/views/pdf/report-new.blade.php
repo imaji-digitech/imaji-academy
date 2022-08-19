@@ -75,7 +75,7 @@
             <h3 style="padding: 0;margin: 0">{{ $imajiAcademy->title }}</h3>
             <h3 style="padding: 0;margin: 0">{{ $imajiAcademy->village }}</h3>
         </div>
-        <br><br>
+        <br>
         <div>
             <table style="margin: 0;padding: 0; width: 100%">
                 <tr>
