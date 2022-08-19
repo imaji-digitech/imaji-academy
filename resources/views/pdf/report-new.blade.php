@@ -90,7 +90,7 @@
                 </tr>
             </table>
         </div>
-        <br><br>
+        <br>
         <div class="static">
             <table style="margin: 0;padding: 0; width: 100%;">
                 <thead style="text-align: center">

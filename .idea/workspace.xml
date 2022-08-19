@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-8-stisla-jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-8-stisla-jetstream.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -300,14 +296,7 @@
       <workItem from="1645852482149" duration="14000" />
       <workItem from="1647089434077" duration="830000" />
       <workItem from="1660869832597" duration="113000" />
-      <workItem from="1660870025388" duration="304000" />
-    </task>
-    <task id="LOCAL-00002" summary="Update">
-      <created>1630640335785</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1630640335785</updated>
+      <workItem from="1660870025388" duration="696000" />
     </task>
     <task id="LOCAL-00003" summary="Update">
       <created>1632887365977</created>
@@ -645,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644637187056</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update report">
+      <created>1660870591573</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1660870591574</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
