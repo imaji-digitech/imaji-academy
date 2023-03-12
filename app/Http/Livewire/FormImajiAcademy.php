@@ -18,11 +18,23 @@ class FormImajiAcademy extends Component
         $this->data['title'] = '';
         $this->data['code'] = '';
         $this->data['village'] = '';
+        $this->data['village_program'] = '';
+        $this->data['year_program'] = '';
+        $this->data['year_program_code'] = '';
+        $this->data['village_code'] = '';
+        $this->data['note'] = '';
+
         if ($this->dataId != null) {
-            $this->data['title'] = ImajiAcademy::find($this->dataId)->title;
-            $this->data['village'] = ImajiAcademy::find($this->dataId)->village;
-            $this->data['code'] = ImajiAcademy::find($this->dataId)->code;
-            $this->realName = ImajiAcademy::find($this->dataId)->title;
+            $im=ImajiAcademy::find($this->dataId);
+            $this->data['title'] = $im->title;
+            $this->data['village'] = $im->village;
+            $this->data['code'] = $im->code;
+            $this->data['village_program'] = $im->title;
+            $this->data['year_program'] = $im->year_program;
+            $this->data['year_program_code'] = $im->year_program_code;
+            $this->data['village_code'] = $im->village_code;
+            $this->data['note'] = $im->note;
+            $this->realName = $im->title;
         }
     }
 
@@ -54,7 +66,7 @@ class FormImajiAcademy extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        ImajiAcademy::find($this->dataId)->update(['title' => $this->data['title']]);
+        ImajiAcademy::find($this->dataId)->update($this->data);
         Log::create(['user_id' => auth()->id(), 'note' => 'telah mengubah nama imaji academy ' . $this->realName . ' menjadi ' . $this->data['title']]);
         $this->emit('swal:alert', [
             'type' => 'success',

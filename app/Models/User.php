@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -60,30 +61,33 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
+    protected $hidden
+        = [
+            'password',
+            'remember_token',
+            'two_factor_recovery_codes',
+            'two_factor_secret',
+        ];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $casts
+        = [
+            'email_verified_at' => 'datetime',
+        ];
 
     /**
      * The accessors to append to the model's array form.
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends
+        = [
+            'profile_photo_url',
+        ];
     /**
      * /**
      * The "type" of the auto-incrementing ID.
@@ -94,38 +98,61 @@ class User extends Authenticatable
     /**
      * @var array
      */
-    protected $fillable = ['name', 'email', 'nis', 'role', 'quotes', 'address', 'birthday', 'email_verified_at', 'password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token', 'current_team_id', 'profile_photo_path', 'school', 'class', 'hobby', 'future_goal', 'parent_name', 'parent_job', 'created_at', 'updated_at', 'ips', 'age'];
+    protected $fillable
+        = [
+            'name', 'email', 'nis', 'role', 'quotes', 'address', 'birthday',
+            'email_verified_at', 'password', 'two_factor_secret',
+            'two_factor_recovery_codes', 'remember_token', 'current_team_id',
+            'profile_photo_path', 'school', 'class', 'hobby', 'future_goal',
+            'parent_name', 'parent_job', 'created_at', 'updated_at', 'ips',
+            'age', 'birth_place', 'birth_place', 'year_enter', 'semester',
+            'village', 'school_grade', 'home_village', 'home_address',
+        ];
+
+    public static function getCode($id,$year){
+        $imajiAcademy=ImajiAcademy::find($id);
+        $count = User::where('imaji_academy_id',$id)->where('year_enter',$year)->get()->count();
+        $number=str_pad($count+1, 4, '0', STR_PAD_LEFT);
+        $year=$year-2000;
+        return "$imajiAcademy->year_program_code.$imajiAcademy->village_code.$year.$number";
+    }
 
     /**
      * Search query in multiple whereOr
      */
     public static function search($query)
     {
-        return empty($query) ? static::query()
-            : static::where('name', 'like', '%' . $query . '%')
-                ->orWhere('email', 'like', '%' . $query . '%');
+        return empty($query)
+            ? static::query()
+            : static::where('name', 'like', '%'.$query.'%')
+                ->orWhere('email', 'like', '%'.$query.'%');
     }
 
     public static function searchStudent($query)
     {
-        return empty($query) ? static::whereRole(3)
+        return empty($query)
+            ? static::whereRole(3)
             : static::whereRole(3)->where(function ($q) use ($query) {
-                $q->where('name', 'like', '%' . $query . '%')
-                    ->orWhere('email', 'like', '%' . $query . '%')
-                    ->orWhere('nis', 'like', '%' . $query . '%');
+                $q->where('name', 'like', '%'.$query.'%')
+                    ->orWhere('email', 'like', '%'.$query.'%')
+                    ->orWhere('nis', 'like', '%'.$query.'%');
             });
     }
 
+    public static function getNis() {}
+
     public static function searchTeacher($query)
     {
-        return empty($query) ? static::whereRole(2)
+        return empty($query)
+            ? static::whereRole(2)
             : static::whereRole(2)->where(function ($q) use ($query) {
-                $q->where('name', 'like', '%' . $query . '%')
-                    ->orWhere('email', 'like', '%' . $query . '%');
+                $q->where('name', 'like', '%'.$query.'%')
+                    ->orWhere('email', 'like', '%'.$query.'%');
             });
     }
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function administrators()
     {
@@ -133,7 +160,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureActivities()
     {
@@ -141,7 +168,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureActivityPresences()
     {
@@ -149,7 +176,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureScoreStudents()
     {
@@ -157,7 +184,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureScores()
     {
@@ -165,7 +192,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureStudents()
     {
@@ -173,7 +200,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureTeachers()
     {
@@ -181,7 +208,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function featureReports()
     {
@@ -189,7 +216,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function imajiAcademyStudents()
     {
@@ -197,7 +224,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function students()
     {
@@ -205,7 +232,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function teachers()
     {

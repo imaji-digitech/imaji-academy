@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report" />
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update report">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormImajiAcademy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormImajiAcademy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormImajiAcademyFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormImajiAcademyFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ImajiAcademy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImajiAcademy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImajiAcademyFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-imaji-academy-feature.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-imaji-academy-feature.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-imaji-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-imaji-academy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-student.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +201,9 @@
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -296,14 +314,23 @@
       <workItem from="1645852482149" duration="14000" />
       <workItem from="1647089434077" duration="830000" />
       <workItem from="1660869832597" duration="113000" />
-      <workItem from="1660870025388" duration="696000" />
-    </task>
-    <task id="LOCAL-00003" summary="Update">
-      <created>1632887365977</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1632887365977</updated>
+      <workItem from="1660870025388" duration="2717000" />
+      <workItem from="1661048941260" duration="1226000" />
+      <workItem from="1661161872827" duration="623000" />
+      <workItem from="1661520154120" duration="598000" />
+      <workItem from="1667083982252" duration="1261000" />
+      <workItem from="1667143388579" duration="596000" />
+      <workItem from="1669187817520" duration="627000" />
+      <workItem from="1669193776353" duration="598000" />
+      <workItem from="1669426933215" duration="598000" />
+      <workItem from="1677551944420" duration="17000" />
+      <workItem from="1677551975663" duration="8664000" />
+      <workItem from="1677568512527" duration="628000" />
+      <workItem from="1677624116460" duration="1000" />
+      <workItem from="1678506291685" duration="1462000" />
+      <workItem from="1678516697521" duration="1675000" />
+      <workItem from="1678519017641" duration="3598000" />
+      <workItem from="1678585868978" duration="4846000" />
     </task>
     <task id="LOCAL-00004" summary="initial commit">
       <created>1633397534827</created>
@@ -641,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660870591574</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="update report">
+      <created>1660870846087</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1660870846087</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $feature_id
  * @property string $created_at
  * @property string $updated_at
+ * @property string $year_program
+ * @property string $semester
  * @property Feature $feature
  * @property ImajiAcademy $imajiAcademy
  * @property FeatureActivity[] $featureActivities
@@ -24,7 +26,7 @@ class ImajiAcademyFeature extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     *
+     * 
      * @var string
      */
     protected $keyType = 'integer';
@@ -32,7 +34,7 @@ class ImajiAcademyFeature extends Model
     /**
      * @var array
      */
-    protected $fillable = ['imaji_academy_id', 'feature_id', 'created_at', 'updated_at'];
+    protected $fillable = ['imaji_academy_id', 'feature_id', 'created_at', 'updated_at', 'year_program', 'semester'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -12,9 +12,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $village
  * @property string $created_at
  * @property string $updated_at
+ * @property string $village_program
+ * @property int $year_program
+ * @property int $year_program_code
+ * @property string $village_code
+ * @property string $note
  * @property Administrator[] $administrators
  * @property ImajiAcademyFeature[] $imajiAcademyFeatures
  * @property ImajiAcademyStudent[] $imajiAcademyStudents
+ * @property User[] $users
  */
 class ImajiAcademy extends Model
 {
@@ -28,14 +34,21 @@ class ImajiAcademy extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title', 'code', 'village', 'created_at', 'updated_at'];
+    protected $fillable
+        = [
+            'title', 'code', 'village', 'created_at', 'updated_at',
+            'village_program', 'year_program', 'year_program_code',
+            'village_code', 'note',
+        ];
+
 
     public static function search($query)
     {
-        return empty($query) ? static::query()
-            : static::where('title', 'like', '%' . $query . '%')
-                ->orWhere('code', 'like', '%' . $query . '%')
-                ->orWhere('village', 'like', '%' . $query . '%');
+        return empty($query)
+            ? static::query()
+            : static::where('title', 'like', '%'.$query.'%')
+                ->orWhere('code', 'like', '%'.$query.'%')
+                ->orWhere('village', 'like', '%'.$query.'%');
     }
 
     /**
@@ -60,5 +73,13 @@ class ImajiAcademy extends Model
     public function imajiAcademyStudents()
     {
         return $this->hasMany('App\Models\ImajiAcademyStudent');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function users()
+    {
+        return $this->hasMany('App\Models\User');
     }
 }

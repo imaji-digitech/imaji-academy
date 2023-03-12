@@ -16,7 +16,7 @@
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             @if(auth()->user()->role==1)
-                <li class="menu-header">Manajemen Imaji Academy</li>
+                <li class="menu-header">Manajemen Program Pendidikan</li>
                 <li class="">
                     <a class="nav-link" href="{{ route('admin.log.index') }}">
                         <i class="fas fa-fire"></i><span>Aktivitas</span>
@@ -29,16 +29,16 @@
                 </li>
                 <li class="">
                     <a class="nav-link" href="{{ route('admin.imaji-academy.index') }}">
-                        <i class="fas fa-fire"></i><span>Imaji Academy</span>
+                        <i class="fas fa-fire"></i><span> Lokasi Program</span>
                     </a>
                 </li>
 
                 <li class="">
                     <a class="nav-link" href="{{ route('admin.iaf.index') }}">
-                        <i class="fas fa-fire"></i><span>Imaji Academy Feature</span>
+                        <i class="fas fa-fire"></i><span> Detail pesebaran</span>
                     </a>
                 </li>
-                <li class="menu-header">Manajemen Imaji Academy</li>
+                <li class="menu-header">Manajemen SDM Pendidikan</li>
                 <li class="">
                     <a class="nav-link" href="{{ route('admin.teacher.index') }}">
                         <i class="fas fa-fire"></i><span>Tutor dan Kawan Belajar</span>
