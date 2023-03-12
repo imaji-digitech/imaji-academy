@@ -92,6 +92,13 @@ class FormStudent extends Component
 
                 'ips' => 0,
                 'age' => 0,
+                'semester'     => $auth->semester,
+                'imaji_academy_id'      => $auth->imaji_academy_id,
+                'birth_place'  => $auth->birth_place,
+                'birth_date'   => $auth->birth_date,
+                'year_enter' => $auth->year_enter,
+                'home_village' => $auth->home_village,
+                'home_address' => $auth->home_address,
             ];
             $this->student = [
 
