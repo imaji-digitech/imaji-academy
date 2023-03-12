@@ -49,7 +49,7 @@ class FormImajiAcademy extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        ImajiAcademy::create(['title' => $this->data['title']]);
+        ImajiAcademy::create($this->data);
         Log::create(['user_id' => auth()->id(), 'note' => 'telah menambahkan imaji academy ' . $this->data['title']]);
 
         $this->emit('swal:alert', [
