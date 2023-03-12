@@ -107,6 +107,7 @@ class User extends Authenticatable
             'parent_name', 'parent_job', 'created_at', 'updated_at', 'ips',
             'age', 'birth_place', 'birth_place', 'year_enter', 'semester',
             'village', 'school_grade', 'home_village', 'home_address',
+            'imaji_academy_id'
         ];
 
     public static function getCode($id,$year){
