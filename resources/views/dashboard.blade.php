@@ -8,15 +8,14 @@
         </div>
     </x-slot>
 
-    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-        <div class="p-4">
-            @if(auth()->user()->role==1)
-                <livewire:dashboard-admin/>
-            @elseif(auth()->user()->role==2)
-                <livewire:dashboard-teacher/>
-            @elseif(auth()->user()->role==3)
-            @endif
 
+    @if(auth()->user()->role==1)
+        <livewire:dashboard-admin/>
+    @elseif(auth()->user()->role==2)
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="p-4">
+                <livewire:dashboard-teacher/>
+            </div>
         </div>
-    </div>
+    @endif
 </x-app-layout>

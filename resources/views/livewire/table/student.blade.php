@@ -28,18 +28,20 @@
                     <td>{{ $student->nis }}</td>
                     <td>{{ $student->name }}</td>
                     <td>
-                        @isset($student->featureStudents[0]->imajiAcademyFeature->imajiAcademy->title)
-                            <div>{{$student->featureStudents[0]->imajiAcademyFeature->imajiAcademy->title}}</div>
+                        @isset($student->imajiAcademy->title)
+                            <div>{{ $student->imajiAcademy->title }}</div>
                         @endisset
                     </td>
                     <td>
                         @php($iaff=[])
                         @php($iafp=[])
-                        @foreach($student->featureStudents as $ias)
+                        @forelse($student->featureStudents as $ias)
                             <div>{{ $ias->imajiAcademyFeature->feature->title }}</div>
                             @php($iaff[$ias->iaf_id]=0)
                             @php($iafp[$ias->iaf_id]=0)
-                        @endforeach
+                        @empty
+                            Tanpa fitur
+                        @endforelse
                     </td>
                     <td>
                         @foreach($student->featureActivityPresences as $fap)
@@ -55,11 +57,11 @@
                         @endforeach
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="{{ route('admin.student.edit',$student->id) }}" class="mr-3">
+                        <a role="button" href="{{ route('admin.student.edit',$student->id) }}" class="mr-1 btn btn-success">
                             <i class="fa fa-16px fa-pen"></i>
                         </a>
-                        <a role="button" x-on:click.prevent="deleteItem" href="#">
-                            <i class="fa fa-16px fa-trash text-red-500"></i>
+                        <a role="button" x-on:click.prevent="deleteItem" href="#" class="btn btn-danger">
+                            <i class="fa fa-16px fa-trash"></i>
                         </a>
                     </td>
                 </tr>

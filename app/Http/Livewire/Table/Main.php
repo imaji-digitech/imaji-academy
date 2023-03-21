@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Table;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -120,6 +121,20 @@ class Main extends Component
                             'create_new_text' => 'Buat Imaji Academy Baru',
                             'export' => '#',
                             'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+            case 'imajiAcademyStudent':
+                $imajiAcademys = User::searchStudentImajiAcademy($this->search,$this->dataId)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+//dd($imajiAcademys);
+                return [
+                    "view" => 'livewire.table.student',
+                    "students" => $imajiAcademys,
+                    "data" => array_to_object([
+                        'href' => [
+
                         ]
                     ])
                 ];

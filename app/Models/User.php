@@ -139,6 +139,16 @@ class User extends Authenticatable
                     ->orWhere('nis', 'like', '%'.$query.'%');
             });
     }
+    public static function searchStudentImajiAcademy($query,$dataId)
+    {
+        return empty($query)
+            ? static::whereRole(3)->whereImajiAcademyId($dataId)
+            : static::whereRole(3)->whereImajiAcademyId($dataId)->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%'.$query.'%')
+                    ->orWhere('email', 'like', '%'.$query.'%')
+                    ->orWhere('nis', 'like', '%'.$query.'%');
+            });
+    }
 
     public static function getNis() {}
 
@@ -222,6 +232,11 @@ class User extends Authenticatable
     public function imajiAcademyStudents()
     {
         return $this->hasMany('App\Models\ImajiAcademyStudent');
+    }
+
+    public function imajiAcademy()
+    {
+        return $this->belongsTo('App\Models\ImajiAcademy');
     }
 
     /**

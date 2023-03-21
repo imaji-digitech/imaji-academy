@@ -22,6 +22,7 @@
                         Fitur
                         @include('components.sort-icon', ['field' => 'created_at'])
                     </a></th>
+                <th>Jumlah siswa</th>
                 <th>Aksi</th>
             </tr>
         </x-slot>
@@ -37,12 +38,18 @@
                             <div>{{$iaf->feature->title}}</div>
                         @endforeach
                     </td>
+                    <td>
+                        {{ $imajiAcademy->users->count() }}
+                    </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="{{ route('admin.imaji-academy.edit',$imajiAcademy->id) }}" class="mr-3">
+                        <a role="button" href="{{ route('admin.imaji-academy.show',$imajiAcademy->id) }}" class="mr-1 btn btn-success">
+                            <i class="fa fa-16px fa-eye"></i>
+                        </a>
+                        <a role="button" href="{{ route('admin.imaji-academy.edit',$imajiAcademy->id) }}" class="mr-1 btn btn-primary">
                             <i class="fa fa-16px fa-pen"></i>
                         </a>
-                        <a role="button" x-on:click.prevent="deleteItem" href="#">
-                            <i class="fa fa-16px fa-trash text-red-500"></i>
+                        <a role="button" x-on:click.prevent="deleteItem" href="#" class="btn btn-danger">
+                            <i class="fa fa-16px fa-trash"></i>
                         </a>
                     </td>
                 </tr>
