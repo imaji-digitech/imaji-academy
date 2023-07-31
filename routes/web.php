@@ -13,6 +13,7 @@ use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
 use App\Models\ImajiAcademy;
 use App\Models\Log;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,35 @@ use Laravel\Jetstream\Jetstream;
 */
 
 
+Route::get('/migration', function () {
+    foreach (User::whereRole(3)->get() as $user) {
+        Student::create([
+            'id' => $user->id,
+            'imaji_academy_id' => $user->imaji_academy_id,
+            'name' => $user->name,
+            'nis' => $user->nis,
+            'address' => $user->address,
+            'birthday' => $user->birthday,
+            'school' => $user->school,
+            'class' => $user->class,
+            'future_goal' => $user->future_goal,
+            'parent_name' => $user->parent_name,
+            'parent_job' => $user->parent_job,
+            'ips' => $user->ips,
+            'age' => $user->age,
+            'birth_place' => $user->birth_place,
+            'birth_date' => $user->birth_date,
+            'semester' => $user->semester,
+            'home_village' => $user->home_village,
+            'home_address' => $user->home_address,
+            'year_enter' => $user->year_enter,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at
+        ]);
+        $user->delete();
+    }
+});
+
 Route::get('/dashboard', function () {
     return redirect(route('admin.dashboard'));
 });
@@ -45,6 +75,8 @@ Route::get('/register', function () {
 Route::get('/', function () {
     return redirect(route('login'));
 });
+
+
 Route::view('/student', 'livewire.profile-student');
 Route::get('/report/{id}', function ($id) {
     $alphabet = range('A', 'Z');
@@ -63,7 +95,7 @@ WHERE imaji_academies.id=$id";
     }
     $users = User::whereIn('id', $users)->get();
     $pdf = App::make('dompdf.wrapper');
-    $pdf->loadView('pdf.report-new', compact('users', 'imajiAcademy','score_practice','score_theory','alphabet'))->setPaper('a4', 'portrait');
+    $pdf->loadView('pdf.report-new', compact('users', 'imajiAcademy', 'score_practice', 'score_theory', 'alphabet'))->setPaper('a4', 'portrait');
     return $pdf->stream('INVOICE');
 });
 

@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update add year">
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update add year on imaji academy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/DashboardAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/DashboardAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Table/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/imaji-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/imaji-academy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/admin/imaji-academy/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/imaji-academy/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +46,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.1_1/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
@@ -189,6 +180,9 @@
       <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="1nFFHTJ27FPJh7ONP5b8yS1sEHO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -200,6 +194,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -334,6 +329,14 @@
       <workItem from="1679194047802" duration="5000" />
       <workItem from="1679195447269" duration="618000" />
       <workItem from="1679364357103" duration="7727000" />
+      <workItem from="1681093796170" duration="624000" />
+      <workItem from="1681097686664" duration="598000" />
+      <workItem from="1682041535559" duration="608000" />
+      <workItem from="1682907274382" duration="598000" />
+      <workItem from="1689045334365" duration="1281000" />
+      <workItem from="1689300877195" duration="21000" />
+      <workItem from="1690371716448" duration="629000" />
+      <workItem from="1690707481319" duration="5000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -708,6 +711,7 @@
     <MESSAGE value="update report etc" />
     <MESSAGE value="update report" />
     <MESSAGE value="update add year" />
-    <option name="LAST_COMMIT_MESSAGE" value="update add year" />
+    <MESSAGE value="update add year on imaji academy" />
+    <option name="LAST_COMMIT_MESSAGE" value="update add year on imaji academy" />
   </component>
 </project>

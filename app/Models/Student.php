@@ -3,20 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property integer $id
- * @property integer $user_id
+ * @property integer $imaji_academy_id
+ * @property string $name
+ * @property int $nis
+ * @property string $address
+ * @property string $birthday
  * @property string $school
- * @property int $class
- * @property string $hobby
+ * @property string $class
  * @property string $future_goal
  * @property string $parent_name
  * @property string $parent_job
+ * @property int $ips
+ * @property int $age
+ * @property string $birth_place
+ * @property string $birth_date
+ * @property string $semester
+ * @property string $home_village
+ * @property string $home_address
+ * @property int $year_enter
  * @property string $created_at
  * @property string $updated_at
- * @property User $user
+ * @property ImajiAcademy $imajiAcademy
  */
 class Student extends Model
 {
@@ -30,22 +40,13 @@ class Student extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'school', 'class', 'hobby', 'future_goal', 'parent_name', 'parent_job', 'created_at', 'updated_at'];
-
-    public static function search($query)
-    {
-        return empty($query) ? static::query()
-            : static
-                ::whereHas('user', function ($q) use ($query) {
-                    $q->where('name', 'like', '%' . $query . '%');
-                });
-    }
+    protected $fillable = ['id','imaji_academy_id', 'name', 'nis', 'address', 'birthday', 'school', 'class', 'future_goal', 'parent_name', 'parent_job', 'ips', 'age', 'birth_place', 'birth_date', 'semester', 'home_village', 'home_address', 'year_enter', 'created_at', 'updated_at'];
 
     /**
-     * @return BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function imajiAcademy()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\ImajiAcademy');
     }
 }
