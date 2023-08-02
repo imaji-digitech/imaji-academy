@@ -33,7 +33,9 @@ class StudentImport implements ToCollection, WithHeadingRow
                     'age'=>$row['usia'],
                     'nis'=>Student::getCode($this->imaji_academy_id,now()->year)
                 ]);
-            }catch (\Exception $exception){}
+            }catch (\Exception $exception){
+                dd($exception);
+            }
         }
     }
 }
