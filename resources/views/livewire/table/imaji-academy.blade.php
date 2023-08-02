@@ -39,7 +39,7 @@
                         @endforeach
                     </td>
                     <td>
-                        {{ $imajiAcademy->users->count() }}
+                        {{ $imajiAcademy->students->count() }}
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">
                         <a role="button" href="{{ route('admin.imaji-academy.show',$imajiAcademy->id) }}" class="mr-1 btn btn-success">

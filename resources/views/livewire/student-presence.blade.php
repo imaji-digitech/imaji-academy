@@ -13,17 +13,17 @@
         @foreach($students as $index=>$student)
             <tr>
                 <th scope="row">{{ $index+1 }}</th>
-                <td>{{ $student->user->name }}</td>
+                <td>{{ $student->student->name }}</td>
                 <td>
                     @for($i=0;$i<5;$i++)
                         <div class="form-check form-check-inline col-md-2">
-                            <input class="form-check-input" type="checkbox" id="{{$student->user->name}}.{{$i}}"
+                            <input class="form-check-input" type="checkbox" id="{{$student->student->name}}.{{$i}}"
                                    name="check"
                                    {{ ($i+1==$student->presence_status_id) ?'checked':'' }}
                                    wire:click="change({{$student->id}},{{$i+1}})"
                             >
                             <label class="form-check-label" style="font-size: 12px"
-                                   for="{{$student->user->name}}.{{$i}}">{{ $ps[$i]->title }}</label>
+                                   for="{{$student->student->name}}.{{$i}}">{{ $ps[$i]->title }}</label>
                         </div>
                     @endfor
                 </td>

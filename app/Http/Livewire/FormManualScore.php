@@ -28,11 +28,11 @@ class FormManualScore extends Component
     {
         $this->optionStudent = [];
         foreach (FeatureStudent::whereIafId($this->iaf)->get() as $user) {
-            array_push($this->optionStudent, ['value' => $user->user_id, 'title' => $user->user->name]);
+            $this->optionStudent[] = ['value' => $user->student_id, 'title' => $user->user->name];
         }
         $this->optionScore = [];
         foreach (FeatureScore::whereIafId($this->iaf)->get() as $user) {
-            array_push($this->optionScore, ['value' => $user->id, 'title' => $user->module]);
+            $this->optionScore[] = ['value' => $user->id, 'title' => $user->module];
         }
         $this->optionTheory = [
             ['value' => '1', 'title' => 'A'],
@@ -63,7 +63,7 @@ class FormManualScore extends Component
     public function addScore()
     {
         FeatureScoreStudent::create([
-            'user_id' => $this->student,
+            'student_id' => $this->student,
             'note' => $this->note,
             'feature_score_id'=>$this->score,
             'score_practice'=>$this->practice,

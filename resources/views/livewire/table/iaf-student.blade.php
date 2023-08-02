@@ -19,12 +19,12 @@
         <x-slot name="body">
             @foreach ($iafs as $iaf)
                 <tr x-data="window.__controller.dataTableController({{ $iaf->id }})">
-                    <td>{{ $iaf->user->nis }}</td>
-                    <td>{{ $iaf->user->name }}</td>
+                    <td>{{ $iaf->student->nis }}</td>
+                    <td>{{ $iaf->student->name }}</td>
                     <td>
                         @php($count=0)
                         @php($presence=0)
-                        @foreach($iaf->user->featureActivityPresences as $fap)
+                        @foreach($iaf->student->featureActivityPresences as $fap)
                             @if($fap->featureActivity->iaf_id==$iaf->iaf_id)
                                 @php($count+=1)
                                 @if($fap->presence_status_id==1 )

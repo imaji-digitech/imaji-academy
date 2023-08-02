@@ -49,7 +49,7 @@ class FormManualPresence extends Component
     {
         FeatureActivityPresence::create([
             'presence_status_id' => $this->status,
-            'user_id' => $this->student,
+            'student_id' => $this->student,
             'feature_activity_id' => $this->presence,
             'note' => $this->note
         ]);

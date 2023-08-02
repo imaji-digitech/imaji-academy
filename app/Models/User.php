@@ -110,13 +110,13 @@ class User extends Authenticatable
             'imaji_academy_id'
         ];
 
-    public static function getCode($id,$year){
-        $imajiAcademy=ImajiAcademy::find($id);
-        $count = User::where('imaji_academy_id',$id)->where('year_enter',$year)->get()->count();
-        $number=str_pad($count+1, 4, '0', STR_PAD_LEFT);
-        $year=$year-2000;
-        return "$imajiAcademy->year_program_code.$imajiAcademy->village_code.$year.$number";
-    }
+//    public static function getCode($id,$year){
+//        $imajiAcademy=ImajiAcademy::find($id);
+//        $count = User::where('imaji_academy_id',$id)->where('year_enter',$year)->get()->count();
+//        $number=str_pad($count+1, 4, '0', STR_PAD_LEFT);
+//        $year=$year-2000;
+//        return "$imajiAcademy->year_program_code.$imajiAcademy->village_code.$year.$number";
+//    }
 
     /**
      * Search query in multiple whereOr

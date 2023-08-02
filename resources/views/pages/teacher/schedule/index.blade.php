@@ -9,25 +9,20 @@
         </div>
     </x-slot>
 
-    <div>
-{{--        <a href="{{ route('admin.schedule.create') }}" class="btn btn-primary mb-3">Tambah</a>--}}
-
-        {{--        <livewire:table.main name="feature" :model="$feature" />--}}
-        <div class="row">
-            @foreach($schedules as $schedule)
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <article class="article article-style-b">
-                        <div class="article-details">
-                            <div class="article-title">
-                                <h2><a href="#">{{$schedule->imajiAcademyFeature->imajiAcademy->title}}</a></h2>
-                                <h6>{{$schedule->imajiAcademyFeature->imajiAcademy->village}}</h6>
-                            </div>
-                            <p>{{ int_to_day($schedule->day) }}</p>
-                            <p>{{ $schedule->time }}</p>
+    <div class="row">
+        @foreach($schedules as $schedule)
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <article class="article article-style-b">
+                    <div class="article-details">
+                        <div class="article-title">
+                            <h2><a href="#">{{$schedule->imajiAcademyFeature->imajiAcademy->title}}</a></h2>
+                            <h6>{{$schedule->imajiAcademyFeature->imajiAcademy->village}}</h6>
                         </div>
-                    </article>
-                </div>
-            @endforeach
-        </div>
+                        <p>{{ int_to_day($schedule->day) }}</p>
+                        <p>{{ $schedule->time }}</p>
+                    </div>
+                </article>
+            </div>
+        @endforeach
     </div>
 </x-app-layout>

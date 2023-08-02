@@ -63,7 +63,7 @@ class ImajiAcademyFeatureController extends Controller
         if ($iaf->featureReports->count()==0){
             foreach ($iaf->featureStudents as $fs){
                 FeatureReport::create([
-                    'user_id' => $fs->user_id,
+                    'student_id' => $fs->student_id,
                     'iaf_id'=>$id,
                     'attitude'=>3,
                 ]);

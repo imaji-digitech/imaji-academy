@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\StudentImport;
 use App\Models\ImajiAcademy;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ImajiAcademyController extends Controller
 {
@@ -27,5 +29,10 @@ class ImajiAcademyController extends Controller
     public function edit($id)
     {
         return view('pages.admin.imaji-academy.edit', compact('id'));
+    }
+
+    public function importStudent(Request $request, $id)
+    {
+        Excel::import(new StudentImport($id), $request->file);
     }
 }

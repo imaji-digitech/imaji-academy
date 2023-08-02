@@ -78,8 +78,8 @@ class ImajiAcademy extends Model
     /**
      * @return HasMany
      */
-    public function users()
+    public function students()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\Student');
     }
 }

@@ -15,30 +15,30 @@
         @foreach($students as $index=>$student)
             <tr>
                 <th scope="row">{{ $index+1 }}</th>
-                <td>{{ $student->user->name }}</td>
+                <td>{{ $student->student->name }}</td>
                 <td>
                     @for($i=0;$i<3;$i++)
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id=1.{{$student->user->name}}.{{$i}}"
+                            <input class="form-check-input" type="checkbox" id=1.{{$student->student->name}}.{{$i}}"
                                    name="check"
                                    {{ ($i+1==$student->score_theory) ?'checked':'' }}
                                    wire:click="changeScoreTheory({{$student->id}},{{$i+1}})"
                             >
                             <label class="form-check-label" style="font-size: 12px"
-                                   for="1.{{$student->user->name}}.{{$i}}">{{ $i+1==1?'A':''}}{{$i+1==2?'B':''}}{{$i+1==3?'C':'' }}</label>
+                                   for="1.{{$student->student->name}}.{{$i}}">{{ $i+1==1?'A':''}}{{$i+1==2?'B':''}}{{$i+1==3?'C':'' }}</label>
                         </div>
                     @endfor
                 </td>
                 <td>
                     @for($i=0;$i<3;$i++)
                         <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input mr-1" type="checkbox" id=2.{{$student->user->name}}.{{$i}}"
+                            <input class="form-check-input mr-1" type="checkbox" id=2.{{$student->student->name}}.{{$i}}"
                                    name="check"
                                    {{ ($i+1==$student->score_practice) ?'checked':'' }}
                                    wire:click="changeScorePractice({{$student->id}},{{$i+1}})"
                             >
                             <label class="form-check-label" style="font-size: 11px"
-                                   for="2.{{$student->user->name}}.{{$i}}">{{ $i+1==1?'Membanggakan':''}}{{$i+1==2?'Cemerlang':''}}{{$i+1==3?'Memuaskan':'' }}</label>
+                                   for="2.{{$student->student->name}}.{{$i}}">{{ $i+1==1?'Membanggakan':''}}{{$i+1==2?'Cemerlang':''}}{{$i+1==3?'Memuaskan':'' }}</label>
                         </div>
                     @endfor
                 </td>

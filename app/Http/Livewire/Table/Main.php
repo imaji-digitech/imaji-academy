@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Table;
 
+use App\Models\Student;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -125,7 +126,7 @@ class Main extends Component
                     ])
                 ];
             case 'imajiAcademyStudent':
-                $imajiAcademys = User::searchStudentImajiAcademy($this->search,$this->dataId)
+                $imajiAcademys = Student::searchStudentImajiAcademy($this->search,$this->dataId)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 //dd($imajiAcademys);

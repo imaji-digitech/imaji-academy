@@ -29,7 +29,7 @@ class FeatureScoreStudent extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'feature_score_id', 'score_practice', 'score_theory', 'note', 'created_at', 'updated_at'];
+    protected $fillable = ['student_id', 'feature_score_id', 'score_practice', 'score_theory', 'note', 'created_at', 'updated_at'];
 
     /**
      * @return BelongsTo
@@ -42,8 +42,8 @@ class FeatureScoreStudent extends Model
     /**
      * @return BelongsTo
      */
-    public function user()
+    public function student()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\Student');
     }
 }

@@ -11,10 +11,12 @@ use App\Http\Controllers\Teacher\PresenceController;
 use App\Http\Controllers\Teacher\ScheduleController;
 use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
+use App\Imports\StudentImport;
 use App\Models\ImajiAcademy;
 use App\Models\Log;
 use App\Models\Student;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,7 @@ use Laravel\Jetstream\Http\Controllers\Livewire\ApiTokenController;
 use Laravel\Jetstream\Http\Controllers\Livewire\TeamController;
 use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController;
 use Laravel\Jetstream\Jetstream;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +111,10 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
             'student' => StudentController::class,
             'teacher' => TeacherController::class,
         ]);
-
+        Route::post('imaji-academy/import/{id}',function (Request $request, $id){
+//            dd($request);
+            Excel::import(new StudentImport($id), $request->file('file'));
+        })->name('imaji-academy.import');
         Route::get('iaf/teacher/{id}', [ImajiAcademyFeatureController::class, 'showTeacher'])->name('iaf.show-teacher');
         Route::get('iaf/teacher/{id}/add', [ImajiAcademyFeatureController::class, 'addTeacher'])->name('iaf.add-teacher');
         Route::get('iaf/student/{id}', [ImajiAcademyFeatureController::class, 'showStudent'])->name('iaf.show-student');

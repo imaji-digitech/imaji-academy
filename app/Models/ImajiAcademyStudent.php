@@ -26,7 +26,7 @@ class ImajiAcademyStudent extends Model
     /**
      * @var array
      */
-    protected $fillable = ['imaji_academy_id', 'user_id', 'created_at', 'updated_at'];
+    protected $fillable = ['imaji_academy_id', 'student_id', 'created_at', 'updated_at'];
 
     /**
      * @return BelongsTo
@@ -39,8 +39,8 @@ class ImajiAcademyStudent extends Model
     /**
      * @return BelongsTo
      */
-    public function user()
+    public function student()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\Student');
     }
 }

@@ -3,10 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\ImajiAcademy;
+use App\Models\Student;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Livewire\Component;
 
 class FormStudent extends Component
@@ -51,51 +50,50 @@ class FormStudent extends Component
             ['value' => 'Gasal', 'title' => 'Gasal'],
             ['value' => 'Genap', 'title' => 'Genap'],
         ];
+//        'id','imaji_academy_id', 'name', 'nis', 'address', 'birthday',
+// 'school', 'class', 'future_goal',
+// 'parent_name', 'parent_job', 'ips', 'age', 'birth_place', 'birth_date',
+// 'semester', 'home_village', 'home_address', 'year_enter',
         $this->user = [
-            'name'         => '',
-            'email'        => '',
-            'password'     => '-',
-            'school'       => '',
-            'class'        => 'Paud / belum sekolah',
-            'hobby'        => '',
-            'future_goal'  => '',
-            'parent_name'  => '',
-            'parent_job'   => '',
-            'nis'          => '',
-            'birthday'     => '',
-            'ips'          => 0,
-            'age'          => 0,
-            'role'         => 3,
-            'semester'     => 'gasal',
-            'imaji_academy_id'      => 1,
-            'birth_place'  => '',
-            'birth_date'   => null,
+            'name' => '',
+            'school' => '',
+            'class' => 'Paud / belum sekolah',
+            'hobby' => '',
+            'future_goal' => '',
+            'parent_name' => '',
+            'parent_job' => '',
+            'nis' => '',
+            'birthday' => '',
+            'ips' => 0,
+            'age' => 0,
+            'role' => 3,
+            'semester' => 'gasal',
+            'imaji_academy_id' => 1,
+            'birth_place' => '',
+            'birth_date' => null,
             'year_enter' => Carbon::now()->year,
             'home_village' => '',
             'home_address' => '',
         ];
-//        {{--        'birth_place', 'birth_place', 'year_program', 'semester',--}}
-//        {{--        'village', 'school_grade', 'home_village', 'home_address'--}}
         if ($this->dataId != null) {
-            $auth = User::find($this->dataId);
+            $auth = Student::find($this->dataId);
             $this->user = [
-                'name'        => $auth->name,
-                'nis'         => $auth->nis,
-                'birthday'    => $auth->birthday,
-                'user_id'     => $auth->user_id,
-                'school'      => $auth->school,
-                'class'       => $auth->class,
-                'hobby'       => $auth->hobby,
+                'name' => $auth->name,
+                'nis' => $auth->nis,
+                'birthday' => $auth->birthday,
+                'user_id' => $auth->user_id,
+                'school' => $auth->school,
+                'class' => $auth->class,
+                'hobby' => $auth->hobby,
                 'future_goal' => $auth->future_goal,
                 'parent_name' => $auth->parent_name,
-                'parent_job'  => $auth->parent_job,
-
+                'parent_job' => $auth->parent_job,
                 'ips' => 0,
                 'age' => 0,
-                'semester'     => $auth->semester,
-                'imaji_academy_id'      => $auth->imaji_academy_id,
-                'birth_place'  => $auth->birth_place,
-                'birth_date'   => $auth->birth_date,
+                'semester' => $auth->semester,
+                'imaji_academy_id' => $auth->imaji_academy_id,
+                'birth_place' => $auth->birth_place,
+                'birth_date' => $auth->birth_date,
                 'year_enter' => $auth->year_enter,
                 'home_village' => $auth->home_village,
                 'home_address' => $auth->home_address,
@@ -110,13 +108,13 @@ class FormStudent extends Component
     {
         if ($this->action == 'create') {
             return [
-                'user.name'   => 'required|max:255',
+                'user.name' => 'required|max:255',
                 'user.school' => 'required|max:255',
 
             ];
         } else {
             return [
-                'user.name'   => 'required|max:255',
+                'user.name' => 'required|max:255',
                 'user.school' => 'required|max:255',
             ];
         }
@@ -131,16 +129,14 @@ class FormStudent extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        $this->user['password'] = Hash::make($this->user['password']);
-        $this->user['email'] = Str::slug($this->user['name']).time();
-        $this->user['nis'] = User::getCode($this->user['imaji_academy_id'],$this->user['year_enter']);
+        $this->user['nis'] = User::getCode($this->user['imaji_academy_id'], $this->user['year_enter']);
         $user = User::create($this->user);
 
         $this->emit('swal:alert', [
-            'type'    => 'success',
-            'title'   => 'Data berhasil ditambahkan',
+            'type' => 'success',
+            'title' => 'Data berhasil ditambahkan',
             'timeout' => 3000,
-            'icon'    => 'success',
+            'icon' => 'success',
         ]);
         $this->emit('redirect', route('admin.student.index'));
     }
@@ -150,24 +146,12 @@ class FormStudent extends Component
         $this->validate();
         $this->resetErrorBag();
         $user = User::find($this->dataId);
-        $user->update([
-            'name'        => $this->user['name'],
-            'school'      => $this->user['school'],
-            'class'       => $this->user['class'],
-            'hobby'       => $this->user['hobby'],
-            'future_goal' => $this->user['future_goal'],
-            'parent_name' => $this->user['parent_name'],
-            'parent_job'  => $this->user['parent_job'],
-            'nis'         => $this->user['nis'],
-            'birthday'    => $this->user['birthday'],
-        ]);
-
-
+        $user->update($this->user);
         $this->emit('swal:alert', [
-            'type'    => 'success',
-            'title'   => 'Data berhasil diubah',
+            'type' => 'success',
+            'title' => 'Data berhasil diubah',
             'timeout' => 3000,
-            'icon'    => 'success',
+            'icon' => 'success',
         ]);
         $this->emit('redirect', route('admin.student.index'));
     }

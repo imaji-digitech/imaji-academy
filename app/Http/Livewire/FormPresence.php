@@ -49,7 +49,7 @@ class FormPresence extends Component
         foreach (FeatureStudent::whereIafId($this->iaf)->get() as $fs){
             FeatureActivityPresence::create([
                 'presence_status_id'=>5,
-                'user_id'=>$fs->user_id,
+                'student_id'=>$fs->student_id,
                 'feature_activity_id'=>$fa->id,
                 'note'=>''
             ]);

@@ -31,13 +31,13 @@ class FeatureActivityPresence extends Model
     /**
      * @var array
      */
-    protected $fillable = ['presence_status_id', 'user_id', 'feature_activity_id', 'note', 'created_at', 'updated_at'];
+    protected $fillable = ['presence_status_id', 'student_id', 'feature_activity_id', 'note', 'created_at', 'updated_at'];
 
     public static function search($query, $iaf)
     {
         return empty($query) ? static::whereFeatureActivityId($iaf)
             : static::whereFeatureActivityId($iaf)->where(function ($q) use ($query) {
-                $q->whereHas('user', function ($q) use ($query) {
+                $q->whereHas('student', function ($q) use ($query) {
                     $q->where('name', 'like', '%' . $query . '%');
                 })->orWhereHas('presenceStatus', function ($q) use ($query) {
                     $q->where('title', 'like', '%' . $query . '%');
@@ -72,8 +72,8 @@ class FeatureActivityPresence extends Model
     /**
      * @return BelongsTo
      */
-    public function user()
+    public function student()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\Student');
     }
 }

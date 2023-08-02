@@ -23,6 +23,6 @@ class FeatureTestScore extends Model
     /**
      * @var array
      */
-    protected $fillable = ['iaf_test_id', 'user_id', 'created_at', 'updated_at'];
+    protected $fillable = ['iaf_test_id', 'student_id', 'created_at', 'updated_at'];
 
 }

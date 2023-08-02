@@ -11,7 +11,7 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $student = User::class;
+        $student = Student::class;
         return view('pages.admin.student.index', compact('student'));
     }
 
