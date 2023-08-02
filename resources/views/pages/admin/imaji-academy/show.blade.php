@@ -10,7 +10,7 @@
     </x-slot>
 
     <div>
-        <livewire:form-student-export :imajiAcademyId="$id"/>
+        <livewire:form-student-import :imajiAcademyId="$id"/>
         <livewire:table.main name="imajiAcademyStudent" :data-id="$id"/>
     </div>
 </x-app-layout>
