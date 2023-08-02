@@ -36,6 +36,7 @@ class StudentImport implements ToCollection, WithHeadingRow
             }catch (\Exception $exception){
 //                dd($exception);
             }
+            return redirect()->back();
         }
     }
 }
