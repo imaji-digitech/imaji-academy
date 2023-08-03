@@ -126,6 +126,7 @@ class Main extends Component
                     ])
                 ];
             case 'imajiAcademyStudent':
+                $this->model=Student::class;
                 $imajiAcademys = Student::searchStudentImajiAcademy($this->search,$this->dataId)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);

@@ -4,6 +4,7 @@ namespace App\Imports;
 
 
 use App\Models\Student;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -22,8 +23,8 @@ class StudentImport implements ToCollection, WithHeadingRow
     public function collection(Collection $collection)
     {
         foreach ($collection as $row){
-
             try{
+                $now = Carbon::now();
                 Student::create([
                     'imaji_academy_id'=>$this->imaji_academy_id,
                     'name'=>$row['nama_anak'],
@@ -31,12 +32,12 @@ class StudentImport implements ToCollection, WithHeadingRow
                     'school'=>$row['asal_lembaga'],
                     'class'=>$row['kelas'],
                     'age'=>$row['usia'],
-                    'nis'=>Student::getCode($this->imaji_academy_id,now()->year)
+                    'year_enter'=>$now->year,
+                    'nis'=>Student::getCode($this->imaji_academy_id,$now->year)
                 ]);
             }catch (\Exception $exception){
-//                dd($exception);
+                dd($exception);
             }
-            return redirect()->back();
         }
     }
 }

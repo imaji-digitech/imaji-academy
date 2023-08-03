@@ -112,8 +112,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
             'teacher' => TeacherController::class,
         ]);
         Route::post('imaji-academy/import/{id}',function (Request $request, $id){
-//            dd($request);
             Excel::import(new StudentImport($id), $request->file('file'));
+            return redirect()->back();
         })->name('imaji-academy.import');
         Route::get('iaf/teacher/{id}', [ImajiAcademyFeatureController::class, 'showTeacher'])->name('iaf.show-teacher');
         Route::get('iaf/teacher/{id}/add', [ImajiAcademyFeatureController::class, 'addTeacher'])->name('iaf.add-teacher');
