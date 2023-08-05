@@ -19,7 +19,7 @@
         <x-slot name="body">
             @foreach ($iafs as $iaf)
                 <tr x-data="window.__controller.dataTableController({{ $iaf->id }})">
-                    <td>{{ $iaf->id }}</td>
+                    <td>{{ $iaf->student->nis }}</td>
                     <td>{{ $iaf->student->name }}</td>
                     <td>
                         @php($count=0)
