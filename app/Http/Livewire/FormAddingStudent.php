@@ -41,7 +41,7 @@ class FormAddingStudent extends Component
                 'iaf_id' => $this->dataId
             ]);
             $iaf=ImajiAcademyFeature::find($this->dataId);
-            Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan murid '.User::find($user)->name. ' ke kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
+            Log::create(['user_id'=>auth()->id(),'note'=>'telah menambahkan murid '.Student::find($user)->name. ' ke kelas '. $iaf->feature->title. ' - '.$iaf->imajiAcademy->title]);
         }
         $this->user = [];
         $this->emit('swal:alert', [
