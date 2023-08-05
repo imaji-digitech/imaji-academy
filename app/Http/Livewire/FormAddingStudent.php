@@ -25,8 +25,10 @@ class FormAddingStudent extends Component
 //            'id',
 //            'name'
 //        );
+        $iaf = ImajiAcademyFeature::find($this->dataId);
+
         $this->optionUsers=[];
-        foreach (Student::get() as $s){
+        foreach (Student::where('imaji_academy_id',$iaf->imaji_academy_id)->get() as $s){
             $this->optionUsers[]=['value'=>$s->id,'title'=>$s->name.' - '.$s->imajiAcademy->title];
         }
     }
