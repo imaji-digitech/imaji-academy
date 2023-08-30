@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\ImajiAcademy;
+use App\Models\Log;
 use App\Models\Student;
 use App\Models\User;
 use Carbon\Carbon;
@@ -129,8 +130,12 @@ class FormStudent extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        $this->user['nis'] = User::getCode($this->user['imaji_academy_id'], $this->user['year_enter']);
-        $user = User::create($this->user);
+        $this->user['nis'] = Student::getCode($this->user['imaji_academy_id'], $this->user['year_enter']);
+        $user = Student::create($this->user);
+        Log::create([
+            'user_id'=>auth()->id(),
+            'note'=>'Telah menambahkan siswa bernama '.$this->user['name'],
+        ]);
 
         $this->emit('swal:alert', [
             'type' => 'success',

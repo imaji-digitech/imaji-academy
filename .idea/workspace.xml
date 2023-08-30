@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update add year on imaji academy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/feature.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/feature.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf-student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf-teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf-teacher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormStudent.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +355,7 @@
       <workItem from="1691313615053" duration="35000" />
       <workItem from="1693294091578" duration="6238000" />
       <workItem from="1693356677923" duration="2117000" />
-      <workItem from="1693359202509" duration="2460000" />
+      <workItem from="1693359202509" duration="3159000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -701,7 +700,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678614665230</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
