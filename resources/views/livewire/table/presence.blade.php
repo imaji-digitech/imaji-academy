@@ -42,18 +42,18 @@
                     </th>
                     <td>{{ $presence->created_at->format('d M Y H:i') }}</td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" href="{{ route('admin.presence.show',[$presence->iaf_id,$presence->id]) }}" class="mr-2">
-                            <i class="fa fa-16px fa-eye text-primary">Presensi</i>
+                        <a role="button" href="{{ route('admin.presence.show',[$presence->iaf_id,$presence->id]) }}" class="mr-2 btn btn-primary">
+                            <i class="fa fa-16px fa-eye">Presensi</i>
                         </a>
                         <br>
                         <br>
-                        <a role="button" href="{{ route('admin.presence.edit',[$presence->iaf_id,$presence->id]) }}" class="mr-2">
-                            <i class="fa fa-16px fa-pencil text-primary">Ubah</i>
+                        <a role="button" href="{{ route('admin.presence.edit',[$presence->iaf_id,$presence->id]) }}" class="mr-2 btn btn-primary">
+                            <i class="fa fa-16px fa-pencil">Ubah</i>
                         </a>
                         <br>
                         <br>
-                        <a role="button" x-on:click.prevent="deleteItem" href="#" class="mr-2">
-                            <i class="fa fa-16px fa-trash text-red-500">Hapus</i>
+                        <a role="button" x-on:click.prevent="deleteItem" href="#" class="mr-2  btn btn-danger">
+                            <i class="fa fa-16px fa-trash">Hapus</i>
                         </a>
                     </td>
                 </tr>

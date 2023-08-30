@@ -27,11 +27,13 @@
                         <a role="button" x-on:click.prevent="deleteItem" href="#">
                             <i class="fa fa-16px fa-trash text-red-500"></i>
                         </a>
-                        <a role="button" href="{{ route('admin.score.show',[$score->iaf_id,$score->id]) }}">
-                            <i class="fa fa-16px fa-eye text-primary"></i>
+                        <a role="button" href="{{ route('admin.score.show',[$score->iaf_id,$score->id]) }}"
+                           class="btn btn-primary">
+                            <i class="fa fa-16px fa-eye"></i>
                         </a>
-                        <a role="button" href="{{ route('admin.score.edit',[$score->iaf_id,$score->id]) }}">
-                            <i class="fa fa-16px fa-pencil text-primary"></i>
+                        <a role="button" href="{{ route('admin.score.edit',[$score->iaf_id,$score->id]) }}"
+                           class="btn btn-primary">
+                            <i class="fa fa-16px fa-pencil"></i>
                         </a>
                     </td>
                 </tr>

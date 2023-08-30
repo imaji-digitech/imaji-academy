@@ -36,8 +36,8 @@
 
                     </td>
                     <td class="whitespace-no-wrap row-action--icon">
-                        <a role="button" x-on:click.prevent="deleteItem" href="#">
-                            <i class="fa fa-16px fa-trash text-red-500"></i></a>
+                        <a role="button" x-on:click.prevent="deleteItem" class="btn btn-danger" href="#">
+                            <i class="fa fa-16px fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach
