@@ -86,8 +86,8 @@ Route::get('/report/{id}', function ($id) {
     $score_practice = ['-', 'A', 'B', 'C'];
     $score_theory = ['-', 'Membanggakan', 'Cemerlang', 'Memuaskan'];
     $imajiAcademy = ImajiAcademy::find($id);
-    $query = "SELECT users.id FROM `users`
-JOIN feature_students ON users.id=feature_students.user_id
+    $query = "SELECT students.id FROM `students`
+JOIN feature_students ON students.id=feature_students.student_id
 JOIN imaji_academy_features ON imaji_academy_features.id = feature_students.iaf_id
 JOIN imaji_academies ON imaji_academies.id = imaji_academy_features.imaji_academy_id
 WHERE imaji_academies.id=$id";

@@ -26,7 +26,7 @@
                     </a>
                 </th>
                 <th>Aktivitas</th>
-                <th>Download</th>
+{{--                <th>Download</th>--}}
                 <th>Aksi</th>
             </tr>
         </x-slot>
@@ -42,16 +42,16 @@
                     </td>
                     <td style="padding: 0; text-align: center">{{ "$iaf->year_program/$iaf->semester" }}</td>
                     <td style="padding: 0; text-align: center">{{ $iaf->featureActivities->count() }}</td>
-                    <td>
-                        <a role="button" wire:click="exportPresence({{$iaf->id}})" class="mb-1 btn btn-primary">
-                            <i class="fa fa-16px fa-download">Presensi</i></a>
-                        <br>
-                        <a role="button" wire:click="exportScore({{$iaf->id}})" class="mb-1 btn btn-success">
-                            <i class="fa fa-16px fa-download">Penilaian</i></a>
-                        <br>
-                        {{--                        <a role="button" href="{{ route('admin.iaf.report',$iaf->id) }}" class="mr-2">--}}
-                        {{--                            <i class="fa fa-16px fa-download">Sertifikat</i></a>--}}
-                    </td>
+{{--                    <td>--}}
+{{--                        <a role="button" wire:click="exportPresence({{$iaf->id}})" class="mb-1 btn btn-primary">--}}
+{{--                            <i class="fa fa-16px fa-download">Presensi</i></a>--}}
+{{--                        <br>--}}
+{{--                        <a role="button" wire:click="exportScore({{$iaf->id}})" class="mb-1 btn btn-success">--}}
+{{--                            <i class="fa fa-16px fa-download">Penilaian</i></a>--}}
+{{--                        <br>--}}
+{{--                        --}}{{--                        <a role="button" href="{{ route('admin.iaf.report',$iaf->id) }}" class="mr-2">--}}
+{{--                        --}}{{--                            <i class="fa fa-16px fa-download">Sertifikat</i></a>--}}
+{{--                    </td>--}}
                     <td class="whitespace-no-wrap row-action--icon">
                         <div class="row">
                         <a role="button" href="{{ route('admin.iaf.edit',$iaf->id) }}" class="m-1 btn btn-success col">

@@ -8,6 +8,7 @@ use Livewire\Component;
 class FormScoreStudent extends Component
 {
     public $students;
+    public $score;
     public $iaf;
     public $dataId;
     public $essay;
@@ -18,9 +19,29 @@ class FormScoreStudent extends Component
         $this->essay = [];
         foreach ($this->students as $q) {
             $this->essay[$q->id] = $q->note;
+            $this->score[$q->id] = $q->score;
         }
     }
+    protected $rules = [
+        'score.*' => 'required|numeric|max:100',
+    ];
 
+
+//    protected $messages = [
+//        'score.required' => 'aa',
+//    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+    public function changeScore($id){
+        $this->validate();
+        if (is_numeric($this->score[$id])){
+            FeatureScoreStudent::find($id)->update(['score'=>$this->score[$id]]);
+        }
+
+    }
     public function changeScoreTheory($id, $status)
     {
         FeatureScoreStudent::find($id)->update(['score_theory' => $status]);

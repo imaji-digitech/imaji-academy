@@ -122,7 +122,7 @@
                             <td style="text-align: center">{{ $index2+1 }}</td>
                             <td>{{ $q2->module }}</td>
                             @php
-                                $score=\App\Models\FeatureScoreStudent::whereUserId($user->id)->whereFeatureScoreId($q2->id)->first();
+                                $score=\App\Models\FeatureScoreStudent::whereStudentId($user->id)->whereFeatureScoreId($q2->id)->first();
 if (isset($score->score_practice)){
                                 $total_practice+=$score->score_practice;
                                 $total_theory+=$score->score_theory;

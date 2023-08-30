@@ -45,7 +45,9 @@ class FormScore extends Component
         foreach (FeatureStudent::whereIafId($this->iaf)->get() as $fs){
             FeatureScoreStudent::create([
                 'feature_score_id'=>$fa->id,
-                'user_id'=>$fs->user_id,
+                'student_id'=>$fs->student_id,
+                'score_status'=>1,
+                'score'=>0,
                 'score_practice'=>0,
                 'score_theory'=>0,
                 'note'=>''

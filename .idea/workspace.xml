@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="update add year on imaji academy">
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Test.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/test.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormScore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormScore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormScoreStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormScoreStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FeatureScoreStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FeatureScoreStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/form-score-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/form-score-student.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/table/iaf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,6 +359,11 @@
       <workItem from="1690856093093" duration="7788000" />
       <workItem from="1690942271316" duration="6101000" />
       <workItem from="1691028066171" duration="1838000" />
+      <workItem from="1691201456913" duration="3628000" />
+      <workItem from="1691313615053" duration="35000" />
+      <workItem from="1693294091578" duration="6238000" />
+      <workItem from="1693356677923" duration="2117000" />
+      <workItem from="1693359202509" duration="1544000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -693,7 +708,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678614665230</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -29,7 +29,7 @@ class FeatureScoreStudent extends Model
     /**
      * @var array
      */
-    protected $fillable = ['student_id', 'feature_score_id', 'score_practice', 'score_theory', 'note', 'created_at', 'updated_at'];
+    protected $fillable = ['student_id', 'feature_score_id', 'score_status', 'score', 'score_practice', 'score_theory', 'note', 'created_at', 'updated_at'];
 
     /**
      * @return BelongsTo
