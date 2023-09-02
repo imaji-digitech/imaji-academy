@@ -7,16 +7,16 @@ use Livewire\Component;
 
 class StudentPresence extends Component
 {
-    public $students;
     public $iaf;
     public $dataId;
     public $essay;
+    public $query;
 
     public function mount()
     {
-        $this->students = FeatureActivityPresence::whereFeatureActivityId($this->dataId)->get();
+        $students = FeatureActivityPresence::whereFeatureActivityId($this->dataId);
         $this->essay = [];
-        foreach ($this->students as $q) {
+        foreach ($students as $q) {
             $this->essay[$q->id] = $q->note;
         }
     }
@@ -40,6 +40,24 @@ class StudentPresence extends Component
 
     public function render()
     {
-        return view('livewire.student-presence');
+        $students = $this->setData();
+//        dd($students);
+        return view('livewire.student-presence', compact('students'));
+    }
+
+    public function setData()
+    {
+        $query = $this->query;
+        if ($this->query != null) {
+            $students = FeatureActivityPresence::whereFeatureActivityId($this->dataId)
+                ->whereHas('student', function ($q) use ($query) {
+                    $q->where('name', 'like', '%' . $query . '%');
+                })
+                ->get();
+        } else {
+            $students = FeatureActivityPresence::whereFeatureActivityId($this->dataId)->get();
+        }
+
+        return $students;
     }
 }

@@ -1,4 +1,11 @@
 <div class="bg-white p-3">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="">Pencarian Nama Siswa</label>
+            <input type="text" class="form-control" wire:model="query">
+        </div>
+    </div>
+    <br>
     <div class="table-responsive">
         <table class="table table-bordered align-content-center ">
             <thead>
@@ -16,7 +23,7 @@
             </thead>
             <tbody>
 
-            @foreach($students as $index=>$student)
+            @foreach($studentss as $index=>$student)
                 <tr>
                     <th scope="row">{{ $index+1 }}</th>
                     <td>{{ $student->student->name }}</td>
