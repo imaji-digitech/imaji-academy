@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property integer $id
@@ -46,50 +48,12 @@ class Student extends Model
      */
     protected $fillable = ['imaji_academy_id', 'name', 'nis', 'address', 'birthday', 'school', 'class', 'future_goal', 'parent_name', 'parent_job', 'ips', 'age', 'birth_place', 'birth_date', 'semester', 'home_village', 'home_address', 'year_enter', 'created_at', 'updated_at'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function imajiAcademy()
+    public static function getCode($id, $year)
     {
-        return $this->belongsTo('App\Models\ImajiAcademy');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function featureActivityPresences()
-    {
-        return $this->hasMany('App\Models\FeatureActivityPresence');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function featureReports()
-    {
-        return $this->hasMany('App\Models\FeatureReport');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function featureScoreStudents()
-    {
-        return $this->hasMany('App\Models\FeatureScoreStudent');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function featureStudents()
-    {
-        return $this->hasMany('App\Models\FeatureStudent');
-    }
-    public static function getCode($id,$year){
-        $imajiAcademy=ImajiAcademy::find($id);
-        $count = Student::where('imaji_academy_id',$id)->where('year_enter',$year)->get()->count();
-        $number=str_pad($count+1, 4, '0', STR_PAD_LEFT);
-        $year=$year-2000;
+        $imajiAcademy = ImajiAcademy::find($id);
+        $count = Student::where('imaji_academy_id', $id)->where('year_enter', $year)->get()->count();
+        $number = str_pad($count + 1, 4, '0', STR_PAD_LEFT);
+        $year = $year - 2000;
         return "$imajiAcademy->year_program_code.$imajiAcademy->village_code.$year.$number";
     }
 
@@ -98,19 +62,58 @@ class Student extends Model
         return empty($query)
             ? static::query()
             : static::where(function ($q) use ($query) {
-                $q->where('name', 'like', '%'.$query.'%')
-                    ->orWhere('email', 'like', '%'.$query.'%')
-                    ->orWhere('nis', 'like', '%'.$query.'%');
+                $q->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('nis', 'like', '%' . $query . '%');
             });
     }
-    public static function searchStudentImajiAcademy($query,$dataId)
+
+    public static function searchStudentImajiAcademy($query, $dataId)
     {
         return empty($query)
             ? static::whereImajiAcademyId($dataId)
             : static::whereImajiAcademyId($dataId)->where(function ($q) use ($query) {
-                $q->where('name', 'like', '%'.$query.'%')
-                    ->orWhere('email', 'like', '%'.$query.'%')
-                    ->orWhere('nis', 'like', '%'.$query.'%');
+                $q->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('nis', 'like', '%' . $query . '%');
             });
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function imajiAcademy()
+    {
+        return $this->belongsTo('App\Models\ImajiAcademy');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function featureActivityPresences()
+    {
+        return $this->hasMany('App\Models\FeatureActivityPresence');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function featureReports()
+    {
+        return $this->hasMany('App\Models\FeatureReport');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function featureScoreStudents()
+    {
+        return $this->hasMany('App\Models\FeatureScoreStudent');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function featureStudents()
+    {
+        return $this->hasMany('App\Models\FeatureStudent');
     }
 }
