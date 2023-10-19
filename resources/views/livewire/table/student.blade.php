@@ -45,10 +45,12 @@
                     </td>
                     <td>
                         @foreach($student->featureActivityPresences as $fap)
+                            @isset($iaff[$fap->featureActivity->iaf_id])
                             @php($iaff[$fap->featureActivity->iaf_id]+=1)
                             @if($fap->presence_status_id==1)
                                 @php($iafp[$fap->featureActivity->iaf_id]+=1)
                             @endif
+                            @endisset
                         @endforeach
                         @foreach($iaff as $index=>$a)
                             <div>
