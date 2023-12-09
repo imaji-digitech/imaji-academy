@@ -10,6 +10,7 @@
     </x-slot>
 
     <div>
+        asdkjashdjk
         <livewire:form-manual-score :iaf="$iaf" />
     </div>
 </x-app-layout>
