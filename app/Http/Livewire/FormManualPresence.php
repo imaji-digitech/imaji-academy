@@ -24,7 +24,7 @@ class FormManualPresence extends Component
         $this->note='';
         $this->optionStudent = [];
         foreach (FeatureStudent::whereIafId($this->iaf)->get() as $user) {
-            array_push($this->optionStudent, ['value' => $user->user_id, 'title' => $user->user->name]);
+            array_push($this->optionStudent, ['value' => $user->user_id, 'title' => $user->student->name]);
         }
         $this->optionPresence = [];
         foreach (FeatureActivity::whereIafId($this->iaf)->get() as $user) {
