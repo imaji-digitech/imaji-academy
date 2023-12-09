@@ -13,7 +13,7 @@
         @foreach($students as $index=>$student)
             <tr>
                 <th scope="row">{{ $index+1 }}</th>
-                <td>{{ $student->user->name }}</td>
+                <td>{{ $student->student->name }}</td>
 {{--                <td>--}}
 {{--                    @for($i=0;$i<3;$i++)--}}
 {{--                        <div class="form-check form-check-inline">--}}
