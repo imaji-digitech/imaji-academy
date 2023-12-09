@@ -69,15 +69,15 @@
                                 class="fas fa-fire"></i><span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span></a>
                     </li>
                 @endforeach
-{{--                <li class="menu-header">Input data raport</li>--}}
-{{--                @foreach($fts as $ft)--}}
-{{--                <li class="">--}}
-{{--                    <a class="nav-link" href="{{ route('admin.iaf.report',$ft->iaf_id) }}">--}}
-{{--                        <i class="fas fa-fire"></i>--}}
-{{--                        <span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                @endforeach--}}
+                <li class="menu-header">Input Keterangan Rapor</li>
+                @foreach($fts as $ft)
+                <li class="">
+                    <a class="nav-link" href="{{ route('admin.iaf.report',$ft->iaf_id) }}">
+                        <i class="fas fa-fire"></i>
+                        <span>{{ $ft->imajiAcademyFeature->imajiAcademy->code."-".$ft->imajiAcademyFeature->feature->code }}</span>
+                    </a>
+                </li>
+                @endforeach
                 <li class="menu-header">Manajemen Presensi</li>
                 @foreach($fts as $ft)
                     <li class="">

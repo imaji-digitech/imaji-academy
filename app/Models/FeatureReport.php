@@ -27,7 +27,7 @@ class FeatureReport extends Model
     /**
      * @var array
      */
-    protected $fillable = ['student_id', 'iaf_id', 'attitude','note', 'created_at', 'updated_at'];
+    protected $fillable = ['student_id', 'iaf_id','note', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
