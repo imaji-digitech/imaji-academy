@@ -63,6 +63,7 @@
 {{--                @endphp--}}
         <div style="page-break-before: always;"></div>
     @endif
+
     <div style="padding: 50px">
         <br>
         <div style="text-align: center">

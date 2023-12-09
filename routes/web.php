@@ -12,6 +12,9 @@ use App\Http\Controllers\Teacher\ScheduleController;
 use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
 use App\Imports\StudentImport;
+use App\Models\FeatureScore;
+use App\Models\FeatureScoreStudent;
+use App\Models\FeatureStudent;
 use App\Models\ImajiAcademy;
 use App\Models\Log;
 use App\Models\Student;
@@ -94,15 +97,59 @@ WHERE imaji_academies.id=$id";
     $USER = DB::select(DB::raw($query));
     $users = [];
     foreach ($USER as $u) {
-        array_push($users, $u->id);
+        $users[] = $u->id;
     }
-    $users = User::whereIn('id', $users)->get();
+    $users = Student::whereIn('id', $users)->get();
+
     $pdf = App::make('dompdf.wrapper');
     $pdf->loadView('pdf.report-new', compact('users', 'imajiAcademy', 'score_practice', 'score_theory', 'alphabet'))->setPaper('a4', 'portrait');
     return $pdf->stream('INVOICE');
 });
 
 Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'verified'])->group(function () {
+
+    Route::get('download/report/lain-kali-jangan-mendadak', function () {
+
+        $headers = array(
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=ita-request",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        );
+
+        $callback = function () {
+        $delimiter = ';';
+        $file = fopen('php://output', 'w');
+        $temp = ['No', 'Nama'];
+        foreach (ImajiAcademy::get() as $ia) {
+            foreach ($ia->imajiAcademyFeatures->where('semester', '=', 'gasal')->where('year_program', '=', '2023') as $iaf) {
+                $featureScore = FeatureScore::where('iaf_id', '=', $iaf->id)->get();
+                $fsModule = $featureScore->pluck('module')->toArray();
+                foreach (FeatureStudent::where('iaf_id', '=', $iaf->id)->get() as $index => $fs) {
+                    if ($index == 0) {
+                        fputcsv($file, [$iaf->imajiAcademy->title, $iaf->feature->title], $delimiter);
+                        fputcsv($file, array_merge($temp, $fsModule), $delimiter);
+                    }
+                    $t = [$index + 1, $fs->student->name];
+                    foreach (FeatureScore::where('iaf_id', '=', $iaf->id)->whereIn('module', $fsModule)->get() as $faa) {
+                        $sc = FeatureScoreStudent::where('student_id', '=', $fs->student_id)->where('feature_score_id', '=', $faa->id)->first();
+                        $t[] = $sc ? $sc->score : 0;
+                    }
+                    fputcsv($file,$t,$delimiter);
+                }
+                fputcsv($file,[],$delimiter);
+            }
+            fputcsv($file,[],$delimiter);
+            fputcsv($file,[],$delimiter);
+        }
+            fclose($file);
+        };
+        return response()->stream($callback, 200, $headers);
+
+
+    });
+
     Route::middleware(['checkRole:1'])->group(function () {
         Route::resources([
             'feature' => FeatureController::class,
@@ -111,7 +158,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
             'student' => StudentController::class,
             'teacher' => TeacherController::class,
         ]);
-        Route::post('imaji-academy/import/{id}',function (Request $request, $id){
+        Route::post('imaji-academy/import/{id}', function (Request $request, $id) {
             Excel::import(new StudentImport($id), $request->file('file'));
             return redirect()->back();
         })->name('imaji-academy.import');

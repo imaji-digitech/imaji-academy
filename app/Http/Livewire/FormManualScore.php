@@ -23,12 +23,13 @@ class FormManualScore extends Component
     public $practice;
     public $theory;
     public $note;
+    public $studentValue;
 
     public function mount()
     {
         $this->optionStudent = [];
         foreach (FeatureStudent::whereIafId($this->iaf)->get() as $user) {
-            $this->optionStudent[] = ['value' => $user->student_id, 'title' => $user->user->name];
+            $this->optionStudent[] = ['value' => $user->student_id, 'title' => $user->student->name];
         }
         $this->optionScore = [];
         foreach (FeatureScore::whereIafId($this->iaf)->get() as $user) {
@@ -59,15 +60,25 @@ class FormManualScore extends Component
     {
         return view('livewire.form-manual-score');
     }
+    public function getRules()
+    {
+        return [
+           'studentValue'=>'required|numeric|max:100',
+        ];
+    }
+
 
     public function addScore()
     {
+        $this->validate();
         FeatureScoreStudent::create([
-            'student_id' => $this->student,
-            'note' => $this->note,
             'feature_score_id'=>$this->score,
-            'score_practice'=>$this->practice,
-            'score_theory'=>$this->theory,
+            'student_id' => $this->student,
+            'score_status'=>1,
+            'score'=>$this->studentValue,
+            'score_practice'=>0,
+            'score_theory'=>0,
+            'note' => $this->note,
         ]);
         $this->emit('swal:alert', [
             'type' => 'success',
