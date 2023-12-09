@@ -66,11 +66,18 @@
                            class="m-1 btn btn-primary col">
                             <i class="fa fa-16px fa-user">Tutor</i></a>
 
+                            <a role="button" href="{{ route('download.report',$iaf->id) }}"
+                               class="m-1 btn btn-primary col">
+                                <i class="fa fa-16px fa-download">Report</i></a>
+
                         <a role="button" href="{{ route('admin.presence.index',$iaf->id) }}"
                            class="m-1 btn btn-warning col">
                             <i class="fa fa-16px fa-user">Presensi</i></a>
                         <a role="button" href="{{ route('admin.score.index',$iaf->id) }}" class="m-1 btn btn-warning col">
                             <i class="fa fa-16px fa-user">Score</i></a>
+                            <a role="button" href="{{ route('download.report',$iaf->id) }}"
+                               class="m-1 btn btn-primary col">
+                                <i class="fa fa-16px fa-download">Report</i></a>
                         </div>
                     </td>
                 </tr>
