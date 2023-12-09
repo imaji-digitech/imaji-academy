@@ -113,9 +113,8 @@
                         <td style="text-align: center">{{ $index2+1 }}</td>
                         <td>{{ $q2->module }}</td>
                         @php
-                            $score=FeatureScoreStudent::whereStudentId($user->id)->whereFeatureScoreId($q2->id)->first();
-
-
+                            $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->first();
+//                            dd($score)
                         @endphp
                         <td style="text-align: center">
                             @if($score!=null)
