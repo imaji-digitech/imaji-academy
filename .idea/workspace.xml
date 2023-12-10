@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="add search on presence and score">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/FormManualScore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/FormManualScore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf/report-new.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,6 +206,7 @@
     &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mokhamadasif/PhpstormProjects/imaji-academy/resources/views/pdf&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -221,10 +219,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/pdf" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/score" />
       <recent name="$PROJECT_DIR$/resources/views/pages/teacher/presence" />
-      <recent name="$PROJECT_DIR$/resources/views/pdf" />
       <recent name="$PROJECT_DIR$/resources/views/livewire/table" />
     </key>
   </component>
@@ -374,6 +372,8 @@
       <workItem from="1702001807293" duration="1064000" />
       <workItem from="1702007676035" duration="24000" />
       <workItem from="1702023546476" duration="1661000" />
+      <workItem from="1702088919325" duration="6284000" />
+      <workItem from="1702196377725" duration="727000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -718,7 +718,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678614665230</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
