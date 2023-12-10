@@ -118,11 +118,11 @@
                         @endphp
                         <td style="text-align: center">
                             @if($score!=null)
-                                @if($score->score<84)
+                                @if($score->score>84)
                                     A
-                                @elseif($score->score<70)
+                                @elseif($score->score>70)
                                     B
-                                @elseif($score->score<60)
+                                @elseif($score->score>60)
                                     C
                                 @else
                                     D
