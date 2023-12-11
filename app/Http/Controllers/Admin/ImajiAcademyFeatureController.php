@@ -60,15 +60,20 @@ class ImajiAcademyFeatureController extends Controller
     public function report($id)
     {
         $iaf=ImajiAcademyFeature::find($id);
-        if ($iaf->featureReports->count()==0){
+
             foreach ($iaf->featureStudents as $fs){
-                FeatureReport::create([
-                    'student_id' => $fs->student_id,
-                    'iaf_id'=>$id,
-                    'attitude'=>3,
-                ]);
+                $f=FeatureReport::where('student_id','=',$fs->student_id)
+                    ->where('iaf_id','=',$id)
+                    ->first();
+                if ($f==null){
+                    FeatureReport::create([
+                        'student_id' => $fs->student_id,
+                        'iaf_id'=>$id,
+                        'attitude'=>3,
+                    ]);
+                }
             }
-        }
+
         return view('pages.teacher.report',compact('id','iaf'));
     }
 
