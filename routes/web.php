@@ -115,7 +115,7 @@ Route::get('/report/{id}', function ($id) {
 
 Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'verified'])->group(function () {
 
-    Route::get('download/presensi/', function ($id) {
+    Route::get('download/presensi/', function () {
 
         $headers = array(
             "Content-type" => "text/csv",
@@ -125,7 +125,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
             "Expires" => "0"
         );
 
-        $callback = function () use ($id) {
+        $callback = function () {
             $delimiter = ';';
             $file = fopen('php://output', 'w');
             $temp = ['No', 'Nama'];
