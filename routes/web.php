@@ -139,7 +139,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
                             fputcsv($file, array_merge($temp, $fsModule), $delimiter);
                         }
                         $t = [$index + 1, $fs->student->name];
-                        foreach (FeatureScore::where('iaf_id', '=', $iaf->id)->whereIn('module', $fsModule)->get() as $faa) {
+                        foreach (FeatureActivity::where('iaf_id', '=', $iaf->id)->whereIn('module', $fsModule)->get() as $faa) {
                             $sc = \App\Models\FeatureActivityPresence::where('student_id', '=', $fs->student_id)->where('feature_activity_id', '=', $faa->id)->first();
                             $t[] = $sc->presenceStatus->title;
                         }
