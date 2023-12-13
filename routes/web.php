@@ -12,6 +12,7 @@ use App\Http\Controllers\Teacher\ScheduleController;
 use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
 use App\Imports\StudentImport;
+use App\Models\FeatureActivity;
 use App\Models\FeatureScore;
 use App\Models\FeatureScoreStudent;
 use App\Models\FeatureStudent;
@@ -130,7 +131,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
             $temp = ['No', 'Nama'];
             foreach (ImajiAcademy::get() as $ia) {
                 foreach ($ia->imajiAcademyFeatures->where('semester', '=', 'gasal')->where('year_program', '=', '2023') as $iaf) {
-                    $featureScore = \App\Models\FeatureActivity::where('iaf_id', '=', $iaf->id)->get();
+                    $featureScore = FeatureActivity::where('iaf_id', '=', $iaf->id)->get();
                     $fsModule = $featureScore->pluck('module')->toArray();
                     foreach (FeatureStudent::where('iaf_id', '=', $iaf->id)->get() as $index => $fs) {
                         if ($index == 0) {
@@ -139,8 +140,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
                         }
                         $t = [$index + 1, $fs->student->name];
                         foreach (FeatureScore::where('iaf_id', '=', $iaf->id)->whereIn('module', $fsModule)->get() as $faa) {
-                            $sc = FeatureScoreStudent::where('student_id', '=', $fs->student_id)->where('feature_score_id', '=', $faa->id)->first();
-                            $t[] = $sc ? $sc->score : 0;
+                            $sc = \App\Models\FeatureActivityPresence::where('student_id', '=', $fs->student_id)->where('feature_activity_id', '=', $faa->id)->first();
+                            $t[] = $sc->presenceStatus->title;
                         }
                         fputcsv($file,$t,$delimiter);
                     }

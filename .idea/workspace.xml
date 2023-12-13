@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="add search on presence and score">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="add search on presence and score" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -377,7 +374,7 @@
       <workItem from="1702196377725" duration="1651000" />
       <workItem from="1702207306577" duration="850000" />
       <workItem from="1702281113795" duration="897000" />
-      <workItem from="1702460571776" duration="694000" />
+      <workItem from="1702460571776" duration="1001000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -722,7 +719,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678614665230</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
