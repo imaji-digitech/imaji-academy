@@ -152,6 +152,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
             }
             fclose($file);
         };
+        dd($callback);
         return response()->stream($callback, 200, $headers);
 
 
