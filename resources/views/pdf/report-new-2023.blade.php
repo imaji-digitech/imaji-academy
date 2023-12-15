@@ -136,19 +136,17 @@
                     @php
                         $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
                     @endphp
-                    @if($score!=null and $score->score!=0)
-                        @php
-                            $c+=1;
-                            $total+=$score->score;
-                        @endphp
-                    @endif
+
                     <tr>
                         <td style="text-align: center">{{ $c }}</td>
 
                         <td>{{ $q2->module }}</td>
 
                         <td style="text-align: center">
-
+                            @if($score!=null and $score->score!=0)
+                                @php
+                                    $c+=1;
+                                    $total+=$score->score;                                @endphp
                                 @if($score->score>84)
                                     A
                                 @elseif($score->score>70)
@@ -156,9 +154,12 @@
                                 @elseif($score->score>60)
                                     C
                                 @elseif($score->score>0)
-                            @else
-                                    -
+                                D
                                 @endif
+
+                                @else
+                                -
+                            @endif
                         </td>
                     </tr>
 
