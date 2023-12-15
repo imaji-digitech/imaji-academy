@@ -220,7 +220,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="font-size: 11px">
                                 {{ $report->note }}
                             </td>
                         </tr>
