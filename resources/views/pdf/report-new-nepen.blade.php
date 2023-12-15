@@ -100,10 +100,9 @@
                 </thead>
                 <tbody>
                 @php
-                    $total_practice=0;
-                    $total_theory=0;
-                    $c=0
+                    $total=0;$c=0
                 @endphp
+
                 @foreach($user->featureStudents as $index=>$q1)
                     <tr style="font-weight: bold">
                         <td style="text-align: center">{{ $alphabet[$index] }}</td>
@@ -116,6 +115,8 @@
                             <td>{{ $q2->module }}</td>
                             @php
                                 $score=\App\Models\FeatureScoreStudent::whereStudentId($user->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
+                                $total+=$score->score;
+                                $c+=1
                             @endphp
                             <td style="text-align: center">
                                 @if($score!=null)
@@ -132,6 +133,23 @@
                             </td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td colspan="2"><b>Rata-rata</b></td>
+                        @php($score=$total/$c)
+                        <td style="text-align: center">
+
+                                @if($score>84)
+                                    A
+                                @elseif($score>70)
+                                    B
+                                @elseif($score>60)
+                                    C
+                                @else
+                                    D
+                                @endif
+
+                        </td>
+                    </tr>
                 @endforeach
 
                 </tbody>

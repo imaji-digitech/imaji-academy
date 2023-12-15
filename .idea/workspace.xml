@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="add search on presence and score">
-      <change afterPath="$PROJECT_DIR$/resources/views/pdf/report-new-nepen.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pdf/report-new-2023.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf/report-new-2023.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,7 +380,7 @@
       <workItem from="1702460571776" duration="2014000" />
       <workItem from="1702514349638" duration="595000" />
       <workItem from="1702520572718" duration="621000" />
-      <workItem from="1702533758550" duration="4078000" />
+      <workItem from="1702533758550" duration="5687000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -727,7 +725,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678614665230</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
