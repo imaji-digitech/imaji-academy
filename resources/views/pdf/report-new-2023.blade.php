@@ -136,36 +136,59 @@
                 </tbody>
             </table>
         </div>
-        <br><br>
-        @isset($user->student->featureReports)
-            @if($user->student->featureReports!=null)
+        <br>
         <div class="static">
-            <table style="margin: 0;padding: 0; width: 100%;">
+            <table style="margin: 0;padding: 0; ">
                 <tr style="border: 1px solid black;">
-                    <td>
-                        Catatan tutor untuk diperhatikan oleh peserta didik dan orang tua/wali
+                    <td style="text-align: center; padding:0 15px " colspan="2">
+                        Keterangan
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        @isset($user->student->featureReports)
-                            @foreach( $user->student->featureReports as $fr )
-                                {{ $fr->imajiAcademyFeature->feature->title }}: <br>
-                                {{ $fr->note }} <br>
-                            @endforeach
-                        @endisset
-                    </td>
+                    <td style="text-align: center; padding:5px 15px ">A</td>
+                    <td style="text-align: center; padding:5px 15px ">85 - 100</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; padding:5px 15px ">B</td>
+                    <td style="text-align: center; padding:5px 15px ">71 - 84</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; padding:5px 15px ">C</td>
+                    <td style="text-align: center; padding:5px 15px ">60 - 70</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; padding:5px 15px ">D</td>
+                    <td style="text-align: center; padding:5px 15px ">0 - 59</td>
                 </tr>
             </table>
         </div>
+
+        <br>
+        @php($report= \App\Models\FeatureReport::where('iaf_id','=',$iaf->id)->where('student_id','=',$user->student_id)->first())
+
+            @if($report!=null)
+                <div class="static">
+                    <table style="margin: 0;padding: 0; width: 100%;">
+                        <tr style="border: 1px solid black;">
+                            <td>
+                                Catatan tutor untuk diperhatikan oleh peserta didik dan orang tua/wali
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ $report->note }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             @endif
-        @endisset
+
         <br><br>
         <div>
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
                     <td style="width:70%"></td>
-                    <td style="width:30%">Jember, 9 Desember 2022</td>
+                    <td style="width:30%">Jember, 15 Desember 2023</td>
                 </tr>
                 <tr>
                     <td></td>
