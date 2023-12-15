@@ -212,7 +212,7 @@
 
         @php($report= \App\Models\FeatureReport::where('iaf_id','=',$iaf->id)->where('student_id','=',$user->student_id)->first())
             @if($report!=null)
-            <span class="static" style="display: inline-block; width: 70%">
+            <span class="static" style="display: inline-block; width: 70%; height: auto">
                     <table style="margin: 0;padding: 0; width: 100%;">
                         <tr style="border: 1px solid black;">
                             <td>
