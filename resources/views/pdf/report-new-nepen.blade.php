@@ -168,7 +168,7 @@
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
                     <td style="width:70%"></td>
-                    <td style="width:30%">Jember, 11 januari 2022</td>
+                    <td style="width:30%">Jember, 15 Desember 2023</td>
                 </tr>
                 <tr>
                     <td></td>
