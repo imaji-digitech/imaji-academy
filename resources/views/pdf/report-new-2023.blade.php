@@ -57,20 +57,38 @@
     </style>
 </head>
 <body>
+
 @foreach($iaf->featureStudents as $index=>$user)
+    @php
+        $c=0;
+        $total=0;
+    @endphp
+
+
+    @foreach($iaf->featureScores as $index2=>$q2)
+        @php
+            $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
+        @endphp
+        @if($score->score!=0)
+            @php
+                $c+=1;
+            @endphp
+        @endif
+    @endforeach
+    @if($c==0)
+        @continue
+    @endif
     @if($index!=0)
-        {{--                @php--}}
-        {{--                    break--}}
-        {{--                @endphp--}}
         <div style="page-break-before: always;"></div>
     @endif
+
 
     <div style="padding: 50px">
         <br>
         <div style="text-align: center">
             <img src="{{ public_path('images/half_image.png') }}" alt="" style="width: 90px;margin-right: 10px">
             <img src="{{ public_path('images/ia.png') }}" alt="" style="width: 90px;margin-right: 10px">
-            {{--            <img src="{{ public_path('images/ymi.png') }}" alt="" style="width: 90px">--}}
+
         </div>
         <div style="    text-align: center">
             <h2 style="padding: 0;margin: 0">RAPOR HASIL PEMBELAJARAN SISWA</h2>
@@ -108,13 +126,22 @@
                 <tbody>
 
 
+                @php
+                    $c=0;
+                    $total=0;
+                @endphp
                 @foreach($iaf->featureScores as $index2=>$q2)
                     @php
                         $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
                     @endphp
                     @if($score!=null and $score->score!=0)
+                        @php
+                            $c+=1;
+                            $total+=$score->score;
+                        @endphp
                     <tr>
-                        <td style="text-align: center">{{ $index2+1 }}</td>
+                        <td style="text-align: center">{{ $c }}</td>
+
                         <td>{{ $q2->module }}</td>
 
                         <td style="text-align: center">
@@ -132,6 +159,24 @@
                     </tr>
                     @endif
                 @endforeach
+                <tr>
+                    <td colspan="2"><b>Rata-rata</b></td>
+                    @if($c!=0)
+                    @php($score=$total/$c)
+                    <td style="text-align: center">
+                        @if($score>84)
+                            A
+                        @elseif($score>70)
+                            B
+                        @elseif($score>60)
+                            C
+                        @else
+                            D
+                        @endif
+                    </td>
+                    @endif
+
+                </tr>
 
                 </tbody>
             </table>
