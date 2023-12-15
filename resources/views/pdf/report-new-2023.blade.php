@@ -216,7 +216,7 @@
                     <table style="margin: 0;padding: 0; width: 100%;">
                         <tr style="border: 1px solid black;">
                             <td>
-                                Catatan tutor untuk diperhatikan oleh peserta didik dan orang tua/wali
+                                Catatan tutor untuk peserta didik dan orang tua/wali
                             </td>
                         </tr>
                         <tr>
