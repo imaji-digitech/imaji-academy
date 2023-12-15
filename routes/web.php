@@ -85,27 +85,28 @@ Route::get('/', function () {
 
 
 Route::view('/student', 'livewire.profile-student');
-//Route::get('/report/{id}', function ($id) {
-//    $alphabet = range('A', 'Z');
-//    $score_practice = ['-', 'A', 'B', 'C'];
-//    $score_theory = ['-', 'Membanggakan', 'Cemerlang', 'Memuaskan'];
-//    $imajiAcademy = ImajiAcademy::find($id);
-//    $query = "SELECT students.id FROM `students`
-//JOIN feature_students ON students.id=feature_students.student_id
-//JOIN imaji_academy_features ON imaji_academy_features.id = feature_students.iaf_id
-//JOIN imaji_academies ON imaji_academies.id = imaji_academy_features.imaji_academy_id
-//WHERE imaji_academies.id=$id";
-//    $USER = DB::select(DB::raw($query));
-//    $users = [];
-//    foreach ($USER as $u) {
-//        $users[] = $u->id;
-//    }
-//    $users = Student::whereIn('id', $users)->get();
-//
-//    $pdf = App::make('dompdf.wrapper');
-//    $pdf->loadView('pdf.report-new', compact('users', 'imajiAcademy', 'score_practice', 'score_theory', 'alphabet'))->setPaper('a4', 'portrait');
-//    return $pdf->stream('INVOICE');
-//});
+Route::get('/report/boyolali', function () {
+    $id=17;
+    $alphabet = range('A', 'Z');
+    $score_practice = ['-', 'A', 'B', 'C'];
+    $score_theory = ['-', 'Membanggakan', 'Cemerlang', 'Memuaskan'];
+    $imajiAcademy = ImajiAcademy::find($id);
+    $query = "SELECT students.id FROM `students`
+JOIN feature_students ON students.id=feature_students.student_id
+JOIN imaji_academy_features ON imaji_academy_features.id = feature_students.iaf_id
+JOIN imaji_academies ON imaji_academies.id = imaji_academy_features.imaji_academy_id
+WHERE imaji_academies.id=$id";
+    $USER = DB::select(DB::raw($query));
+    $users = [];
+    foreach ($USER as $u) {
+        $users[] = $u->id;
+    }
+    $users = Student::whereIn('id', $users)->get();
+
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('pdf.report-new-nepen', compact('users', 'imajiAcademy', 'score_practice', 'score_theory', 'alphabet'))->setPaper('a4', 'portrait');
+    return $pdf->stream('INVOICE');
+});
 Route::get('/report/{id}', function ($id) {
     $iaf= \App\Models\ImajiAcademyFeature::find($id);
     $pdf = App::make('dompdf.wrapper');

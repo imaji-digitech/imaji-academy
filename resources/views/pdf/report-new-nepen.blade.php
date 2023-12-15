@@ -1,5 +1,4 @@
-@php use App\Models\FeatureScoreStudent; @endphp
-    <!doctype html>
+<!doctype html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -57,11 +56,8 @@
     </style>
 </head>
 <body>
-@foreach($iaf->featureStudents as $index=>$user)
+@foreach($users as $index=>$user)
     @if($index!=0)
-        {{--                @php--}}
-        {{--                    break--}}
-        {{--                @endphp--}}
         <div style="page-break-before: always;"></div>
     @endif
 
@@ -70,27 +66,25 @@
         <div style="text-align: center">
             <img src="{{ public_path('images/half_image.png') }}" alt="" style="width: 90px;margin-right: 10px">
             <img src="{{ public_path('images/ia.png') }}" alt="" style="width: 90px;margin-right: 10px">
-            {{--            <img src="{{ public_path('images/ymi.png') }}" alt="" style="width: 90px">--}}
+            <img src="{{ public_path('images/ymi.png') }}" alt="" style="width: 90px">
         </div>
         <div style="    text-align: center">
             <h2 style="padding: 0;margin: 0">RAPOR HASIL PEMBELAJARAN SISWA</h2>
-            <h3 style="padding: 0;margin: 0">{{ $iaf->imajiAcademy->title }}</h3>
-            <h3 style="padding: 0;margin: 0">{{ $iaf->imajiAcademy->village }}</h3>
+            <h3 style="padding: 0;margin: 0">{{ $imajiAcademy->title }}</h3>
+            <h3 style="padding: 0;margin: 0">{{ $imajiAcademy->village }}</h3>
         </div>
         <br>
         <div>
             <table style="margin: 0;padding: 0; width: 100%">
                 <tr>
                     <td style="width: 15%">Nama Siswa</td>
-                    <td style="width: 45%">: {{ $user->student->name }}</td>
+                    <td style="width: 45%">: {{ $user->name }}</td>
                     <td style="width: 15%">NIS</td>
-                    <td style="width: 45%">: {{ $user->student->nis }}</td>
+                    <td style="width: 45%">: {{ $user->nis }}</td>
                 </tr>
                 <tr>
                     <td style="width: 15%">Semester</td>
-                    <td style="width: 45%">: 1</td>
-                    <td style="width: 15%">Fitur</td>
-                    <td style="width: 45%">: {{ $iaf->feature->title }}</td>
+                    <td style="width: 20%">: 1</td>
                 </tr>
             </table>
         </div>
@@ -103,40 +97,48 @@
                     <td>Materi kelas fitur</td>
                     <td>Penilaian</td>
                 </tr>
-
                 </thead>
                 <tbody>
-
-
-                @foreach($iaf->featureScores as $index2=>$q2)
-                    <tr>
-                        <td style="text-align: center">{{ $index2+1 }}</td>
-                        <td>{{ $q2->module }}</td>
-                        @php
-                            $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
-                        @endphp
-                        <td style="text-align: center">
-                            @if($score!=null)
-                                @if($score->score>84)
-                                    A
-                                @elseif($score->score>70)
-                                    B
-                                @elseif($score->score>60)
-                                    C
-                                @else
-                                    D
-                                @endif
-                            @endif
-                        </td>
-
+                @php
+                    $total_practice=0;
+                    $total_theory=0;
+                    $c=0
+                @endphp
+                @foreach($user->featureStudents as $index=>$q1)
+                    <tr style="font-weight: bold">
+                        <td style="text-align: center">{{ $alphabet[$index] }}</td>
+                        <td>{{$q1->imajiAcademyFeature->feature->title}}</td>
+                        <td></td>
                     </tr>
+                    @foreach($q1->imajiAcademyFeature->featureScores as $index2=>$q2)
+                        <tr>
+                            <td style="text-align: center">{{ $index2+1 }}</td>
+                            <td>{{ $q2->module }}</td>
+                            @php
+                                $score=\App\Models\FeatureScoreStudent::whereStudentId($user->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
+                            @endphp
+                            <td style="text-align: center">
+                                @if($score!=null)
+                                    @if($score->score>84)
+                                        A
+                                    @elseif($score->score>70)
+                                        B
+                                    @elseif($score->score>60)
+                                        C
+                                    @else
+                                        D
+                                    @endif
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
                 @endforeach
 
                 </tbody>
             </table>
         </div>
         <br>
-        <div class="static">
+        <div class="static" style="width: 30%; display: inline-block">
             <table style="margin: 0;padding: 0; ">
                 <tr style="border: 1px solid black;">
                     <td style="text-align: center; padding:0 15px " colspan="2">
@@ -161,33 +163,12 @@
                 </tr>
             </table>
         </div>
-
-        <br>
-        @php($report= \App\Models\FeatureReport::where('iaf_id','=',$iaf->id)->where('student_id','=',$user->student_id)->first())
-
-            @if($report!=null)
-                <div class="static">
-                    <table style="margin: 0;padding: 0; width: 100%;">
-                        <tr style="border: 1px solid black;">
-                            <td>
-                                Catatan tutor untuk diperhatikan oleh peserta didik dan orang tua/wali
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {{ $report->note }}
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            @endif
-
-        <br><br>
-        <div>
+        <div  style="width: 60%; display: inline-block; float: right">
+            <br><br><br><br><br><br>
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
                     <td style="width:70%"></td>
-                    <td style="width:30%">Jember, 15 Desember 2023</td>
+                    <td style="width:30%">Jember, 11 januari 2022</td>
                 </tr>
                 <tr>
                     <td></td>
