@@ -229,7 +229,7 @@
             @endif
 
 
-        <div>
+        <div style="margin: 0;padding: 0">
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
                     <td style="width:70%"></td>
