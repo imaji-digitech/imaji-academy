@@ -112,7 +112,7 @@
                     @php
                         $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
                     @endphp
-                    @if($score!=null)
+                    @if($score!=null and $score->score!=0)
                     <tr>
                         <td style="text-align: center">{{ $index2+1 }}</td>
                         <td>{{ $q2->module }}</td>
@@ -128,9 +128,7 @@
                                 @else
                                     D
                                 @endif
-
                         </td>
-
                     </tr>
                     @endif
                 @endforeach
