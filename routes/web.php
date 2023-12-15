@@ -107,7 +107,7 @@ WHERE imaji_academies.id=$id";
     $pdf->loadView('pdf.report-new-nepen', compact('users', 'imajiAcademy', 'score_practice', 'score_theory', 'alphabet'))->setPaper('a4', 'portrait');
     return $pdf->stream('INVOICE');
 });
-Route::get('/report/{id}', function ($id) {
+Route::get('/report/download/{id}', function ($id) {
     $iaf= \App\Models\ImajiAcademyFeature::find($id);
     $pdf = App::make('dompdf.wrapper');
     $pdf->loadView('pdf.report-new-2023', compact('iaf'))->setPaper('a4', 'portrait');

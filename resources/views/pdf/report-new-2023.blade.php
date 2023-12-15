@@ -109,14 +109,16 @@
 
 
                 @foreach($iaf->featureScores as $index2=>$q2)
+                    @php
+                        $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
+                    @endphp
+                    @if($score!=null)
                     <tr>
                         <td style="text-align: center">{{ $index2+1 }}</td>
                         <td>{{ $q2->module }}</td>
-                        @php
-                            $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
-                        @endphp
+
                         <td style="text-align: center">
-                            @if($score!=null)
+
                                 @if($score->score>84)
                                     A
                                 @elseif($score->score>70)
@@ -126,10 +128,11 @@
                                 @else
                                     D
                                 @endif
-                            @endif
+
                         </td>
 
                     </tr>
+                    @endif
                 @endforeach
 
                 </tbody>
