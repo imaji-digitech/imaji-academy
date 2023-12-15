@@ -141,6 +141,7 @@
                             $c+=1;
                             $total+=$score->score;
                         @endphp
+                    @endif
                     <tr>
                         <td style="text-align: center">{{ $c }}</td>
 
@@ -154,12 +155,13 @@
                                     B
                                 @elseif($score->score>60)
                                     C
-                                @else
-                                    D
+                                @elseif($score->score>0)
+                            @else
+                                    -
                                 @endif
                         </td>
                     </tr>
-                    @endif
+
                 @endforeach
                 <tr>
                     <td colspan="2"><b>Rata-rata</b></td>
