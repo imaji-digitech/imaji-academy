@@ -183,8 +183,9 @@
                 </tbody>
             </table>
         </div>
-        <br><br>
-        <span class="static" style="float: left; width: 25%">
+
+        <div>
+            <span class="static" style="float: left; width: 25%">
             <table style="margin: 0;padding: 0; font-size: 12px">
                 <tr style="border: 1px solid black;">
                     <td style="text-align: center; padding:0 15px " colspan="2">
@@ -210,9 +211,9 @@
             </table>
         </span>
 
-        @php($report= \App\Models\FeatureReport::where('iaf_id','=',$iaf->id)->where('student_id','=',$user->student_id)->first())
+            @php($report= \App\Models\FeatureReport::where('iaf_id','=',$iaf->id)->where('student_id','=',$user->student_id)->first())
             @if($report!=null)
-            <span class="static" style="float: right; width: 70%; height: auto">
+                <span class="static" style="float: right; width: 70%; height: auto">
                     <table style="margin: 0;padding: 0; width: 100%;">
                         <tr style="border: 1px solid black;">
                             <td>
@@ -227,6 +228,7 @@
                     </table>
                 </span>
             @endif
+        </div>
 
 
         <div style="margin: 0;padding: 0">
