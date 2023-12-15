@@ -186,7 +186,7 @@
         <br>
         <div style="display: block">
             <span class="static" style="float: left; width: 23%">
-            <table style="margin: 0;padding: 0; font-size: 12px">
+            <table style="margin: 0;padding: 0; font-size: 12px; width: 100%">
                 <tr style="border: 1px solid black;">
                     <td style="text-align: center; padding:0 15px " colspan="2">
                         Keterangan
@@ -230,7 +230,7 @@
             @endif
         </div>
 
-        <br><br><br><br><br>
+        <br><br><br><br><br><br>
         <div style="margin: 0;padding: 0">
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
