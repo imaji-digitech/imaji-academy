@@ -185,7 +185,7 @@
         </div>
         <br><br>
         <span class="static" style="display: inline-block; width: 25%">
-            <table style="margin: 0;padding: 0; ">
+            <table style="margin: 0;padding: 0; font-size: 12px">
                 <tr style="border: 1px solid black;">
                     <td style="text-align: center; padding:0 15px " colspan="2">
                         Keterangan
