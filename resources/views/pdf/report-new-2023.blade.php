@@ -69,10 +69,12 @@
         @php
             $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
         @endphp
+        @if($score!=null)
         @if($score->score!=0)
             @php
                 $c+=1;
             @endphp
+        @endif
         @endif
     @endforeach
     @if($c==0)
@@ -210,7 +212,6 @@
 
         <br>
         @php($report= \App\Models\FeatureReport::where('iaf_id','=',$iaf->id)->where('student_id','=',$user->student_id)->first())
-
             @if($report!=null)
                 <div class="static">
                     <table style="margin: 0;padding: 0; width: 100%;">
