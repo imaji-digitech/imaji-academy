@@ -1,4 +1,5 @@
-<!doctype html>
+@php use App\Models\FeatureScoreStudent; @endphp
+    <!doctype html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -66,7 +67,6 @@
         <div style="text-align: center">
             <img src="{{ public_path('images/half_image.png') }}" alt="" style="width: 90px;margin-right: 10px">
             <img src="{{ public_path('images/ia.png') }}" alt="" style="width: 90px;margin-right: 10px">
-            <img src="{{ public_path('images/ymi.png') }}" alt="" style="width: 90px">
         </div>
         <div style="    text-align: center">
             <h2 style="padding: 0;margin: 0">RAPOR HASIL PEMBELAJARAN SISWA</h2>
@@ -114,7 +114,7 @@
                             <td style="text-align: center">{{ $index2+1 }}</td>
                             <td>{{ $q2->module }}</td>
                             @php
-                                $score=\App\Models\FeatureScoreStudent::whereStudentId($user->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
+                                $score=FeatureScoreStudent::whereStudentId($user->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
                                 $total+=$score->score;
                                 $c+=1
                             @endphp
@@ -137,21 +137,18 @@
                         <td colspan="2"><b>Rata-rata</b></td>
                         @php($score=$total/$c)
                         <td style="text-align: center">
-
-                                @if($score>84)
-                                    A
-                                @elseif($score>70)
-                                    B
-                                @elseif($score>60)
-                                    C
-                                @else
-                                    D
-                                @endif
-
+                            @if($score>84)
+                                A
+                            @elseif($score>70)
+                                B
+                            @elseif($score>60)
+                                C
+                            @else
+                                D
+                            @endif
                         </td>
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
         </div>
@@ -181,7 +178,7 @@
                 </tr>
             </table>
         </div>
-        <div  style="width: 60%; display: inline-block; float: right">
+        <div style="width: 60%; display: inline-block; float: right">
             <br><br><br><br><br><br>
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
