@@ -183,7 +183,7 @@
                 </tbody>
             </table>
         </div>
-        <br>
+        <br><br>
         <span class="static" style="display: inline-block; width: 25%">
             <table style="margin: 0;padding: 0; ">
                 <tr style="border: 1px solid black;">
@@ -228,7 +228,7 @@
                 </span>
             @endif
 
-        <br><br>
+
         <div>
             <table style="margin: 0;padding: 0; width: 100%;">
                 <tr>
