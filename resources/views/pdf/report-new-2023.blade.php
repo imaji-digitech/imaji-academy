@@ -138,7 +138,7 @@
                     @endphp
 
                     <tr>
-                        <td style="text-align: center">{{ $c }}</td>
+                        <td style="text-align: center">{{ $index2+1 }}</td>
 
                         <td>{{ $q2->module }}</td>
 

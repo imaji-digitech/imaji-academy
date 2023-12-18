@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="add search on presence and score" />
+    <list default="true" id="4368c2ec-9ebe-4169-8ceb-feef74f04c86" name="Changes" comment="add search on presence and score">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -378,6 +380,9 @@
       <workItem from="1702514349638" duration="595000" />
       <workItem from="1702520572718" duration="621000" />
       <workItem from="1702533758550" duration="6342000" />
+      <workItem from="1702610581612" duration="6436000" />
+      <workItem from="1702799308596" duration="261000" />
+      <workItem from="1702801784778" duration="1870000" />
     </task>
     <task id="LOCAL-00009" summary="update galuh request">
       <created>1636695517298</created>
@@ -722,7 +727,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678614665230</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
