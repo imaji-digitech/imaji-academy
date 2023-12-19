@@ -99,9 +99,7 @@ class FormStudent extends Component
                 'home_village' => $auth->home_village,
                 'home_address' => $auth->home_address,
             ];
-            $this->student = [
 
-            ];
         }
     }
 
@@ -150,7 +148,7 @@ class FormStudent extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        $user = User::find($this->dataId);
+        $user = Student::find($this->dataId);
         $user->update($this->user);
         $this->emit('swal:alert', [
             'type' => 'success',
