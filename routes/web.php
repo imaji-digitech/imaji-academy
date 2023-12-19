@@ -195,19 +195,19 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
                             $t[]="Mendapatkan";
                             $t[]="Mendapatkan";
                         }
-                        if ($fap/$fos>=0.7){
+                        elseif ($fap/$fos>=0.7){
                             $t[]="";
                             $t[]="Mendapatkan";
                             $t[]="Mendapatkan";
                             $t[]="Mendapatkan";
                         }
-                        if ($fap/$fos>=0.6){
+                        elseif ($fap/$fos>=0.6){
                             $t[]="";
                             $t[]="";
                             $t[]="Mendapatkan";
                             $t[]="Mendapatkan";
                         }
-                        if ($fap/$fos>=0.5){
+                        elseif ($fap/$fos>=0.5){
                             $t[]="";
                             $t[]="";
                             $t[]="";
