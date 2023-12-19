@@ -64,19 +64,19 @@
         $total=0;
     @endphp
 
-
-    @foreach($iaf->featureScores as $index2=>$q2)
-        @php
-            $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
-        @endphp
-        @if($score!=null)
-        @if($score->score!=0)
-            @php
+    @php
+    foreach($iaf->featureScores as $index2=>$q2){
+        $score=FeatureScoreStudent::whereStudentId($user->student->id)->whereFeatureScoreId($q2->id)->orderByDesc('id')->first();
+        if($score!=null){
+            if($score->score!=0){
                 $c+=1;
-            @endphp
-        @endif
-        @endif
-    @endforeach
+
+            }
+        }
+    }
+    @endphp
+
+
     @if($c==0)
         @continue
     @endif
@@ -126,8 +126,6 @@
 
                 </thead>
                 <tbody>
-
-
                 @php
                     $c=0;
                     $total=0;

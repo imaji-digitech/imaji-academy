@@ -13,6 +13,7 @@ use App\Http\Controllers\Teacher\ScoreController;
 use App\Http\Controllers\UserController;
 use App\Imports\StudentImport;
 use App\Models\FeatureActivity;
+use App\Models\FeatureActivityPresence;
 use App\Models\FeatureScore;
 use App\Models\FeatureScoreStudent;
 use App\Models\FeatureStudent;
@@ -143,9 +144,82 @@ Route::name('admin.')->prefix('admin')->middleware(['auth:sanctum', 'web', 'veri
                         }
                         $t = [$index + 1, $fs->student->name];
                         foreach (FeatureActivity::where('iaf_id', '=', $iaf->id)->whereIn('module', $fsModule)->get() as $faa) {
-                            $sc = \App\Models\FeatureActivityPresence::where('student_id', '=', $fs->student_id)->where('feature_activity_id', '=', $faa->id)->first();
+                            $sc = FeatureActivityPresence::where('student_id', '=', $fs->student_id)->where('feature_activity_id', '=', $faa->id)->first();
                             $t[] = $sc->presenceStatus->title??'-';
                         }
+                        fputcsv($file,$t,$delimiter);
+                    }
+                    fputcsv($file,[],$delimiter);
+                }
+                fputcsv($file,[],$delimiter);
+                fputcsv($file,[],$delimiter);
+            }
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+
+
+    });
+    Route::get('download/report/status', function () {
+
+
+        $headers = array(
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=ita-request",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        );
+
+        $callback = function () {
+            $delimiter = ';';
+            $file = fopen('php://output', 'w');
+            $temp = ['No', 'Nama','presetase','mendapatkan >80%','mendapatkan >70%','mendapatkan >60%','mendapatkan >50%','tidak mendapatkan'];
+            foreach (ImajiAcademy::get() as $ia) {
+                foreach ($ia->imajiAcademyFeatures->where('semester', '=', 'gasal')->where('year_program', '=', '2023') as $iaf) {
+                    $featureScore = FeatureActivity::where('iaf_id', '=', $iaf->id)->get();
+                    $fos = $featureScore->count();
+                    $fsModule = $featureScore->pluck('module')->toArray();
+                    foreach (FeatureStudent::where('iaf_id', '=', $iaf->id)->get() as $index => $fs) {
+                        if ($index == 0) {
+                            fputcsv($file, [$iaf->imajiAcademy->title, $iaf->feature->title], $delimiter);
+                            fputcsv($file, array_merge($temp), $delimiter);
+                        }
+                        $fa=FeatureActivity::where('iaf_id', '=', $iaf->id)->whereIn('module', $fsModule)->get();
+                        $fap= FeatureActivityPresence::where('student_id', '=', $fs->student_id)->whereIn('feature_activity_id', $fa->pluck('id')->toArray())->where('presence_status_id','=',1)->get()->count();
+                        $t = [$index + 1, $fs->student->name,number_format($fap/$fos*100,'2')."%"];
+                        if ($fap/$fos>=0.8){
+                            $t[]="Mendapatkan";
+                            $t[]="Mendapatkan";
+                            $t[]="Mendapatkan";
+                            $t[]="Mendapatkan";
+                        }
+                        if ($fap/$fos>=0.7){
+                            $t[]="";
+                            $t[]="Mendapatkan";
+                            $t[]="Mendapatkan";
+                            $t[]="Mendapatkan";
+                        }
+                        if ($fap/$fos>=0.6){
+                            $t[]="";
+                            $t[]="";
+                            $t[]="Mendapatkan";
+                            $t[]="Mendapatkan";
+                        }
+                        if ($fap/$fos>=0.5){
+                            $t[]="";
+                            $t[]="";
+                            $t[]="";
+                            $t[]="Mendapatkan";
+                        }else{
+                            $t[]="";
+                            $t[]="";
+                            $t[]="";
+                            $t[]="";
+                            $t[]="Tidak Mendapatkan";
+                        }
+
                         fputcsv($file,$t,$delimiter);
                     }
                     fputcsv($file,[],$delimiter);
